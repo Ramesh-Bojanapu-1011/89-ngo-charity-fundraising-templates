@@ -271,7 +271,7 @@ const SiteHeadder: React.FC = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+        <div className="md:hidden absolute w-screen bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) =>
               item.items ? (
@@ -302,19 +302,16 @@ const SiteHeadder: React.FC = () => {
               ),
             )}
 
-            <div className="flex ">
+            <div className="flex w-full justify-between items-center border-t border-gray-100 dark:border-gray-800 pt-4">
               <div className="mt-2 px-3">
                 <ModeToggle />
               </div>
 
-              <div className="mt-2 px-3 w-full">
-                <div className="text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
-                  Language
-                </div>
+              <div className="mt-2 px-3  ">
                 <div className="relative">
                   <button
                     onClick={() => toggleDropdown("lang")}
-                    className="w-full flex items-center justify-between px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
+                    className="  flex items-center justify-between px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
                   >
                     <span className="text-sm">
                       {lang === "EN"
@@ -339,7 +336,7 @@ const SiteHeadder: React.FC = () => {
                   {openDropdown === "lang" && (
                     <div
                       role="menu"
-                      className="mt-2 absolute w-full bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 transform origin-top-right animate-[fadeIn_0.12s_ease-out]"
+                      className="mt-2 absolute   bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 transform origin-top-right animate-[fadeIn_0.12s_ease-out]"
                     >
                       {languages.map((l) => (
                         <button
@@ -349,7 +346,7 @@ const SiteHeadder: React.FC = () => {
                             setLang(l.code);
                             setOpenDropdown(null);
                           }}
-                          className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2"
+                          className="  text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2"
                         >
                           {" "}
                           <span>{l.flag}</span> <span>{l.label}</span>{" "}
@@ -361,25 +358,19 @@ const SiteHeadder: React.FC = () => {
               </div>
 
               <div className="mt-3 px-3 border-t border-gray-100 dark:border-gray-800 pt-3">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="https://i.pravatar.cc/48"
-                      alt="avatar"
-                      className="w-10 h-10 rounded-full"
-                    />
+                <button
+                  onClick={() => toggleDropdown("profile")}
+                  aria-expanded={openDropdown === "profile"}
+                  aria-haspopup="menu"
+                  className="flex items-center gap-2 text-sm px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  <div className="size-8 bg-gray-100 rounded-full flex justify-center items-center font-semibold">
+                    AD
                   </div>
-                  <button
-                    onClick={() => toggleDropdown("profile")}
-                    aria-expanded={openDropdown === "profile"}
-                    className="text-sm text-gray-600 dark:text-gray-300 px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-                  >
-                    {openDropdown === "profile" ? "Close" : "Profile"}
-                  </button>
-                </div>
+                </button>
 
                 {openDropdown === "profile" && (
-                  <div className="mt-3 space-y-2">
+                  <div className="mt-3 absolute right-0  space-y-2">
                     {profileActions.map((act) =>
                       act.href ? (
                         <Link
