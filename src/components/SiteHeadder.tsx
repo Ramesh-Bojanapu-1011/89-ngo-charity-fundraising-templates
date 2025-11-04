@@ -27,6 +27,7 @@ const SiteHeadder: React.FC = () => {
       key: "services",
       label: "Services",
       items: [
+        { label: "All Services", href: "/services" },
         {
           label: "Fundraising Campaigns",
           href: "fundraising-campaigns",
@@ -76,7 +77,7 @@ const SiteHeadder: React.FC = () => {
   ];
 
   return (
-    <header className="bg-white text-nowrap dark:bg-gray-900 shadow sticky top-0 z-100">
+    <header className="bg-white text-nowrap dark:bg-gray-900 shadow sticky top-0 z-100 caret-transparent">
       <div className="  mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -159,8 +160,8 @@ const SiteHeadder: React.FC = () => {
                     {lang === "EN"
                       ? "🇺🇸 EN"
                       : lang === "AR"
-                      ? "🇸🇦 AR"
-                      : "🇮🇱 HE"}
+                        ? "🇸🇦 AR"
+                        : "🇮🇱 HE"}
                   </span>
                   <svg
                     className="w-4 h-4 text-gray-500"
@@ -232,7 +233,7 @@ const SiteHeadder: React.FC = () => {
                         >
                           {act.label}
                         </button>
-                      )
+                      ),
                     )}
                   </div>
                 )}
@@ -298,7 +299,7 @@ const SiteHeadder: React.FC = () => {
                 >
                   {item.label}
                 </Link>
-              )
+              ),
             )}
 
             <div className="flex ">
@@ -319,8 +320,8 @@ const SiteHeadder: React.FC = () => {
                       {lang === "EN"
                         ? "English"
                         : lang === "AR"
-                        ? "العربية"
-                        : "עברית"}
+                          ? "العربية"
+                          : "עברית"}
                     </span>
                     <svg
                       className="w-4 h-4 text-gray-500"
@@ -398,7 +399,7 @@ const SiteHeadder: React.FC = () => {
                         >
                           {act.label}
                         </button>
-                      )
+                      ),
                     )}
                   </div>
                 )}
