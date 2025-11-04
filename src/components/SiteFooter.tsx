@@ -59,7 +59,7 @@ const SiteFooter = () => {
               </p>
 
               <div className="mt-4 flex items-center gap-3">
-                <a
+                <Link
                   className="text-gray-500 hover:text-emerald-500"
                   href="#"
                   aria-label="facebook"
@@ -79,8 +79,8 @@ const SiteFooter = () => {
                       d="m177.825 165l5.675-37H148v-24.01C148 93.866 152.959 84 168.86 84H185V52.5S170.352 50 156.347 50C127.11 50 108 67.72 108 99.8V128H75.5v37H108v89.445A129 129 0 0 0 128 256a129 129 0 0 0 20-1.555V165z"
                     ></path>
                   </svg>
-                </a>
-                <a
+                </Link>
+                <Link
                   className="text-gray-500 hover:text-emerald-500"
                   href="#"
                   aria-label="twitter"
@@ -105,7 +105,7 @@ const SiteFooter = () => {
                       ></path>
                     </g>
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -164,18 +164,18 @@ const SiteFooter = () => {
               <div className="mt-3 text-sm text-gray-600 dark:text-gray-300">
                 <div>
                   Phone:{" "}
-                  <a href="tel:+1234567890" className="text-emerald-600">
+                  <Link href="tel:+1234567890" className="text-emerald-600">
                     +1 (234) 567-890
-                  </a>
+                  </Link>
                 </div>
                 <div>
                   Email:{" "}
-                  <a
+                  <Link
                     href="mailto:hello@example.org"
                     className="text-emerald-600"
                   >
                     hello@example.org
-                  </a>
+                  </Link>
                 </div>
               </div>
               <form className="mt-4">
