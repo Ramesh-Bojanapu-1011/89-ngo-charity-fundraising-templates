@@ -1,16 +1,40 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ModeToggle } from "./theme/ModeToggle";
 
 const SiteHeadder: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [lang, setLang] = useState<string>("EN");
+  const [lang, setLang] = useState<string>("en");
 
   const toggleDropdown = (name: string) =>
     setOpenDropdown((prev) => (prev === name ? null : name));
+
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  // close open menus when clicking/tapping outside the header area
+  useEffect(() => {
+    const handleOutside = (e: MouseEvent | TouchEvent) => {
+      const el = headerRef.current;
+      if (!el) return;
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (!el.contains(target)) {
+        // clicked outside header -> close any open dropdowns and mobile menu
+        setOpenDropdown(null);
+        setMobileOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutside);
+    document.addEventListener("touchstart", handleOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleOutside);
+      document.removeEventListener("touchstart", handleOutside);
+    };
+  }, []);
 
   // centralized nav definition
   const navItems = [
@@ -77,7 +101,10 @@ const SiteHeadder: React.FC = () => {
   ];
 
   return (
-    <header className="bg-white text-nowrap dark:bg-gray-900 shadow sticky top-0 z-100 caret-transparent">
+    <header
+      ref={headerRef}
+      className="bg-white text-nowrap dark:bg-gray-900 shadow sticky top-0 z-100 caret-transparent"
+    >
       <div className="  mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -157,11 +184,11 @@ const SiteHeadder: React.FC = () => {
                   className="flex items-center gap-2 text-sm px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
                 >
                   <span className="text-sm">
-                    {lang === "EN"
+                    {lang === "en"
                       ? "🇺🇸 EN"
-                      : lang === "AR"
-                        ? "🇸🇦 AR"
-                        : "🇮🇱 HE"}
+                      : lang === "ar"
+                      ? "🇸🇦 AR"
+                      : "🇮🇱 HE"}
                   </span>
                   <svg
                     className="w-4 h-4 text-gray-500"
@@ -233,7 +260,7 @@ const SiteHeadder: React.FC = () => {
                         >
                           {act.label}
                         </button>
-                      ),
+                      )
                     )}
                   </div>
                 )}
@@ -299,7 +326,7 @@ const SiteHeadder: React.FC = () => {
                 >
                   {item.label}
                 </Link>
-              ),
+              )
             )}
 
             <div className="flex w-full justify-between items-center border-t border-gray-100 dark:border-gray-800 pt-4">
@@ -314,11 +341,11 @@ const SiteHeadder: React.FC = () => {
                     className="  flex items-center justify-between px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200"
                   >
                     <span className="text-sm">
-                      {lang === "EN"
+                      {lang === "en"
                         ? "English"
-                        : lang === "AR"
-                          ? "العربية"
-                          : "עברית"}
+                        : lang === "ar"
+                        ? "العربية"
+                        : "עברית"}
                     </span>
                     <svg
                       className="w-4 h-4 text-gray-500"
@@ -390,7 +417,7 @@ const SiteHeadder: React.FC = () => {
                         >
                           {act.label}
                         </button>
-                      ),
+                      )
                     )}
                   </div>
                 )}
