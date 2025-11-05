@@ -111,7 +111,7 @@ const SiteFooter = () => {
           </div>
 
           {/* Quick links */}
-          <div className=" flex justify-center">
+          <div className=" flex sm:justify-center">
             <div>
               <h4 className="font-semibold mb-3 text-gray-900 dark:text-white">
                 Quick Links
@@ -132,7 +132,7 @@ const SiteFooter = () => {
           </div>
 
           {/* Services (from header) */}
-          <div className=" flex justify-center">
+          <div className=" flex sm:justify-center">
             <div>
               <h4 className="font-semibold mb-3 text-gray-900 dark:text-white">
                 Services
@@ -150,7 +150,7 @@ const SiteFooter = () => {
           </div>
 
           {/* Contact */}
-          <div className=" flex justify-center">
+          <div className=" flex sm:justify-center">
             {" "}
             <div>
               <h4 className="font-semibold mb-3 text-gray-900 dark:text-white">

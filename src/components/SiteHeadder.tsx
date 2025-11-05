@@ -103,7 +103,7 @@ const SiteHeadder: React.FC = () => {
   return (
     <header
       ref={headerRef}
-      className="bg-white text-nowrap dark:bg-gray-900 shadow sticky top-0 z-100 caret-transparent"
+      className="bg-white text-nowrap dark:bg-gray-900 shadow sticky top-0 z-100 caret-transparent "
     >
       <div className="  mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
@@ -187,8 +187,8 @@ const SiteHeadder: React.FC = () => {
                     {lang === "en"
                       ? "🇺🇸 EN"
                       : lang === "ar"
-                      ? "🇸🇦 AR"
-                      : "🇮🇱 HE"}
+                        ? "🇸🇦 AR"
+                        : "🇮🇱 HE"}
                   </span>
                   <svg
                     className="w-4 h-4 text-gray-500"
@@ -205,7 +205,7 @@ const SiteHeadder: React.FC = () => {
                 {openDropdown === "lang" && (
                   <div
                     role="menu"
-                    className="absolute right-0 mt-2 w-44 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 transform origin-top-right animate-[fadeIn_0.12s_ease-out]"
+                    className="absolute right-0 mt-2 w-44 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 transform origin-top-right  "
                   >
                     {languages.map((l) => (
                       <button
@@ -260,7 +260,7 @@ const SiteHeadder: React.FC = () => {
                         >
                           {act.label}
                         </button>
-                      )
+                      ),
                     )}
                   </div>
                 )}
@@ -298,8 +298,8 @@ const SiteHeadder: React.FC = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden absolute w-screen bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden absolute w-screen bg-white dark:bg-gray-900 border-y border-gray-100 dark:border-gray-800">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3  shadow-md ">
             {navItems.map((item) =>
               item.items ? (
                 <details key={item.key} className="group">
@@ -326,7 +326,7 @@ const SiteHeadder: React.FC = () => {
                 >
                   {item.label}
                 </Link>
-              )
+              ),
             )}
 
             <div className="flex w-full justify-between items-center border-t border-gray-100 dark:border-gray-800 pt-4">
@@ -344,8 +344,8 @@ const SiteHeadder: React.FC = () => {
                       {lang === "en"
                         ? "English"
                         : lang === "ar"
-                        ? "العربية"
-                        : "עברית"}
+                          ? "العربية"
+                          : "עברית"}
                     </span>
                     <svg
                       className="w-4 h-4 text-gray-500"
@@ -363,7 +363,7 @@ const SiteHeadder: React.FC = () => {
                   {openDropdown === "lang" && (
                     <div
                       role="menu"
-                      className="mt-2 absolute   bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 transform origin-top-right animate-[fadeIn_0.12s_ease-out]"
+                      className="mt-2 absolute   bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 transform origin-top-right "
                     >
                       {languages.map((l) => (
                         <button
@@ -417,7 +417,7 @@ const SiteHeadder: React.FC = () => {
                         >
                           {act.label}
                         </button>
-                      )
+                      ),
                     )}
                   </div>
                 )}
