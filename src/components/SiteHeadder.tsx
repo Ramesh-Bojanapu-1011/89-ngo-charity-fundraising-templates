@@ -1,18 +1,26 @@
 "use client";
-
+import { useRouter } from "next/router";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { ModeToggle } from "./theme/ModeToggle";
+import { getCurrentUser, handleLogout, User } from "@/lib/localAuth";
 
 const SiteHeadder: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [lang, setLang] = useState<string>("en");
+  const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
 
   const toggleDropdown = (name: string) =>
     setOpenDropdown((prev) => (prev === name ? null : name));
 
   const headerRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    // read current user from localStorage on the client only
+    const u = getCurrentUser();
+    setUser(u);
+  }, []);
 
   // close open menus when clicking/tapping outside the header area
   useEffect(() => {
@@ -87,12 +95,6 @@ const SiteHeadder: React.FC = () => {
     { key: "admin", label: "Admin Dashboard", href: "/admin-dashbord" },
     { key: "logout", label: "Logout", action: "logout" },
   ];
-
-  const handleLogout = () => {
-    // placeholder for actual logout integration
-    console.log("logout clicked");
-    // TODO: call your auth logout function here
-  };
 
   const languages = [
     { code: "en", label: "English (EN)", flag: "🇺🇸" },
@@ -233,7 +235,13 @@ const SiteHeadder: React.FC = () => {
                   className="flex items-center gap-2 text-sm px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
                   <div className="size-8 bg-gray-100 rounded-full flex justify-center items-center font-semibold">
-                    AD
+                    {user
+                      ? `${(user.firstname || "").charAt(0).toUpperCase()}${(
+                          user.lastname || ""
+                        )
+                          .charAt(0)
+                          .toUpperCase()}`
+                      : "AD"}
                   </div>
                 </button>
                 {openDropdown === "profile" && (
@@ -241,21 +249,31 @@ const SiteHeadder: React.FC = () => {
                     role="menu"
                     className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1"
                   >
-                    {profileActions.map((act) =>
+                    {profileActions.map((act, i) =>
                       act.href ? (
-                        <Link
-                          key={act.key}
-                          href={act.href}
-                          className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
-                        >
-                          {act.label}
-                        </Link>
+                        <>
+                          {user && user.role == "admin" && (
+                            <>
+                              <Link
+                                key={i}
+                                href={act.href}
+                                className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
+                              >
+                                {act.label}
+                              </Link>
+                            </>
+                          )}
+                        </>
                       ) : (
                         <button
-                          key={act.key}
-                          onClick={() =>
-                            act.action === "logout" && handleLogout()
-                          }
+                          key={i}
+                          onClick={() => {
+                            // update local storage record and clear current user
+                            handleLogout();
+                            setUser(null);
+                            // redirect to auth page
+                            router.push("/auth");
+                          }}
                           className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
                         >
                           {act.label}
@@ -392,7 +410,13 @@ const SiteHeadder: React.FC = () => {
                   className="flex items-center gap-2 text-sm px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
                   <div className="size-8 bg-gray-100 rounded-full flex justify-center items-center font-semibold">
-                    AD
+                    {user
+                      ? `${(user.firstname || "").charAt(0).toUpperCase()}${(
+                          user.lastname || ""
+                        )
+                          .charAt(0)
+                          .toUpperCase()}`
+                      : "AD"}
                   </div>
                 </button>
 
@@ -410,9 +434,13 @@ const SiteHeadder: React.FC = () => {
                       ) : (
                         <button
                           key={act.key}
-                          onClick={() =>
-                            act.action === "logout" && handleLogout()
-                          }
+                          onClick={() => {
+                            // update local storage record and clear current user
+                            handleLogout();
+                            setUser(null);
+                            // redirect to auth page
+                            router.push("/auth");
+                          }}
                           className="block w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-200"
                         >
                           {act.label}
