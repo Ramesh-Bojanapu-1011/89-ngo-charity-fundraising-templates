@@ -43,7 +43,7 @@ function Counter({
           }
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     obs.observe(el);
@@ -58,7 +58,6 @@ function Counter({
   );
 }
 
- 
 export default function Home1() {
   const impactMetrics = [
     { label: "Donations", end: 120, suffix: "K+", duration: 1200 },
@@ -188,7 +187,6 @@ export default function Home1() {
     },
   ];
 
- 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 caret-transparent">
       <SiteHeadder />
