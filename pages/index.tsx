@@ -44,8 +44,9 @@ export default function Home() {
                 Emerald Aid — NGO Templates
               </h1>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Beautiful, responsive templates for NGOs and charities — accept donations,
-                manage campaigns, and mobilize volunteers with an elegant, accessible UI.
+                Beautiful, responsive templates for NGOs and charities — accept
+                donations, manage campaigns, and mobilize volunteers with an
+                elegant, accessible UI.
               </p>
 
               <div className="flex flex-wrap gap-2 text-sm text-emerald-600 mb-6">
