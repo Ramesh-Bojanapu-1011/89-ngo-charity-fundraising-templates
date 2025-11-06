@@ -16,71 +16,72 @@ type Campaign = {
 const CAMPAIGNS: Campaign[] = [
   {
     id: "c1",
-    title: "Grant Application Management Platform",
+    title: "Community Awareness Drive",
     goal: 25000,
     raised: 18250,
     image:
-      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1497493292307-31c376b6e479?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Support our all-in-one platform for managing grant applications — from proposal drafting to submission tracking and funding disbursement.",
-    tags: ["Technology", "Grant Applications"],
+      "Support our efforts to raise awareness about local social and environmental issues. Your contribution helps us organize outreach events, awareness materials, and social media advocacy campaigns.",
+    tags: ["Community", "Outreach", "Advocacy"],
   },
   {
     id: "c2",
-    title: "Proposal Writing Training Program",
+    title: "Public Policy Advocacy Training",
     goal: 15000,
     raised: 6400,
     image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Help train organizations and individuals to craft strong, data-driven grant proposals. Your support enables capacity-building workshops and mentorship programs.",
-    tags: ["Training", "Grant Applications"],
+      "Help us train advocates and youth leaders in effective policy advocacy and public communication. Your support funds workshops, training materials, and mentorship programs.",
+    tags: ["Education", "Advocacy", "Training"],
   },
   {
     id: "c3",
-    title: "Funder-Applicant Matching System",
+    title: "Grassroots Mobilization Program",
     goal: 40000,
     raised: 31000,
     image:
-      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Develop an AI-powered system that connects applicants with relevant grant opportunities based on goals, impact areas, and eligibility.",
-    tags: ["AI", "Grant Applications"],
+      "Empower local communities to advocate for positive change. This program funds community meetings, local outreach activities, and engagement toolkits.",
+    tags: ["Community", "Mobilization", "Advocacy"],
   },
   {
     id: "c4",
-    title: "Youth Grant Writing Mentorship",
+    title: "Youth Advocacy Fellowship",
     goal: 18000,
     raised: 9200,
     image:
-      "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1515165562835-c4c8b815a3e8?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Empower young changemakers through mentorship programs focused on writing, submitting, and managing successful grant proposals.",
-    tags: ["Mentorship", "Youth", "Grant Applications"],
+      "Support young leaders who are driving change through advocacy. The fellowship includes mentorship, communication training, and project funding.",
+    tags: ["Youth", "Leadership", "Advocacy"],
   },
   {
     id: "c5",
-    title: "Sustainable Funding Initiative",
+    title: "Health Awareness Campaign",
     goal: 30000,
     raised: 14500,
     image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1576765607924-b53bb3b6f066?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Support long-term sustainability for nonprofits through grants that focus on renewable funding, impact measurement, and financial resilience.",
-    tags: ["Sustainability", "Grant Applications"],
+      "Your donation helps fund outreach campaigns promoting public health, vaccination awareness, and disease prevention across underserved areas.",
+    tags: ["Health", "Awareness", "Outreach"],
   },
   {
     id: "c6",
-    title: "Grant Tracking & Reporting Hub",
+    title: "Digital Advocacy & Outreach Hub",
     goal: 12000,
     raised: 7600,
     image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Help us build a centralized hub to monitor active grants, manage milestones, and generate transparent impact reports for funders.",
-    tags: ["Technology", "Grant Applications"],
+      "Help us create a digital hub for campaign coordination, online petitions, and community engagement — expanding the reach of our advocacy efforts.",
+    tags: ["Technology", "Digital", "Advocacy"],
   },
 ];
+
 export default function GrantApplicationManager() {
   const [selected, setSelected] = useState<Campaign | null>(CAMPAIGNS[0]);
   const [donation, setDonation] = useState<number>(50);
@@ -164,9 +165,9 @@ export default function GrantApplicationManager() {
   // Metrics data for Impact Snapshot (rendered via map)
   const METRICS = [
     {
-      id: "grantsSubmitted",
-      label: "Grants Submitted",
-      value: 980,
+      id: "campaignsLaunched",
+      label: "Campaigns Launched",
+      value: 120,
       duration: 1000,
       icon: (
         <svg
@@ -180,20 +181,20 @@ export default function GrantApplicationManager() {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="2"
-            d="M12 20h9"
+            d="M13 16h-1v-4h-1m2 4h1v-4h1m-6 0v4h1v-4h-1zm6-5a2 2 0 10-4 0v1h4v-1z"
           />
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="2"
-            d="M12 4v16m0-16H5a2 2 0 00-2 2v12a2 2 0 002 2h7"
+            d="M12 19v2m-6-2a9 9 0 1118 0H6z"
           />
         </svg>
       ),
     },
     {
-      id: "activeGrants",
-      label: "Active Grants",
+      id: "activeInitiatives",
+      label: "Active Initiatives",
       value: CAMPAIGNS.length,
       duration: 700,
       icon: (
@@ -214,9 +215,9 @@ export default function GrantApplicationManager() {
       ),
     },
     {
-      id: "fundsSecured",
-      label: "Funds Secured",
-      value: 5234000,
+      id: "peopleReached",
+      label: "People Reached",
+      value: 250000,
       duration: 1200,
       icon: (
         <svg
@@ -230,21 +231,15 @@ export default function GrantApplicationManager() {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="2"
-            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M12 4v4m0 8v4"
+            d="M17 20h5v-2a4 4 0 00-4-4h-1m-4 6H6a4 4 0 01-4-4v-2a4 4 0 014-4h7m0 0V4m0 6l-3-3m3 3l3-3"
           />
         </svg>
       ),
     },
     {
-      id: "organizationsHelped",
-      label: "Organizations Supported",
-      value: 320,
+      id: "partnersEngaged",
+      label: "Partner Organizations",
+      value: 85,
       duration: 900,
       icon: (
         <svg
@@ -258,13 +253,7 @@ export default function GrantApplicationManager() {
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="2"
-            d="M8 7a4 4 0 118 0 4 4 0 01-8 0z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M2 21a8 8 0 0116 0"
+            d="M17 20h5v-2a4 4 0 00-4-4h-1M9 20H4v-2a4 4 0 014-4h1m4-4a4 4 0 100-8 4 4 0 000 8zm0 0v4"
           />
         </svg>
       ),
@@ -275,24 +264,24 @@ export default function GrantApplicationManager() {
   const EVENTS = [
     {
       id: "e1",
-      title: "Grant Writing Essentials Workshop",
+      title: "Community Advocacy Workshop",
       date: "Nov 22",
-      location: "Innovation Hub",
+      location: "Downtown Hall",
       spots: 60,
     },
     {
       id: "e2",
-      title: "Funding Strategy Webinar",
+      title: "Public Speaking for Change",
       date: "Dec 6",
-      location: "Online (Zoom)",
-      spots: 100,
+      location: "Main Auditorium",
+      spots: 45,
     },
     {
       id: "e3",
-      title: "Impact Reporting Masterclass",
+      title: "Annual Outreach Summit",
       date: "Jan 10",
-      location: "Main Training Hall",
-      spots: 45,
+      location: "Online (Zoom)",
+      spots: 100,
     },
   ];
 
@@ -300,27 +289,27 @@ export default function GrantApplicationManager() {
   const FAQS = [
     {
       id: "f1",
-      q: "How do I find suitable grants for my project?",
-      a: "Use our Grant Finder tool to filter opportunities by funding amount, focus area, location, and eligibility. It simplifies matching your project with the right funders.",
-      category: "Grant Applications",
+      q: "How can I start an advocacy campaign in my community?",
+      a: "You can start by joining our Advocacy & Outreach network. We provide step-by-step resources, mentorship, and campaign templates to help you mobilize your community effectively.",
+      category: "Advocacy & Outreach",
     },
     {
       id: "f2",
-      q: "Can I manage multiple grant applications at once?",
-      a: "Yes, our dashboard lets you track submission deadlines, document uploads, and funder communications all in one place — reducing admin time significantly.",
-      category: "Grant Applications",
+      q: "Do I need prior experience to participate in outreach programs?",
+      a: "Not at all. Our training sessions and workshops are designed for all levels — from beginners to experienced advocates. We’ll guide you through every stage of your advocacy journey.",
+      category: "Advocacy & Outreach",
     },
     {
       id: "f3",
-      q: "How do I track funding status and reporting deadlines?",
-      a: "The Grant Management System automatically updates status changes, reminders, and report deadlines so your team never misses a milestone.",
-      category: "Grant Applications",
+      q: "How do you measure the impact of advocacy campaigns?",
+      a: "We track engagement data, policy outcomes, event attendance, and community feedback to assess how effectively each campaign raises awareness and drives change.",
+      category: "Advocacy & Outreach",
     },
     {
       id: "f4",
-      q: "Can I generate financial and impact reports for funders?",
-      a: "Absolutely! Our reporting tools compile funding data, expenditure summaries, and measurable impact indicators ready to share with funders and stakeholders.",
-      category: "Grant Applications",
+      q: "Can I collaborate with local organizations for outreach projects?",
+      a: "Yes, partnerships are a key part of our approach. You can collaborate with NGOs, schools, or civic groups to expand reach and amplify advocacy efforts in your region.",
+      category: "Advocacy & Outreach",
     },
   ];
 
@@ -332,10 +321,10 @@ export default function GrantApplicationManager() {
   return (
     <>
       <Head>
-        <title>Grant Applications — Emerald Aid</title>
+        <title>Advocacy & Outreach — Emerald Aid</title>
         <meta
           name="description"
-          content="Create and manage grant calls — accept applications, run reviews, and manage awards for verified causes."
+          content="Plan and run advocacy campaigns — mobilize supporters, coordinate outreach events, and measure impact for verified causes."
         />
       </Head>
 
@@ -355,13 +344,13 @@ export default function GrantApplicationManager() {
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  Grant Applications — manage requests, reviews, and awards
+                  Advocacy & Outreach — mobilize supporters and amplify causes
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Create and manage grant calls, accept applications, and track
-                  awards. Use tools for review workflows, budgeting and
-                  reporting.
+                  Run advocacy campaigns, organize outreach events, and grow
+                  community support. Use tools for petitions, volunteer
+                  coordination, and impact tracking.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -383,13 +372,13 @@ export default function GrantApplicationManager() {
                         d="M12 8v8m0 0l-3-3m3 3l3-3"
                       />
                     </svg>
-                    Browse Grants
+                    Explore Campaigns
                   </a>
                   <a
                     href="#featured"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Create Grant Call
+                    Start Outreach
                   </a>
                 </div>
               </div>
@@ -398,7 +387,7 @@ export default function GrantApplicationManager() {
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <img
                     src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1000&auto=format&fit=crop"
-                    alt="grant review"
+                    alt="advocacy outreach"
                     className="w-full h-80 object-cover"
                   />
                   <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-slate-900/80 p-3 rounded-lg shadow-md">
@@ -406,9 +395,9 @@ export default function GrantApplicationManager() {
                       {selected?.title}
                     </div>
                     <div className="text-xs text-slate-500">
-                      Applications {selected?.raised?.toLocaleString()} of{" "}
+                      Supporters {selected?.raised?.toLocaleString()} of{" "}
                       {selected?.goal?.toLocaleString()} (
-                      {percent(selected || CAMPAIGNS[0])}% reviewed)
+                      {percent(selected || CAMPAIGNS[0])}% engaged)
                     </div>
                   </div>
                 </div>
@@ -424,7 +413,7 @@ export default function GrantApplicationManager() {
         >
           <div className="max-w-6xl mx-auto flex flex-col gap-8 ">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Open Grant Calls & Programs
+              Advocacy Campaigns & Outreach Programs
             </h2>
             <div className="mb-4 flex flex-wrap justify-center items-center gap-2">
               {filterTags.map((t) => (
@@ -482,10 +471,10 @@ export default function GrantApplicationManager() {
                     <div className="flex items-center justify-between text-sm text-slate-500">
                       <div className="flex items-center gap-3">
                         <div className="text-sm text-slate-700 dark:text-slate-300">
-                          {c.raised.toLocaleString()} applications
+                          {c.raised.toLocaleString()} supporters
                         </div>
                         <div className="text-xs text-slate-400">
-                          slots {c.goal.toLocaleString()}
+                          target {c.goal.toLocaleString()}
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
@@ -513,7 +502,7 @@ export default function GrantApplicationManager() {
                         }}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md border border-emerald-200 text-emerald-700 text-sm bg-white/60"
                       >
-                        Register
+                        Join
                       </button>
                     </div>
                   </div>
@@ -558,7 +547,7 @@ export default function GrantApplicationManager() {
                       {selected?.title}
                     </div>
                     <div className="text-xs text-white/90 mt-1">
-                      Attendees {selected?.raised?.toLocaleString()} of{" "}
+                      Supporters {selected?.raised?.toLocaleString()} of{" "}
                       {selected?.goal?.toLocaleString()}
                     </div>
                   </div>
@@ -587,7 +576,7 @@ export default function GrantApplicationManager() {
                           : "bg-white dark:bg-slate-900 text-slate-700 border-slate-200"
                       }`}
                     >
-                      {amt} slots
+                      {amt} actions
                     </button>
                   ))}
                 </div>
@@ -600,13 +589,13 @@ export default function GrantApplicationManager() {
                       aria-checked={false}
                     />
                     <span className="text-sm text-slate-600 dark:text-slate-300">
-                      Mark as recurring call
+                      Make this an ongoing campaign
                     </span>
                   </label>
                 </div>
 
                 <form onSubmit={handleDonate} className="mt-4">
-                  <label className="text-sm">Custom slots</label>
+                  <label className="text-sm">Custom actions</label>
                   <div className="mt-2 flex gap-2">
                     <input
                       type="number"
@@ -619,7 +608,7 @@ export default function GrantApplicationManager() {
                       type="submit"
                       className="px-4 bg-emerald-600 text-white rounded-md"
                     >
-                      Apply
+                      Participate
                     </button>
                   </div>
                 </form>
@@ -634,7 +623,7 @@ export default function GrantApplicationManager() {
                   <div className="font-bold text-emerald-700">
                     {selected ? percent(selected) : 0}%
                   </div>
-                  <div className="text-slate-500">Filled</div>
+                  <div className="text-slate-500">Engaged</div>
                 </div>
                 <div className="bg-white dark:bg-slate-900/60 rounded-md p-3 text-center">
                   <div className="font-bold text-emerald-700">
@@ -642,7 +631,7 @@ export default function GrantApplicationManager() {
                       ? `${selected.raised.toLocaleString()}`
                       : "-"}
                   </div>
-                  <div className="text-slate-500">Applications</div>
+                  <div className="text-slate-500">Supporters</div>
                 </div>
               </div>
             </div>
@@ -653,7 +642,7 @@ export default function GrantApplicationManager() {
         <section className="  flex justify-center items-center   bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900  px-6">
           <div className=" flex flex-col max-w-6xl w-full py-8">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Grant Metrics
+              Advocacy Metrics
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {METRICS.map((m) => (
@@ -686,12 +675,12 @@ export default function GrantApplicationManager() {
             {/* Left: headline + description */}
             <div className="md:col-span-1">
               <h3 className="text-2xl font-bold text-emerald-800">
-                Apply or Review Grants
+                Mobilize Communities — Advocate & Outreach
               </h3>
               <p className="text-slate-600 dark:text-slate-300 mt-3">
-                Apply for funding, review grant calls, or host a program. Below
-                are current opportunities — submit an application or sign up to
-                be notified about similar calls.
+                Start or join advocacy efforts, host outreach events, and
+                amplify your cause. Below are upcoming opportunities — RSVP or
+                volunteer to help.
               </p>
 
               <div className="mt-4 flex gap-2">
@@ -699,7 +688,7 @@ export default function GrantApplicationManager() {
                   href="#campaigns"
                   className="inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-md shadow-sm"
                 >
-                  Grant Opportunities
+                  Get Involved
                 </a>
               </div>
             </div>
@@ -707,7 +696,7 @@ export default function GrantApplicationManager() {
             {/* Middle: upcoming events list */}
             <div className="md:col-span-1 bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm">
               <h4 className="font-semibold text-emerald-700 mb-3">
-                Open Grant Calls
+                Upcoming Outreach Events
               </h4>
               <ul className="flex flex-col gap-3">
                 {EVENTS.map((ev) => (
@@ -727,12 +716,12 @@ export default function GrantApplicationManager() {
                       <div className="text-sm font-bold text-emerald-700">
                         {ev.spots}
                       </div>
-                      <div className="text-xs text-slate-400">slots</div>
+                      <div className="text-xs text-slate-400">spots</div>
                       <button
                         onClick={() => setSelected(CAMPAIGNS[0])}
                         className="mt-2 ml-auto inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 text-white text-xs"
                       >
-                        Apply
+                        RSVP
                       </button>
                     </div>
                   </li>
@@ -746,7 +735,7 @@ export default function GrantApplicationManager() {
         <section className="bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900 py-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Grant Help & FAQs
+              Advocacy Help & FAQs
             </h2>
 
             <div className="grid  gap-6">
@@ -889,12 +878,12 @@ export default function GrantApplicationManager() {
 
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800">
-                      Questions about grants?
+                      Questions about advocacy?
                     </h3>
                     <p className="text-slate-600 dark:text-slate-300 mt-1">
-                      Contact our grants support team for help with
-                      applications, eligibility, or reporting. We usually
-                      respond within 1-2 business days.
+                      Contact our outreach team for help with campaign setup,
+                      volunteer coordination, or messaging. We usually respond
+                      within 1-2 business days.
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -902,14 +891,14 @@ export default function GrantApplicationManager() {
                         href="/contact-us"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full shadow-sm"
                       >
-                        Contact Grant Support
+                        Contact Outreach Support
                       </a>
 
                       <a
                         href="mailto:events@emeraldaid.org"
                         className="inline-flex items-center gap-2 px-3 py-2 border border-emerald-200 text-emerald-700 rounded-md"
                       >
-                        grants@emeraldaid.org
+                        outreach@emeraldaid.org
                       </a>
                     </div>
                   </div>
