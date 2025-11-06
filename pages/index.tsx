@@ -41,18 +41,19 @@ export default function Home() {
               </div>
 
               <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-2">
-                Enkonix IT Services
+                Emerald Aid — NGO Templates
               </h1>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Secure, scalable, and modern IT solutions for your business.
+                Beautiful, responsive templates for NGOs and charities — accept donations,
+                manage campaigns, and mobilize volunteers with an elegant, accessible UI.
               </p>
 
               <div className="flex flex-wrap gap-2 text-sm text-emerald-600 mb-6">
-                <span className="px-2">Cybersecurity</span>
+                <span className="px-2">Fundraising</span>
                 <span className="px-2">|</span>
-                <span className="px-2">Cloud Services</span>
+                <span className="px-2">Volunteers</span>
                 <span className="px-2">|</span>
-                <span className="px-2">IT Consulting</span>
+                <span className="px-2">Campaigns</span>
               </div>
 
               <Link
