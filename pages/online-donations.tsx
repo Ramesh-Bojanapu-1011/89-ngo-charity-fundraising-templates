@@ -16,73 +16,73 @@ type Campaign = {
 const CAMPAIGNS: Campaign[] = [
   {
     id: "c1",
-    title: "Clean Water for 5 Villages",
+    title: "Digital Fundraising for Clean Water",
     goal: 25000,
     raised: 18250,
     image:
       "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Install wells, pumps and deliver sanitation training to five rural villages.",
-    tags: ["Water", "Emergency"],
+      "Your online donation brings clean water to 5 remote villages. Every contribution funds wells, filtration systems, and sanitation training — all tracked digitally for full transparency.",
+    tags: ["Water", "Online Donations"],
   },
   {
     id: "c2",
-    title: "School Supplies for 1,000 Kids",
+    title: "E-Donations for School Supplies",
     goal: 15000,
     raised: 6400,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Provide textbooks, stationery and backpacks for children in remote areas.",
-    tags: ["Education"],
+      "Join our online donation drive to provide school kits and learning tools for 1,000 children. Your digital gift supports education instantly with secure online giving.",
+    tags: ["Education", "Online Donations"],
   },
   {
     id: "c3",
-    title: "Emergency Relief — Flood Response",
+    title: "Online Emergency Relief Fund",
     goal: 40000,
     raised: 31000,
     image:
       "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Deliver emergency kits, medical aid and short-term shelter to flood-affected families.",
-    tags: ["Emergency", "Relief"],
+      "Contribute through our online donation platform to deliver rapid aid — medical kits, food, and temporary housing — to flood-affected families in need.",
+    tags: ["Emergency", "Online Donations"],
   },
   {
     id: "c4",
-    title: "Girls' Scholarship Program",
+    title: "Scholarships Through Online Giving",
     goal: 18000,
     raised: 9200,
     image:
       "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Support secondary education for talented girls through scholarships and mentorship.",
-    tags: ["Education", "Women"],
+      "Support girls’ education online. Each donation funds scholarships, mentorship, and digital learning access for deserving students worldwide.",
+    tags: ["Education", "Women", "Online Donations"],
   },
   {
     id: "c5",
-    title: "Mobile Health Clinics",
+    title: "Online Support for Mobile Health Clinics",
     goal: 30000,
     raised: 14500,
     image:
       "https://images.unsplash.com/photo-1580281657527-6c1b7dcb9b7d?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Bring primary healthcare services to underserved communities via mobile units.",
-    tags: ["Health"],
+      "Make a difference with your online donation. Help mobile clinics deliver vaccines and essential healthcare services to rural communities.",
+    tags: ["Health", "Online Donations"],
   },
   {
     id: "c6",
-    title: "Small Business Grants",
+    title: "Online Small Business Support Fund",
     goal: 12000,
     raised: 7600,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
     summary:
-      "Seed grants and training for micro-entrepreneurs to build resilient livelihoods.",
-    tags: ["Livelihoods"],
+      "Donate online to empower micro-entrepreneurs with startup grants and digital training. Your contribution helps grow small businesses sustainably.",
+    tags: ["Livelihoods", "Online Donations"],
   },
 ];
 
-export default function FundraisingCampaigns() {
+export default function DonationCampaigns() {
   const [selected, setSelected] = useState<Campaign | null>(CAMPAIGNS[0]);
   const [donation, setDonation] = useState<number>(50);
   const [status, setStatus] = useState<string | null>(null);
@@ -280,24 +280,24 @@ export default function FundraisingCampaigns() {
   const EVENTS = [
     {
       id: "e1",
-      title: "Community Clean-Up Day",
+      title: "Virtual Donation Drive Launch",
       date: "Nov 22",
-      location: "Riverside Park",
-      spots: 24,
+      location: "Online Event",
+      spots: 100,
     },
     {
       id: "e2",
-      title: "Fundraising Walk",
+      title: "Digital Fundraising Walk",
       date: "Dec 6",
-      location: "City Center",
+      location: "City Center & Online",
       spots: 120,
     },
     {
       id: "e3",
-      title: "Volunteer Training",
+      title: "Online Donor Training Session",
       date: "Jan 10",
-      location: "Main Office",
-      spots: 40,
+      location: "Virtual (Zoom)",
+      spots: 60,
     },
   ];
 
@@ -305,27 +305,27 @@ export default function FundraisingCampaigns() {
   const FAQS = [
     {
       id: "f1",
-      q: "How are donations used?",
-      a: "Donations are allocated to program costs, local partners and immediate relief as indicated in each campaign.",
+      q: "How are my online donations used?",
+      a: "Online donations are directed to the specific program you choose and to vetted local partners. Campaign pages show how funds are allocated and program outcomes.",
       category: "Donations",
     },
     {
       id: "f2",
-      q: "Is my donation tax-deductible?",
-      a: "This depends on your country and our registered status. Please consult your local regulations.",
+      q: "Will I get a tax receipt?",
+      a: "Yes — for online donations you will receive an email receipt immediately. Consult your local tax rules for deductibility. Contact support for custom receipts.",
       category: "Donations",
     },
     {
       id: "f3",
-      q: "How do I get a receipt?",
-      a: "Receipts are emailed automatically for online donations. Contact us if you need a copy.",
+      q: "What payment methods are accepted?",
+      a: "We accept major credit/debit cards and common digital wallets. All payments are processed securely — contact donation support for questions about specific payment options.",
       category: "Donations",
     },
     {
       id: "f4",
-      q: "Can I volunteer remotely?",
-      a: "Yes — we have remote roles for research, admin, and communications. Use the signup panel to indicate interest.",
-      category: "Volunteering",
+      q: "How do recurring (monthly) donations work?",
+      a: "When you opt for monthly support, we charge the selected amount each month and email you a monthly receipt. You can update or cancel at any time from your donation confirmation link or by contacting support.",
+      category: "Donations",
     },
   ];
 
@@ -337,10 +337,10 @@ export default function FundraisingCampaigns() {
   return (
     <>
       <Head>
-        <title>Fundraising Campaigns — Emerald Aid</title>
+        <title>Online Donations — Emerald Aid</title>
         <meta
           name="description"
-          content="Fundraising campaigns and donation flows."
+          content="Secure online donations to verified causes — give once or set up monthly support."
         />
       </Head>
 
@@ -354,19 +354,20 @@ export default function FundraisingCampaigns() {
               <div className="md:col-span-7">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                    Featured
+                    Verified
                   </span>
                   <span className="text-sm text-slate-500">Updated weekly</span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  Join thousands who give hope — your support changes lives
+                  Give online — secure, simple donations that reach verified
+                  causes
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Browse verified campaigns, donate safely, and see the impact
-                  of your contribution. Small recurring gifts make a sustained
-                  difference.
+                  Choose a cause, donate with confidence and receive instant
+                  receipts. One-time gifts and monthly support help sustain our
+                  programs around the world.
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -388,13 +389,13 @@ export default function FundraisingCampaigns() {
                         d="M12 8v8m0 0l-3-3m3 3l3-3"
                       />
                     </svg>
-                    Explore Campaigns
+                    Browse Causes
                   </a>
                   <a
                     href="#featured"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Donate Now
+                    Give Online
                   </a>
                 </div>
               </div>
@@ -428,8 +429,8 @@ export default function FundraisingCampaigns() {
           className="py-16 bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900"
         >
           <div className="max-w-6xl mx-auto flex flex-col gap-8 ">
-            <h2 className="text-2xl text-center  font-bold text-emerald-800 mb-4">
-              Active Campaigns
+            <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
+              Causes Accepting Online Donations
             </h2>
             <div className="mb-4 flex flex-wrap justify-center items-center gap-2">
               {filterTags.map((t) => (
@@ -510,7 +511,7 @@ export default function FundraisingCampaigns() {
                         onClick={() => setSelected(c)}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md bg-emerald-600 text-white text-sm transition group-hover:scale-[1.02]"
                       >
-                        View
+                        Details
                       </button>
                       <button
                         onClick={() => {
@@ -518,7 +519,7 @@ export default function FundraisingCampaigns() {
                         }}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md border border-emerald-200 text-emerald-700 text-sm bg-white/60"
                       >
-                        Donate
+                        Give
                       </button>
                     </div>
                   </div>
@@ -658,7 +659,7 @@ export default function FundraisingCampaigns() {
         <section className="  flex justify-center items-center   bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900  px-6">
           <div className=" flex flex-col max-w-6xl w-full py-8">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Impact Snapshot
+              Online Giving Impact
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {METRICS.map((m) => (
@@ -741,7 +742,7 @@ export default function FundraisingCampaigns() {
                         onClick={() => setSelected(CAMPAIGNS[0])}
                         className="mt-2 ml-auto inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 text-white text-xs"
                       >
-                        RSVP
+                        Register
                       </button>
                     </div>
                   </li>
@@ -755,7 +756,7 @@ export default function FundraisingCampaigns() {
         <section className="bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900 py-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Help & Questions
+              Donation Help & FAQs
             </h2>
 
             <div className="grid  gap-6">
@@ -946,12 +947,12 @@ export default function FundraisingCampaigns() {
 
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800">
-                      Need help or want to partner with us?
+                      Questions about online giving?
                     </h3>
                     <p className="text-slate-600 dark:text-slate-300 mt-1">
-                      Reach out to our team for campaign questions, partnership
-                      inquiries, or media requests. We typically reply within
-                      1-2 business days.
+                      Contact our donation support team for help with payment,
+                      receipts, or recurring gift setup. We usually respond
+                      within 1-2 business days.
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -959,14 +960,14 @@ export default function FundraisingCampaigns() {
                         href="/contact-us"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full shadow-sm"
                       >
-                        Contact page
+                        Contact Support
                       </a>
 
                       <a
-                        href="mailto:hello@emeraldaid.org"
+                        href="mailto:donate@emeraldaid.org"
                         className="inline-flex items-center gap-2 px-3 py-2 border border-emerald-200 text-emerald-700 rounded-md"
                       >
-                        hello@emeraldaid.org
+                        donate@emeraldaid.org
                       </a>
                     </div>
                   </div>
