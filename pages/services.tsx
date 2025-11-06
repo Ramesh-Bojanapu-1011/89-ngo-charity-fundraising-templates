@@ -8,32 +8,32 @@ const ServicesPage = () => {
     {
       title: "Fundraising Campaigns",
       desc: "Beautiful campaign pages to tell your story",
-      href: "/fundraising",
+      href: "/fundraising-campaigns",
     },
     {
       title: "Online Donations",
       desc: "Secure donations with optimized checkout",
-      href: "/donations",
+      href: "/online-donations",
     },
     {
       title: "Volunteer Management",
       desc: "Organize and schedule volunteers easily",
-      href: "/volunteers",
+      href: "/volunteer-management",
     },
     {
       title: "Event Management",
       desc: "Create events, sell tickets, manage RSVPs",
-      href: "/events",
+      href: "/event-management",
     },
     {
       title: "Grant Applications",
       desc: "Templates and tracking for grant writing",
-      href: "/grants",
+      href: "/grant-applications",
     },
     {
       title: "Advocacy & Outreach",
       desc: "Share campaigns and mobilize supporters",
-      href: "/advocacy",
+      href: "/advocacy-outreach",
     },
   ];
 
