@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { ModeToggle } from "./theme/ModeToggle";
 import { getCurrentUser, handleLogout, User } from "@/lib/localAuth";
+import { applyLanguage } from "@/i18n";
 
 const SiteHeadder: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -215,6 +216,7 @@ const SiteHeadder: React.FC = () => {
                         role="menuitem"
                         onClick={() => {
                           setLang(l.code);
+                          applyLanguage(l.code);
                           setOpenDropdown(null);
                         }}
                         className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2"
@@ -389,6 +391,7 @@ const SiteHeadder: React.FC = () => {
                           role="menuitem"
                           onClick={() => {
                             setLang(l.code);
+                            applyLanguage(l.code);
                             setOpenDropdown(null);
                           }}
                           className="  text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-2"
