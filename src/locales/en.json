@@ -1019,5 +1019,118 @@
     },
     "monthlyDonation": "Make this a monthly donation",
     "customAmount": "Custom amount (USD)"
+  },
+  "eventManagement": {
+    "meta": {
+      "title": "Event Management — Emerald Aid",
+      "description": "Plan and manage events — publish schedules, manage attendees, and coordinate venues for verified causes."
+    },
+    "hero": {
+      "badge": "Verified",
+      "updated": "Updated weekly",
+      "title": "Manage and join events — coordinate attendees and venues",
+      "lead": "Publish events, manage sign-ups, and monitor attendance. Use tools for scheduling, capacity planning and volunteer coordination.",
+      "ctaBrowse": "Browse Events",
+      "ctaCreate": "Create Event"
+    },
+    "campaigns": {
+      "c1": {
+        "title": "Event Management for Fundraisers",
+        "summary": "Organize fundraising events that engage donors and supporters. Use our tools to manage RSVPs, track attendance, and coordinate logistics."
+      },
+      "c2": {
+        "title": "Community Event Coordination",
+        "summary": "Plan and execute community events with ease. From volunteer sign-ups to venue management, our platform streamlines the entire process."
+      },
+      "c3": {
+        "title": "Training & Workshop Management",
+        "summary": "Host training sessions and workshops efficiently. Manage participant registrations, session scheduling, and feedback collection all in one place."
+      },
+      "c4": {
+        "title": "Logistics for Large-Scale Events",
+        "summary": "Coordinate logistics for large events, ensuring smooth operations from start to finish. Manage vendors, transportation, and on-site coordination effectively."
+      },
+      "c5": {
+        "title": "Mentorship Program Events",
+        "summary": "Organize mentorship events that connect mentors and mentees. Track attendance, manage schedules, and facilitate meaningful interactions."
+      },
+      "c6": {
+        "title": "Sustainability Workshops",
+        "summary": "Plan and manage sustainability-focused events. Engage participants, track impact, and promote eco-friendly practices through well-organized workshops."
+      }
+    },
+    "volunteer": {
+      "title": "Get Involved — Volunteer or Host an Event",
+      "lead": "Join our field teams, host a local fundraiser,or help spread the word. Below are upcoming opportunities — RSVP or sign up to be notified about similar events."
+    },
+    "programsTitle": "Upcoming Events & Program Slots",
+    "tags": {
+      "all": "All",
+      "tech": "Technology",
+      "event": "Event Management",
+      "training": "Training",
+      "logistics": "Logistics",
+      "mentorship": "Mentorship",
+      "youth": "Youth",
+      "sustainability": "Sustainability"
+    },
+    "processing": "Processing your sign-up — thank you!",
+    "thanks": "Thank you — your sign-up is received (demo). We will follow up by email.",
+    "view": "Details",
+    "register": "Register",
+    "recurring": "Mark as recurring event",
+    "customSeats": "Custom seats",
+    "labels": {
+      "booked": "Booked",
+      "attendees": "Attendees",
+      "of": "of",
+      "attendeesPrefix": "Attendees"
+    },
+    "impact": { "title": "Event Metrics" },
+    "metrics": {
+      "eventsHosted": "Events Hosted",
+      "activeEvents": "Active Events",
+      "totalAttendees": "Total Attendees",
+      "venues": "Venues Supported"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "spots": "spots",
+      "register": "Register",
+      "e1": {
+        "title": "Event Planner Orientation",
+        "location": "Community Center"
+      },
+      "e2": {
+        "title": "Venue Logistics Workshop",
+        "location": "Main Training Hall"
+      },
+      "e3": { "title": "Annual Events Review", "location": "Online (Zoom)" }
+    },
+    "help": { "title": "Event Help & FAQs" },
+    "faq": {
+      "noResults": "No results — try different keywords.",
+      "f1": {
+        "q": "How can I manage multiple events at once?",
+        "a": "Use our centralized Event Management Dashboard to plan, schedule, and monitor multiple events simultaneously — including budgets, venues, and team assignments."
+      },
+      "f2": {
+        "q": "Can I track attendee registrations and feedback?",
+        "a": "Yes, our system tracks registrations in real time and collects post-event feedback automatically, helping you measure success and identify areas for improvement."
+      },
+      "f3": {
+        "q": "How do I coordinate with vendors and partners?",
+        "a": "Easily manage vendor lists, contracts, and communications within the platform. Automated reminders ensure deliverables stay on schedule for smooth event execution."
+      },
+      "f4": {
+        "q": "Can I generate reports on event performance and ROI?",
+        "a": "Absolutely! Detailed analytics provide insights into attendance, engagement, expenses, and ROI — helping you plan smarter and improve future events."
+      }
+    },
+    "contact": {
+      "title": "Questions about events?",
+      "lead": "Contact our events support team for help with publishing, registrations, or logistics. We usually respond within 1-2 business days.",
+      "cta": "Contact Event Support"
+    }
   }
 }

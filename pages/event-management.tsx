@@ -1,105 +1,98 @@
 import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import SiteHeadder from "../src/components/SiteHeadder";
 import SiteFooter from "../src/components/SiteFooter";
 
 type Campaign = {
   id: string;
-  title: string;
   goal: number;
   raised: number;
   image: string;
-  summary: string;
-  tags?: string[];
+  tags?: string[]; // tag ids
 };
 
 const CAMPAIGNS: Campaign[] = [
   {
     id: "c1",
-    title: "Smart Event Coordination Platform",
     goal: 25000,
     raised: 18250,
     image:
       "https://images.unsplash.com/photo-1503428593586-e225b39bddfe?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support our event coordination tools that simplify scheduling, logistics, and attendee management. Your contribution helps us deliver smoother, smarter events for every occasion.",
-    tags: ["Technology", "Event Management"],
+    tags: ["tech", "event"],
   },
   {
     id: "c2",
-    title: "Event Staff Training & Certification",
     goal: 15000,
     raised: 6400,
     image:
       "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Help train and certify event coordinators and volunteers. Your support ensures every event is organized with professional standards and guest satisfaction in mind.",
-    tags: ["Training", "Event Management"],
+    tags: ["training", "event"],
   },
   {
     id: "c3",
-    title: "Rapid Response Event Logistics",
     goal: 40000,
     raised: 31000,
     image:
       "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Build a rapid-response logistics network to handle last-minute changes, equipment needs, and on-site coordination for large-scale events.",
-    tags: ["Logistics", "Event Management"],
+    tags: ["logistics", "event"],
   },
   {
     id: "c4",
-    title: "Youth Event Planning Mentorship",
     goal: 18000,
     raised: 9200,
     image:
       "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Empower young professionals with mentorship programs focused on event design, planning, and execution. Help the next generation of event leaders grow.",
-    tags: ["Mentorship", "Youth", "Event Management"],
+    tags: ["mentorship", "youth", "event"],
   },
   {
     id: "c5",
-    title: "Green Events Initiative",
     goal: 30000,
     raised: 14500,
     image:
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support eco-friendly event practices — from waste management to sustainable catering. Your donations help make every gathering greener and cleaner.",
-    tags: ["Sustainability", "Event Management"],
+    tags: ["sustainability", "event"],
   },
   {
     id: "c6",
-    title: "Event Management Hub Development",
     goal: 12000,
     raised: 7600,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Help us build an all-in-one hub for event planning — managing schedules, attendees, venues, and promotions in one seamless platform.",
-    tags: ["Technology", "Event Management"],
+    tags: ["tech", "event"],
   },
 ];
 
 export default function EventVolunteerDonationManagement() {
-  const [selected, setSelected] = useState<Campaign | null>(CAMPAIGNS[0]);
-  const [donation, setDonation] = useState<number>(50);
+  const { t, i18n } = useTranslation();
+
+  type LocalizedCampaign = Campaign & { title?: string; summary?: string };
+
+  const [selected, setSelected] = useState<LocalizedCampaign | null>(null);
+  const [donation, setDonation] = useState<number>(5);
   const [status, setStatus] = useState<string | null>(null);
-  const [activeTag, setActiveTag] = useState<string>("All");
+  const [activeTag, setActiveTag] = useState<string>("all");
 
   const allTags = Array.from(
     new Set(CAMPAIGNS.flatMap((c) => c.tags ?? [])),
   ).sort();
-  const filterTags = ["All", ...allTags];
+  const filterTags = ["all", ...allTags];
+
+  const localizedCampaigns: LocalizedCampaign[] = CAMPAIGNS.map((c) => ({
+    ...c,
+    title: t(`eventManagement.campaigns.${c.id}.title`),
+    summary: t(`eventManagement.campaigns.${c.id}.summary`),
+  }));
+
+  useEffect(() => {
+    setSelected(localizedCampaigns[0] ?? null);
+  }, [i18n.language]);
 
   function handleDonate(e?: React.FormEvent) {
     e?.preventDefault();
-    setStatus("Processing your sign-up — thank you!");
+    setStatus(t("eventManagement.processing"));
     setTimeout(() => {
-      setStatus(
-        "Thank you — your sign-up is received (demo). We will follow up by email.",
-      );
+      setStatus(t("eventManagement.thanks"));
     }, 800);
   }
 
@@ -166,7 +159,7 @@ export default function EventVolunteerDonationManagement() {
   const METRICS = [
     {
       id: "eventsHosted",
-      label: "Events Hosted",
+      label: "eventsHosted",
       value: 1240,
       duration: 1000,
       icon: (
@@ -200,7 +193,7 @@ export default function EventVolunteerDonationManagement() {
     },
     {
       id: "activeEvents",
-      label: "Active Events",
+      label: "activeEvents",
       value: CAMPAIGNS.length,
       duration: 700,
       icon: (
@@ -222,7 +215,7 @@ export default function EventVolunteerDonationManagement() {
     },
     {
       id: "totalAttendees",
-      label: "Total Attendees",
+      label: "totalAttendees",
       value: 52340,
       duration: 1200,
       icon: (
@@ -250,7 +243,7 @@ export default function EventVolunteerDonationManagement() {
     },
     {
       id: "venues",
-      label: "Venues Supported",
+      label: "venues",
       value: 320,
       duration: 900,
       icon: (
@@ -280,55 +273,17 @@ export default function EventVolunteerDonationManagement() {
 
   // Small set of upcoming events for the CTA panel
   const EVENTS = [
-    {
-      id: "e1",
-      title: "Event Planner Orientation",
-      date: "Nov 22",
-      location: "Community Center",
-      spots: 60,
-    },
-    {
-      id: "e2",
-      title: "Venue Logistics Workshop",
-      date: "Dec 6",
-      location: "Main Training Hall",
-      spots: 45,
-    },
-    {
-      id: "e3",
-      title: "Annual Events Review",
-      date: "Jan 10",
-      location: "Online (Zoom)",
-      spots: 100,
-    },
+    { id: "e1", date: "Nov 22", location: "Community Center", spots: 60 },
+    { id: "e2", date: "Dec 6", location: "Main Training Hall", spots: 45 },
+    { id: "e3", date: "Jan 10", location: "Online (Zoom)", spots: 100 },
   ];
 
   // FAQs driven by React state so we can filter/search easily
   const FAQS = [
-    {
-      id: "f1",
-      q: "How can I manage multiple events at once?",
-      a: "Use our centralized Event Management Dashboard to plan, schedule, and monitor multiple events simultaneously — including budgets, venues, and team assignments.",
-      category: "Event Management",
-    },
-    {
-      id: "f2",
-      q: "Can I track attendee registrations and feedback?",
-      a: "Yes, our system tracks registrations in real time and collects post-event feedback automatically, helping you measure success and identify areas for improvement.",
-      category: "Event Management",
-    },
-    {
-      id: "f3",
-      q: "How do I coordinate with vendors and partners?",
-      a: "Easily manage vendor lists, contracts, and communications within the platform. Automated reminders ensure deliverables stay on schedule for smooth event execution.",
-      category: "Event Management",
-    },
-    {
-      id: "f4",
-      q: "Can I generate reports on event performance and ROI?",
-      a: "Absolutely! Detailed analytics provide insights into attendance, engagement, expenses, and ROI — helping you plan smarter and improve future events.",
-      category: "Event Management",
-    },
+    { id: "f1", category: "Event Management" },
+    { id: "f2", category: "Event Management" },
+    { id: "f3", category: "Event Management" },
+    { id: "f4", category: "Event Management" },
   ];
 
   // FAQ UI state
@@ -339,10 +294,10 @@ export default function EventVolunteerDonationManagement() {
   return (
     <>
       <Head>
-        <title>Event Management — Emerald Aid</title>
+        <title>{t("eventManagement.meta.title")}</title>
         <meta
           name="description"
-          content="Plan and manage events — publish schedules, manage attendees, and coordinate venues for verified causes."
+          content={t("eventManagement.meta.description")}
         />
       </Head>
 
@@ -356,19 +311,19 @@ export default function EventVolunteerDonationManagement() {
               <div className="md:col-span-7">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                    Verified
+                    {t("eventManagement.hero.badge")}
                   </span>
-                  <span className="text-sm text-slate-500">Updated weekly</span>
+                  <span className="text-sm text-slate-500">
+                    {t("eventManagement.hero.updated")}
+                  </span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  Manage and join events — coordinate attendees and venues
+                  {t("eventManagement.hero.title")}
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Publish events, manage sign-ups, and monitor attendance. Use
-                  tools for scheduling, capacity planning and volunteer
-                  coordination.
+                  {t("eventManagement.hero.lead")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -390,13 +345,13 @@ export default function EventVolunteerDonationManagement() {
                         d="M12 8v8m0 0l-3-3m3 3l3-3"
                       />
                     </svg>
-                    Browse Events
+                    {t("eventManagement.hero.ctaBrowse")}
                   </a>
                   <a
                     href="#featured"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Create Event
+                    {t("eventManagement.hero.ctaCreate")}
                   </a>
                 </div>
               </div>
@@ -413,9 +368,12 @@ export default function EventVolunteerDonationManagement() {
                       {selected?.title}
                     </div>
                     <div className="text-xs text-slate-500">
-                      Attendees {selected?.raised?.toLocaleString()} of{" "}
+                      {t("eventManagement.labels.attendeesPrefix")}{" "}
+                      {selected?.raised?.toLocaleString()}{" "}
+                      {t("eventManagement.labels.of")}{" "}
                       {selected?.goal?.toLocaleString()} (
-                      {percent(selected || CAMPAIGNS[0])}% booked)
+                      {percent(selected || CAMPAIGNS[0])}%{" "}
+                      {t("eventManagement.labels.booked")})
                     </div>
                   </div>
                 </div>
@@ -431,22 +389,24 @@ export default function EventVolunteerDonationManagement() {
         >
           <div className="max-w-6xl mx-auto flex flex-col gap-8 ">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Upcoming Events & Program Slots
+              {t("eventManagement.programsTitle")}
             </h2>
             <div className="mb-4 flex flex-wrap justify-center items-center gap-2">
-              {filterTags.map((t) => (
+              {filterTags.map((tk) => (
                 <button
-                  key={t}
-                  onClick={() => setActiveTag(t)}
-                  aria-pressed={activeTag === t}
+                  key={tk}
+                  onClick={() => setActiveTag(tk)}
+                  aria-pressed={activeTag === tk}
                   className={
                     `text-sm px-3 py-1 rounded-full border transition ` +
-                    (activeTag === t
+                    (activeTag === tk
                       ? "bg-emerald-600 text-white border-emerald-600"
                       : "bg-white/60 dark:bg-slate-800/60 text-slate-700 border-slate-200")
                   }
                 >
-                  {t}
+                  {tk === "all"
+                    ? t("eventManagement.tags.all")
+                    : t(`eventManagement.tags.${tk}`)}
                 </button>
               ))}
             </div>
@@ -454,9 +414,9 @@ export default function EventVolunteerDonationManagement() {
             {/* filtered list */}
             {/** compute filtered campaigns */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(activeTag === "All"
-                ? CAMPAIGNS
-                : CAMPAIGNS.filter((c) => c.tags?.includes(activeTag))
+              {(activeTag === "all"
+                ? localizedCampaigns
+                : localizedCampaigns.filter((c) => c.tags?.includes(activeTag))
               ).map((c) => (
                 <article
                   key={c.id}
@@ -501,7 +461,7 @@ export default function EventVolunteerDonationManagement() {
                             key={tag}
                             className="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full"
                           >
-                            {tag}
+                            {t(`eventManagement.tags.${tag}`)}
                           </span>
                         ))}
                       </div>
@@ -512,7 +472,7 @@ export default function EventVolunteerDonationManagement() {
                         onClick={() => setSelected(c)}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md bg-emerald-600 text-white text-sm transition group-hover:scale-[1.02]"
                       >
-                        Details
+                        {t("eventManagement.view")}
                       </button>
                       <button
                         onClick={() => {
@@ -520,7 +480,7 @@ export default function EventVolunteerDonationManagement() {
                         }}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md border border-emerald-200 text-emerald-700 text-sm bg-white/60"
                       >
-                        Register
+                        {t("eventManagement.register")}
                       </button>
                     </div>
                   </div>
@@ -607,13 +567,15 @@ export default function EventVolunteerDonationManagement() {
                       aria-checked={false}
                     />
                     <span className="text-sm text-slate-600 dark:text-slate-300">
-                      Mark as recurring event
+                      {t("eventManagement.recurring")}
                     </span>
                   </label>
                 </div>
 
                 <form onSubmit={handleDonate} className="mt-4">
-                  <label className="text-sm">Custom seats</label>
+                  <label className="text-sm">
+                    {t("eventManagement.customSeats")}
+                  </label>
                   <div className="mt-2 flex gap-2">
                     <input
                       type="number"
@@ -626,7 +588,7 @@ export default function EventVolunteerDonationManagement() {
                       type="submit"
                       className="px-4 bg-emerald-600 text-white rounded-md"
                     >
-                      Register
+                      {t("eventManagement.register")}
                     </button>
                   </div>
                 </form>
@@ -641,7 +603,9 @@ export default function EventVolunteerDonationManagement() {
                   <div className="font-bold text-emerald-700">
                     {selected ? percent(selected) : 0}%
                   </div>
-                  <div className="text-slate-500">Booked</div>
+                  <div className="text-slate-500">
+                    {t("eventManagement.labels.booked")}
+                  </div>
                 </div>
                 <div className="bg-white dark:bg-slate-900/60 rounded-md p-3 text-center">
                   <div className="font-bold text-emerald-700">
@@ -649,7 +613,9 @@ export default function EventVolunteerDonationManagement() {
                       ? `${selected.raised.toLocaleString()}`
                       : "-"}
                   </div>
-                  <div className="text-slate-500">Attendees</div>
+                  <div className="text-slate-500">
+                    {t("eventManagement.labels.attendees")}
+                  </div>
                 </div>
               </div>
             </div>
@@ -660,7 +626,7 @@ export default function EventVolunteerDonationManagement() {
         <section className="  flex justify-center items-center   bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900  px-6">
           <div className=" flex flex-col max-w-6xl w-full py-8">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Event Metrics
+              {t("eventManagement.impact.title")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {METRICS.map((m) => (
@@ -679,7 +645,7 @@ export default function EventVolunteerDonationManagement() {
                   </div>
 
                   <div className="relative z-10 text-sm text-slate-500 mt-2">
-                    {m.label}
+                    {t(`eventManagement.metrics.${m.label}`)}
                   </div>
                 </div>
               ))}
@@ -693,12 +659,10 @@ export default function EventVolunteerDonationManagement() {
             {/* Left: headline + description */}
             <div className="md:col-span-1">
               <h3 className="text-2xl font-bold text-emerald-800">
-                Get Involved — Host or Join an Event
+                {t("eventManagement.volunteer.title")}
               </h3>
               <p className="text-slate-600 dark:text-slate-300 mt-3">
-                Join our field teams, host a local fundraiser, or help spread
-                the word. Below are upcoming opportunities — RSVP or sign up to
-                be notified about similar events.
+                {t("eventManagement.volunteer.lead")}
               </p>
 
               <div className="mt-4 flex gap-2">
@@ -714,7 +678,7 @@ export default function EventVolunteerDonationManagement() {
             {/* Middle: upcoming events list */}
             <div className="md:col-span-1 bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm">
               <h4 className="font-semibold text-emerald-700 mb-3">
-                Upcoming Events
+                {t("eventManagement.events.title")}
               </h4>
               <ul className="flex flex-col gap-3">
                 {EVENTS.map((ev) => (
@@ -724,22 +688,27 @@ export default function EventVolunteerDonationManagement() {
                   >
                     <div>
                       <div className="text-sm font-semibold text-emerald-800">
-                        {ev.title}
+                        {t(`eventManagement.events.${ev.id}.title`)}
                       </div>
                       <div className="text-xs text-slate-500">
-                        {ev.date} • {ev.location}
+                        {ev.date} •{" "}
+                        {t(`eventManagement.events.${ev.id}.location`, {
+                          defaultValue: ev.location,
+                        })}
                       </div>
                     </div>
                     <div className="text-right">
                       <div className="text-sm font-bold text-emerald-700">
                         {ev.spots}
                       </div>
-                      <div className="text-xs text-slate-400">spots</div>
+                      <div className="text-xs text-slate-400">
+                        {t("eventManagement.events.spots")}
+                      </div>
                       <button
-                        onClick={() => setSelected(CAMPAIGNS[0])}
+                        onClick={() => setSelected(localizedCampaigns[0])}
                         className="mt-2 ml-auto inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 text-white text-xs"
                       >
-                        Register
+                        {t("eventManagement.events.register")}
                       </button>
                     </div>
                   </li>
@@ -753,7 +722,7 @@ export default function EventVolunteerDonationManagement() {
         <section className="bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900 py-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Event Help & FAQs
+              {t("eventManagement.help.title")}
             </h2>
 
             <div className="grid  gap-6">
@@ -792,7 +761,13 @@ export default function EventVolunteerDonationManagement() {
                 <div>
                   {(() => {
                     const q = faqQuery.trim().toLowerCase();
-                    const filtered = FAQS.filter((f) => {
+                    const enriched = FAQS.map((f) => ({
+                      ...f,
+                      q: t(`eventManagement.faq.${f.id}.q`),
+                      a: t(`eventManagement.faq.${f.id}.a`),
+                    }));
+
+                    const filtered = enriched.filter((f) => {
                       if (!q) return true;
                       return (f.q + " " + f.a + " " + f.category)
                         .toLowerCase()
@@ -802,7 +777,7 @@ export default function EventVolunteerDonationManagement() {
                     if (!filtered.length) {
                       return (
                         <div className="text-sm text-slate-500">
-                          No results — try different keywords.
+                          {t("eventManagement.faq.noResults")}
                         </div>
                       );
                     }
@@ -896,12 +871,10 @@ export default function EventVolunteerDonationManagement() {
 
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800">
-                      Questions about events?
+                      {t("eventManagement.contact.title")}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-300 mt-1">
-                      Contact our events support team for help with publishing,
-                      registrations, or logistics. We usually respond within 1-2
-                      business days.
+                      {t("eventManagement.contact.lead")}
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -909,7 +882,7 @@ export default function EventVolunteerDonationManagement() {
                         href="/contact-us"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full shadow-sm"
                       >
-                        Contact Event Support
+                        {t("eventManagement.contact.cta")}
                       </a>
 
                       <a
