@@ -1020,6 +1020,115 @@
     "monthlyDonation": "Make this a monthly donation",
     "customAmount": "Custom amount (USD)"
   },
+  "advocacy": {
+    "hero": {
+      "badge": "Verified",
+      "updated": "Updated weekly",
+      "title": "Advocacy & Outreach — mobilize supporters and amplify causes",
+      "lead": "Run advocacy campaigns, organize outreach events, and grow community support with petitions, volunteer coordination, and impact tracking.",
+      "cta": { "explore": "Explore Campaigns", "start": "Start Outreach" },
+      "supporters": "Supporters {{raised}} of {{goal}} ({{percent}}% engaged)"
+    },
+    "campaignsTitle": "Advocacy Campaigns & Outreach Programs",
+    "campaigns": {
+      "c1": {
+        "title": "Community Awareness Drive",
+        "summary": "Support outreach events, awareness materials, and social media advocacy to highlight local social and environmental issues."
+      },
+      "c2": {
+        "title": "Public Policy Advocacy Training",
+        "summary": "Train advocates and youth leaders in effective policy advocacy, workshops, and mentorship programs."
+      },
+      "c3": {
+        "title": "Grassroots Mobilization Program",
+        "summary": "Fund community meetings, local outreach activities, and engagement toolkits to empower local advocates."
+      },
+      "c4": {
+        "title": "Youth Advocacy Fellowship",
+        "summary": "Mentorship, communications training, and project funding to support young leaders driving change."
+      },
+      "c5": {
+        "title": "Health Awareness Campaign",
+        "summary": "Outreach campaigns promoting public health, vaccination awareness, and disease prevention in underserved areas."
+      },
+      "c6": {
+        "title": "Digital Advocacy & Outreach Hub",
+        "summary": "Create a digital hub for petitions, campaign coordination, and community engagement to expand advocacy reach."
+      }
+    },
+    "tags": {
+      "all": "All",
+      "community": "Community",
+      "outreach": "Outreach",
+      "advocacy": "Advocacy",
+      "education": "Education",
+      "training": "Training",
+      "mobilization": "Mobilization",
+      "youth": "Youth",
+      "leadership": "Leadership",
+      "health": "Health",
+      "awareness": "Awareness",
+      "digital": "Digital",
+      "technology": "Technology"
+    },
+    "labels": { "supporters": "supporters", "target": "target" },
+    "actions": {
+      "details": "Details",
+      "join": "Join",
+      "participate": "Participate",
+      "rsvp": "RSVP"
+    },
+    "metricsTitle": "Advocacy Metrics",
+    "metrics": {
+      "campaignsLaunched": "Campaigns Launched",
+      "activeInitiatives": "Active Initiatives",
+      "peopleReached": "People Reached",
+      "partnersEngaged": "Partner Organizations"
+    },
+    "eventsTitle": "Upcoming Outreach Events",
+    "events": {
+      "spots": "spots",
+      "e1": {
+        "title": "Community Advocacy Workshop",
+        "location": "Downtown Hall"
+      },
+      "e2": {
+        "title": "Public Speaking for Change",
+        "location": "Main Auditorium"
+      },
+      "e3": { "title": "Annual Outreach Summit", "location": "Online (Zoom)" }
+    },
+    "faqsTitle": "Advocacy Help & FAQs",
+    "faqs": {
+      "noResults": "No results — try different keywords.",
+      "f1": {
+        "q": "How can I start an advocacy campaign in my community?",
+        "a": "Join our Advocacy & Outreach network — we provide resources, mentorship, and campaign templates to help you mobilize your community."
+      },
+      "f2": {
+        "q": "Do I need prior experience to participate?",
+        "a": "No — our training and workshops are for all levels and will guide you through the advocacy process."
+      },
+      "f3": {
+        "q": "How do you measure impact?",
+        "a": "We track engagement, policy outcomes, attendance, and community feedback to assess campaign effectiveness."
+      },
+      "f4": {
+        "q": "Can I collaborate with local organizations?",
+        "a": "Yes — partnerships with NGOs, schools, and civic groups help expand reach and amplify impact."
+      }
+    },
+    "cta": {
+      "title": "Mobilize Communities — Advocate & Outreach",
+      "lead": "Start or join advocacy efforts, host outreach events, and amplify your cause. RSVP or volunteer to help."
+    },
+    "contact": {
+      "title": "Questions about advocacy?",
+      "lead": "Contact our outreach team for help with campaign setup, volunteer coordination, or messaging. We usually respond within 1-2 business days.",
+      "cta": "Contact Outreach Support",
+      "email": "outreach@emeraldaid.org"
+    }
+  },
   "eventManagement": {
     "meta": {
       "title": "Event Management — Emerald Aid",

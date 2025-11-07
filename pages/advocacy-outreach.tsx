@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import SiteHeadder from "../src/components/SiteHeadder";
 import SiteFooter from "../src/components/SiteFooter";
 
@@ -16,68 +17,62 @@ type Campaign = {
 const CAMPAIGNS: Campaign[] = [
   {
     id: "c1",
-    title: "Community Awareness Drive",
+    title: "advocacy.campaigns.c1.title",
     goal: 25000,
     raised: 18250,
     image:
       "https://images.unsplash.com/photo-1497493292307-31c376b6e479?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support our efforts to raise awareness about local social and environmental issues. Your contribution helps us organize outreach events, awareness materials, and social media advocacy campaigns.",
+    summary: "advocacy.campaigns.c1.summary",
     tags: ["Community", "Outreach", "Advocacy"],
   },
   {
     id: "c2",
-    title: "Public Policy Advocacy Training",
+    title: "advocacy.campaigns.c2.title",
     goal: 15000,
     raised: 6400,
     image:
       "https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Help us train advocates and youth leaders in effective policy advocacy and public communication. Your support funds workshops, training materials, and mentorship programs.",
+    summary: "advocacy.campaigns.c2.summary",
     tags: ["Education", "Advocacy", "Training"],
   },
   {
     id: "c3",
-    title: "Grassroots Mobilization Program",
+    title: "advocacy.campaigns.c3.title",
     goal: 40000,
     raised: 31000,
     image:
       "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Empower local communities to advocate for positive change. This program funds community meetings, local outreach activities, and engagement toolkits.",
+    summary: "advocacy.campaigns.c3.summary",
     tags: ["Community", "Mobilization", "Advocacy"],
   },
   {
     id: "c4",
-    title: "Youth Advocacy Fellowship",
+    title: "advocacy.campaigns.c4.title",
     goal: 18000,
     raised: 9200,
     image:
       "https://images.unsplash.com/photo-1515165562835-c4c8b815a3e8?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support young leaders who are driving change through advocacy. The fellowship includes mentorship, communication training, and project funding.",
+    summary: "advocacy.campaigns.c4.summary",
     tags: ["Youth", "Leadership", "Advocacy"],
   },
   {
     id: "c5",
-    title: "Health Awareness Campaign",
+    title: "advocacy.campaigns.c5.title",
     goal: 30000,
     raised: 14500,
     image:
       "https://images.unsplash.com/photo-1576765607924-b53bb3b6f066?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Your donation helps fund outreach campaigns promoting public health, vaccination awareness, and disease prevention across underserved areas.",
+    summary: "advocacy.campaigns.c5.summary",
     tags: ["Health", "Awareness", "Outreach"],
   },
   {
     id: "c6",
-    title: "Digital Advocacy & Outreach Hub",
+    title: "advocacy.campaigns.c6.title",
     goal: 12000,
     raised: 7600,
     image:
       "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Help us create a digital hub for campaign coordination, online petitions, and community engagement — expanding the reach of our advocacy efforts.",
+    summary: "advocacy.campaigns.c6.summary",
     tags: ["Technology", "Digital", "Advocacy"],
   },
 ];
@@ -86,12 +81,17 @@ export default function GrantApplicationManager() {
   const [selected, setSelected] = useState<Campaign | null>(CAMPAIGNS[0]);
   const [donation, setDonation] = useState<number>(50);
   const [status, setStatus] = useState<string | null>(null);
-  const [activeTag, setActiveTag] = useState<string>("All");
+  const [activeTag, setActiveTag] = useState<string>("all");
+  const { t } = useTranslation();
 
   const allTags = Array.from(
     new Set(CAMPAIGNS.flatMap((c) => c.tags ?? [])),
   ).sort();
-  const filterTags = ["All", ...allTags];
+  const filterTags = ["all", ...allTags];
+
+  function tagKey(tag: string) {
+    return `advocacy.tags.${tag.toLowerCase().replace(/\s+/g, "_")}`;
+  }
 
   function handleDonate(e?: React.FormEvent) {
     e?.preventDefault();
@@ -264,23 +264,23 @@ export default function GrantApplicationManager() {
   const EVENTS = [
     {
       id: "e1",
-      title: "Community Advocacy Workshop",
+      title: t("advocacy.events.e1.title"),
       date: "Nov 22",
-      location: "Downtown Hall",
+      location: t("advocacy.events.e1.location"),
       spots: 60,
     },
     {
       id: "e2",
-      title: "Public Speaking for Change",
+      title: t("advocacy.events.e2.title"),
       date: "Dec 6",
-      location: "Main Auditorium",
+      location: t("advocacy.events.e2.location"),
       spots: 45,
     },
     {
       id: "e3",
-      title: "Annual Outreach Summit",
+      title: t("advocacy.events.e3.title"),
       date: "Jan 10",
-      location: "Online (Zoom)",
+      location: t("advocacy.events.e3.location"),
       spots: 100,
     },
   ];
@@ -338,19 +338,19 @@ export default function GrantApplicationManager() {
               <div className="md:col-span-7">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                    Verified
+                    {t("advocacy.hero.badge")}
                   </span>
-                  <span className="text-sm text-slate-500">Updated weekly</span>
+                  <span className="text-sm text-slate-500">
+                    {t("advocacy.hero.updated")}
+                  </span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  Advocacy & Outreach — mobilize supporters and amplify causes
+                  {t("advocacy.hero.title")}
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Run advocacy campaigns, organize outreach events, and grow
-                  community support. Use tools for petitions, volunteer
-                  coordination, and impact tracking.
+                  {t("advocacy.hero.lead")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -372,13 +372,13 @@ export default function GrantApplicationManager() {
                         d="M12 8v8m0 0l-3-3m3 3l3-3"
                       />
                     </svg>
-                    Explore Campaigns
+                    {t("advocacy.hero.cta.explore")}
                   </a>
                   <a
                     href="#featured"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Start Outreach
+                    {t("advocacy.hero.cta.start")}
                   </a>
                 </div>
               </div>
@@ -392,12 +392,14 @@ export default function GrantApplicationManager() {
                   />
                   <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-slate-900/80 p-3 rounded-lg shadow-md">
                     <div className="text-sm text-emerald-700 font-semibold">
-                      {selected?.title}
+                      {t(`advocacy.campaigns.${selected?.id}.title`)}
                     </div>
                     <div className="text-xs text-slate-500">
-                      Supporters {selected?.raised?.toLocaleString()} of{" "}
-                      {selected?.goal?.toLocaleString()} (
-                      {percent(selected || CAMPAIGNS[0])}% engaged)
+                      {t("advocacy.hero.supporters", {
+                        raised: selected?.raised?.toLocaleString(),
+                        goal: selected?.goal?.toLocaleString(),
+                        percent: percent(selected || CAMPAIGNS[0]),
+                      })}
                     </div>
                   </div>
                 </div>
@@ -413,22 +415,29 @@ export default function GrantApplicationManager() {
         >
           <div className="max-w-6xl mx-auto flex flex-col gap-8 ">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Advocacy Campaigns & Outreach Programs
+              {t("advocacy.campaignsTitle")}
             </h2>
             <div className="mb-4 flex flex-wrap justify-center items-center gap-2">
-              {filterTags.map((t) => (
+              {filterTags.map((tag) => (
                 <button
-                  key={t}
-                  onClick={() => setActiveTag(t)}
-                  aria-pressed={activeTag === t}
+                  key={tag}
+                  onClick={() => setActiveTag(tag)}
+                  aria-pressed={activeTag === tag}
                   className={
                     `text-sm px-3 py-1 rounded-full border transition ` +
-                    (activeTag === t
+                    (activeTag === tag
                       ? "bg-emerald-600 text-white border-emerald-600"
                       : "bg-white/60 dark:bg-slate-800/60 text-slate-700 border-slate-200")
                   }
                 >
-                  {t}
+                  {tag === "All"
+                    ? t("advocacy.tags.all")
+                    : t(
+                        `advocacy.tags.${tag
+                          .toLowerCase()
+                          .replace(/\s+/g, "_")}`,
+                        { defaultValue: tag },
+                      )}
                 </button>
               ))}
             </div>
@@ -436,7 +445,7 @@ export default function GrantApplicationManager() {
             {/* filtered list */}
             {/** compute filtered campaigns */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(activeTag === "All"
+              {(activeTag === "all"
                 ? CAMPAIGNS
                 : CAMPAIGNS.filter((c) => c.tags?.includes(activeTag))
               ).map((c) => (
@@ -455,10 +464,14 @@ export default function GrantApplicationManager() {
 
                     <div className="absolute left-4 bottom-4">
                       <h3 className="text-lg font-bold text-white drop-shadow">
-                        {c.title}
+                        {t(`advocacy.campaigns.${c.id}.title`, {
+                          defaultValue: c.title,
+                        })}
                       </h3>
                       <p className="text-xs text-white/90 max-w-xs line-clamp-2">
-                        {c.summary}
+                        {t(`advocacy.campaigns.${c.id}.summary`, {
+                          defaultValue: c.summary,
+                        })}
                       </p>
                     </div>
 
@@ -471,10 +484,12 @@ export default function GrantApplicationManager() {
                     <div className="flex items-center justify-between text-sm text-slate-500">
                       <div className="flex items-center gap-3">
                         <div className="text-sm text-slate-700 dark:text-slate-300">
-                          {c.raised.toLocaleString()} supporters
+                          {c.raised.toLocaleString()}{" "}
+                          {t("advocacy.labels.supporters")}
                         </div>
                         <div className="text-xs text-slate-400">
-                          target {c.goal.toLocaleString()}
+                          {t("advocacy.labels.target")}{" "}
+                          {c.goal.toLocaleString()}
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
@@ -483,7 +498,12 @@ export default function GrantApplicationManager() {
                             key={tag}
                             className="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full"
                           >
-                            {tag}
+                            {t(
+                              `advocacy.tags.${tag
+                                .toLowerCase()
+                                .replace(/\s+/g, "_")}`,
+                              { defaultValue: tag },
+                            )}
                           </span>
                         ))}
                       </div>
@@ -494,7 +514,7 @@ export default function GrantApplicationManager() {
                         onClick={() => setSelected(c)}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md bg-emerald-600 text-white text-sm transition group-hover:scale-[1.02]"
                       >
-                        Details
+                        {t("advocacy.actions.details")}
                       </button>
                       <button
                         onClick={() => {
@@ -502,7 +522,7 @@ export default function GrantApplicationManager() {
                         }}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md border border-emerald-200 text-emerald-700 text-sm bg-white/60"
                       >
-                        Join
+                        {t("advocacy.actions.join")}
                       </button>
                     </div>
                   </div>
@@ -559,10 +579,10 @@ export default function GrantApplicationManager() {
             <div className="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-sm flex flex-col justify-between">
               <div>
                 <h2 className="text-2xl font-bold text-emerald-800">
-                  {selected?.title}
+                  {t(`advocacy.campaigns.${selected?.id}.title`)}
                 </h2>
                 <p className="text-slate-600 dark:text-slate-300 mt-2">
-                  {selected?.summary}
+                  {t(`advocacy.campaigns.${selected?.id}.summary`)}
                 </p>
 
                 <div className="mt-4 grid grid-cols-3 gap-2">
@@ -642,7 +662,7 @@ export default function GrantApplicationManager() {
         <section className="  flex justify-center items-center   bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900  px-6">
           <div className=" flex flex-col max-w-6xl w-full py-8">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Advocacy Metrics
+              {t("advocacy.metricsTitle")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {METRICS.map((m) => (
@@ -661,7 +681,7 @@ export default function GrantApplicationManager() {
                   </div>
 
                   <div className="relative z-10 text-sm text-slate-500 mt-2">
-                    {m.label}
+                    {t(`advocacy.metrics.${m.id}`, { defaultValue: m.label })}
                   </div>
                 </div>
               ))}
@@ -675,12 +695,10 @@ export default function GrantApplicationManager() {
             {/* Left: headline + description */}
             <div className="md:col-span-1">
               <h3 className="text-2xl font-bold text-emerald-800">
-                Mobilize Communities — Advocate & Outreach
+                {t("advocacy.cta.title")}
               </h3>
               <p className="text-slate-600 dark:text-slate-300 mt-3">
-                Start or join advocacy efforts, host outreach events, and
-                amplify your cause. Below are upcoming opportunities — RSVP or
-                volunteer to help.
+                {t("advocacy.cta.lead")}
               </p>
 
               <div className="mt-4 flex gap-2">
@@ -696,7 +714,7 @@ export default function GrantApplicationManager() {
             {/* Middle: upcoming events list */}
             <div className="md:col-span-1 bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm">
               <h4 className="font-semibold text-emerald-700 mb-3">
-                Upcoming Outreach Events
+                {t("advocacy.eventsTitle")}
               </h4>
               <ul className="flex flex-col gap-3">
                 {EVENTS.map((ev) => (
@@ -716,12 +734,14 @@ export default function GrantApplicationManager() {
                       <div className="text-sm font-bold text-emerald-700">
                         {ev.spots}
                       </div>
-                      <div className="text-xs text-slate-400">spots</div>
+                      <div className="text-xs text-slate-400">
+                        {t("advocacy.events.spots")}
+                      </div>
                       <button
                         onClick={() => setSelected(CAMPAIGNS[0])}
                         className="mt-2 ml-auto inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 text-white text-xs"
                       >
-                        RSVP
+                        {t("advocacy.actions.rsvp")}
                       </button>
                     </div>
                   </li>
@@ -735,7 +755,7 @@ export default function GrantApplicationManager() {
         <section className="bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900 py-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Advocacy Help & FAQs
+              {t("advocacy.faqsTitle")}
             </h2>
 
             <div className="grid  gap-6">
@@ -752,7 +772,7 @@ export default function GrantApplicationManager() {
                           : "bg-white/60 text-slate-700"
                       }`}
                     >
-                      All
+                      {t("advocacy.tags.all")}
                     </button>
                     {faqCategories.map((cat) => (
                       <button
@@ -784,7 +804,7 @@ export default function GrantApplicationManager() {
                     if (!filtered.length) {
                       return (
                         <div className="text-sm text-slate-500">
-                          No results — try different keywords.
+                          {t("advocacy.faqs.noResults")}
                         </div>
                       );
                     }
@@ -805,7 +825,9 @@ export default function GrantApplicationManager() {
                                 <div className="flex items-center justify-between gap-3">
                                   <div>
                                     <div className="font-semibold text-slate-800 dark:text-slate-200">
-                                      {f.q}
+                                      {t(`advocacy.faqs.${f.id}.q`, {
+                                        defaultValue: f.q,
+                                      })}
                                     </div>
                                     <div className="text-xs text-emerald-700 mt-1">
                                       {f.category}
@@ -838,7 +860,9 @@ export default function GrantApplicationManager() {
                                       : "opacity-0 h-0 overflow-hidden"
                                   }`}
                                 >
-                                  {f.a}
+                                  {t(`advocacy.faqs.${f.id}.a`, {
+                                    defaultValue: f.a,
+                                  })}
                                 </div>
                               </div>
                             </div>
@@ -878,12 +902,10 @@ export default function GrantApplicationManager() {
 
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800">
-                      Questions about advocacy?
+                      {t("advocacy.contact.title")}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-300 mt-1">
-                      Contact our outreach team for help with campaign setup,
-                      volunteer coordination, or messaging. We usually respond
-                      within 1-2 business days.
+                      {t("advocacy.contact.lead")}
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -891,14 +913,16 @@ export default function GrantApplicationManager() {
                         href="/contact-us"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full shadow-sm"
                       >
-                        Contact Outreach Support
+                        {t("advocacy.contact.cta")}
                       </a>
 
                       <a
                         href="mailto:events@emeraldaid.org"
                         className="inline-flex items-center gap-2 px-3 py-2 border border-emerald-200 text-emerald-700 rounded-md"
                       >
-                        outreach@emeraldaid.org
+                        {t("advocacy.contact.email", {
+                          defaultValue: "outreach@emeraldaid.org",
+                        })}
                       </a>
                     </div>
                   </div>
