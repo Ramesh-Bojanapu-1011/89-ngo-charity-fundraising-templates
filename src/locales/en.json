@@ -666,5 +666,120 @@
       "tile2": { "title": "Projects completed", "note": "Across 20 regions" },
       "tile3": { "title": "Volunteers active", "note": "Field & remote" }
     }
+  },
+  "fundraising": {
+    "hero": {
+      "badge": "Featured",
+      "updated": "Updated weekly",
+      "title": "Join thousands who give hope — your support changes lives",
+      "lead": "Browse verified campaigns, donate safely, and see the impact of your contribution. Small recurring gifts make a sustained difference.",
+      "ctaExplore": "Explore Campaigns",
+      "ctaDonate": "Donate Now"
+    },
+    "campaigns": {
+      "c1": {
+        "title": "Clean Water Drive",
+        "summary": "Drilling wells and training local teams to maintain community water points."
+      },
+      "c2": {
+        "title": "School Supplies",
+        "summary": "Provide essential school supplies and support for teachers in underserved areas."
+      },
+      "c3": {
+        "title": "Emergency Relief",
+        "summary": "Rapid-response kits and immediate assistance to families affected by disasters."
+      },
+      "c4": {
+        "title": "School Rebuild Program",
+        "summary": "Rebuild classrooms and provide safe learning spaces for children."
+      },
+      "c5": {
+        "title": "Mobile Clinics",
+        "summary": "Support mobile health teams to reach remote communities."
+      },
+      "c6": {
+        "title": "Livelihoods Support",
+        "summary": "Small business grants and vocational training to restore income."
+      }
+    },
+    "tags": {
+      "all": "All",
+      "water": "Water",
+      "emergency": "Emergency",
+      "education": "Education",
+      "relief": "Relief",
+      "women": "Women",
+      "health": "Health",
+      "livelihoods": "Livelihoods"
+    },
+    "processing": "Processing your donation…",
+    "thanks": "Thanks — your donation went through.",
+    "view": "View",
+    "donate": "Donate",
+    "rsvp": "RSVP",
+    "labels": { "funded": "Funded", "raised": "Raised" },
+    "impact": { "title": "Impact Snapshot" },
+    "metrics": {
+      "donors": "Donors",
+      "campaigns": "Campaigns",
+      "raised": "Total raised",
+      "volunteers": "Volunteers"
+    },
+    "volunteer": {
+      "title": "Get Involved — Volunteer or Host an Event",
+      "lead": "Join our field teams, host a local fundraiser, or help spread the word.",
+      "cta": "Volunteer Opportunities"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "spots": "spots",
+      "items": [
+        {
+          "title": "Community Clean-Up Day",
+
+          "location": "Riverside Park"
+        },
+        {
+          "title": "Fundraising Walk",
+
+          "location": "City Center"
+        },
+        {
+          "title": "Volunteer Training",
+
+          "location": "Main Office"
+        }
+      ]
+    },
+
+    "help": { "title": "Help & Questions" },
+    "faq": {
+      "all": "All",
+      "q1": {
+        "q": "How are donations used?",
+        "a": "Donations are allocated to program costs, local partners and immediate relief as indicated in each campaign."
+      },
+      "q2": {
+        "q": "Is my donation tax-deductible?",
+        "a": "This depends on your country and our registered status. Please consult your local regulations."
+      },
+      "q3": {
+        "q": "How do I get a receipt?",
+        "a": "Receipts are emailed automatically for online donations. Contact us if you need a copy."
+      },
+      "q4": {
+        "q": "Can I volunteer remotely?",
+        "a": "Yes — we have remote roles for research, admin, and communications. Use the signup panel to indicate interest."
+      },
+      "noResults": "No results — try different keywords."
+    },
+    "contact": {
+      "title": "Need help or want to partner with us?",
+      "lead": "Reach out to our team for campaign questions, partnership inquiries, or media requests. We typically reply within 1-2 business days.",
+      "cta": "Contact page"
+    },
+    "monthlyDonation": "Make this a monthly donation",
+    "campaignsTitle": "Active Campaigns",
+    "customAmount": "Custom amount (USD)"
   }
 }

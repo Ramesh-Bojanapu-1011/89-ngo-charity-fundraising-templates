@@ -1,103 +1,101 @@
 import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import SiteHeadder from "../src/components/SiteHeadder";
 import SiteFooter from "../src/components/SiteFooter";
 
 type Campaign = {
   id: string;
-  title: string;
+  // language-independent fields only; textual fields come from locales via id
   goal: number;
   raised: number;
   image: string;
-  summary: string;
-  tags?: string[];
+  tags?: string[]; // tag identifiers e.g. ['water','emergency']
+  // optional localized fields when built inside the component
+  title?: string;
+  summary?: string;
 };
 
 const CAMPAIGNS: Campaign[] = [
   {
     id: "c1",
-    title: "Clean Water for 5 Villages",
     goal: 25000,
     raised: 18250,
     image:
       "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Install wells, pumps and deliver sanitation training to five rural villages.",
-    tags: ["Water", "Emergency"],
+    tags: ["water", "emergency"],
   },
   {
     id: "c2",
-    title: "School Supplies for 1,000 Kids",
     goal: 15000,
     raised: 6400,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Provide textbooks, stationery and backpacks for children in remote areas.",
-    tags: ["Education"],
+    tags: ["education"],
   },
   {
     id: "c3",
-    title: "Emergency Relief — Flood Response",
     goal: 40000,
     raised: 31000,
     image:
       "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Deliver emergency kits, medical aid and short-term shelter to flood-affected families.",
-    tags: ["Emergency", "Relief"],
+    tags: ["emergency", "relief"],
   },
   {
     id: "c4",
-    title: "Girls' Scholarship Program",
     goal: 18000,
     raised: 9200,
     image:
       "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support secondary education for talented girls through scholarships and mentorship.",
-    tags: ["Education", "Women"],
+    tags: ["education", "women"],
   },
   {
     id: "c5",
-    title: "Mobile Health Clinics",
     goal: 30000,
     raised: 14500,
     image:
       "https://images.unsplash.com/photo-1580281657527-6c1b7dcb9b7d?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Bring primary healthcare services to underserved communities via mobile units.",
-    tags: ["Health"],
+    tags: ["health"],
   },
   {
     id: "c6",
-    title: "Small Business Grants",
     goal: 12000,
     raised: 7600,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Seed grants and training for micro-entrepreneurs to build resilient livelihoods.",
-    tags: ["Livelihoods"],
+    tags: ["livelihoods"],
   },
 ];
 
 export default function FundraisingCampaigns() {
-  const [selected, setSelected] = useState<Campaign | null>(CAMPAIGNS[0]);
+  const { t, i18n } = useTranslation();
+  const [selected, setSelected] = useState<Campaign | null>(null);
   const [donation, setDonation] = useState<number>(50);
   const [status, setStatus] = useState<string | null>(null);
-  const [activeTag, setActiveTag] = useState<string>("All");
+  const [activeTag, setActiveTag] = useState<string>("all");
 
   const allTags = Array.from(
     new Set(CAMPAIGNS.flatMap((c) => c.tags ?? [])),
   ).sort();
-  const filterTags = ["All", ...allTags];
+  const filterTags = ["all", ...allTags];
+
+  // Build a localized copy of campaigns at render-time (per-id titles/summaries)
+  const localizedCampaigns: Campaign[] = CAMPAIGNS.map((c) => ({
+    ...c,
+    title: t(`fundraising.campaigns.${c.id}.title`),
+    summary: t(`fundraising.campaigns.${c.id}.summary`),
+  }));
+
+  // Keep the selected campaign in sync with language changes
+  useEffect(() => {
+    setSelected(localizedCampaigns[0] ?? null);
+  }, [i18n.language]);
 
   function handleDonate(e?: React.FormEvent) {
     e?.preventDefault();
-    setStatus("Processing your donation — thank you!");
+    setStatus(t("fundraising.processing"));
     setTimeout(() => {
-      setStatus("Thank you — your donation is received (demo).");
+      setStatus(t("fundraising.thanks"));
     }, 800);
   }
 
@@ -164,7 +162,7 @@ export default function FundraisingCampaigns() {
   const METRICS = [
     {
       id: "donors",
-      label: "Donors",
+      label: "fundraising.metrics.donors",
       value: 1240,
       duration: 1000,
       icon: (
@@ -198,7 +196,7 @@ export default function FundraisingCampaigns() {
     },
     {
       id: "campaigns",
-      label: "Active Campaigns",
+      label: "fundraising.metrics.campaigns",
       value: CAMPAIGNS.length,
       duration: 700,
       icon: (
@@ -220,7 +218,7 @@ export default function FundraisingCampaigns() {
     },
     {
       id: "raised",
-      label: "Total Raised",
+      label: "fundraising.metrics.raised",
       value: 123450,
       duration: 1200,
       icon: (
@@ -248,7 +246,7 @@ export default function FundraisingCampaigns() {
     },
     {
       id: "volunteers",
-      label: "Volunteers",
+      label: "fundraising.metrics.volunteers",
       value: 320,
       duration: 900,
       icon: (
@@ -280,23 +278,23 @@ export default function FundraisingCampaigns() {
   const EVENTS = [
     {
       id: "e1",
-      title: "Community Clean-Up Day",
+      title: t("fundraising.events.items.0.title"),
       date: "Nov 22",
-      location: "Riverside Park",
+      location: t("fundraising.events.items.0.location"),
       spots: 24,
     },
     {
       id: "e2",
-      title: "Fundraising Walk",
+      title: t("fundraising.events.items.1.title"),
       date: "Dec 6",
-      location: "City Center",
+      location: t("fundraising.events.items.1.location"),
       spots: 120,
     },
     {
       id: "e3",
-      title: "Volunteer Training",
+      title: t("fundraising.events.items.2.title"),
       date: "Jan 10",
-      location: "Main Office",
+      location: t("fundraising.events.items.2.location"),
       spots: 40,
     },
   ];
@@ -305,26 +303,26 @@ export default function FundraisingCampaigns() {
   const FAQS = [
     {
       id: "f1",
-      q: "How are donations used?",
-      a: "Donations are allocated to program costs, local partners and immediate relief as indicated in each campaign.",
+      q: t("fundraising.faq.q1.q"),
+      a: t("fundraising.faq.q1.a"),
       category: "Donations",
     },
     {
       id: "f2",
-      q: "Is my donation tax-deductible?",
-      a: "This depends on your country and our registered status. Please consult your local regulations.",
+      q: t("fundraising.faq.q2.q"),
+      a: t("fundraising.faq.q2.a"),
       category: "Donations",
     },
     {
       id: "f3",
-      q: "How do I get a receipt?",
-      a: "Receipts are emailed automatically for online donations. Contact us if you need a copy.",
+      q: t("fundraising.faq.q3.q"),
+      a: t("fundraising.faq.q3.a"),
       category: "Donations",
     },
     {
       id: "f4",
-      q: "Can I volunteer remotely?",
-      a: "Yes — we have remote roles for research, admin, and communications. Use the signup panel to indicate interest.",
+      q: t("fundraising.faq.q4.q"),
+      a: t("fundraising.faq.q4.a"),
       category: "Volunteering",
     },
   ];
@@ -354,19 +352,19 @@ export default function FundraisingCampaigns() {
               <div className="md:col-span-7">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                    Featured
+                    {t("fundraising.hero.badge")}
                   </span>
-                  <span className="text-sm text-slate-500">Updated weekly</span>
+                  <span className="text-sm text-slate-500">
+                    {t("fundraising.hero.updated")}
+                  </span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  Join thousands who give hope — your support changes lives
+                  {t("fundraising.hero.title")}
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Browse verified campaigns, donate safely, and see the impact
-                  of your contribution. Small recurring gifts make a sustained
-                  difference.
+                  {t("fundraising.hero.lead")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -388,13 +386,13 @@ export default function FundraisingCampaigns() {
                         d="M12 8v8m0 0l-3-3m3 3l3-3"
                       />
                     </svg>
-                    Explore Campaigns
+                    {t("fundraising.hero.ctaExplore")}
                   </a>
                   <a
                     href="#featured"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Donate Now
+                    {t("fundraising.hero.ctaDonate")}
                   </a>
                 </div>
               </div>
@@ -429,22 +427,24 @@ export default function FundraisingCampaigns() {
         >
           <div className="max-w-6xl mx-auto flex flex-col gap-8 ">
             <h2 className="text-2xl text-center  font-bold text-emerald-800 mb-4">
-              Active Campaigns
+              {t("fundraising.campaignsTitle")}
             </h2>
             <div className="mb-4 flex flex-wrap justify-center items-center gap-2">
-              {filterTags.map((t) => (
+              {filterTags.map((tagId) => (
                 <button
-                  key={t}
-                  onClick={() => setActiveTag(t)}
-                  aria-pressed={activeTag === t}
+                  key={tagId}
+                  onClick={() => setActiveTag(tagId)}
+                  aria-pressed={activeTag === tagId}
                   className={
                     `text-sm px-3 py-1 rounded-full border transition ` +
-                    (activeTag === t
+                    (activeTag === tagId
                       ? "bg-emerald-600 text-white border-emerald-600"
                       : "bg-white/60 dark:bg-slate-800/60 text-slate-700 border-slate-200")
                   }
                 >
-                  {t}
+                  {tagId === "all"
+                    ? t("fundraising.tags.all")
+                    : t(`fundraising.tags.${tagId}`)}
                 </button>
               ))}
             </div>
@@ -452,9 +452,9 @@ export default function FundraisingCampaigns() {
             {/* filtered list */}
             {/** compute filtered campaigns */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(activeTag === "All"
-                ? CAMPAIGNS
-                : CAMPAIGNS.filter((c) => c.tags?.includes(activeTag))
+              {(activeTag === "all"
+                ? localizedCampaigns
+                : localizedCampaigns.filter((c) => c.tags?.includes(activeTag))
               ).map((c) => (
                 <article
                   key={c.id}
@@ -499,7 +499,7 @@ export default function FundraisingCampaigns() {
                             key={tag}
                             className="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full"
                           >
-                            {tag}
+                            {t(`fundraising.tags.${tag}`)}
                           </span>
                         ))}
                       </div>
@@ -510,7 +510,7 @@ export default function FundraisingCampaigns() {
                         onClick={() => setSelected(c)}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md bg-emerald-600 text-white text-sm transition group-hover:scale-[1.02]"
                       >
-                        View
+                        {t("fundraising.view")}
                       </button>
                       <button
                         onClick={() => {
@@ -518,7 +518,7 @@ export default function FundraisingCampaigns() {
                         }}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md border border-emerald-200 text-emerald-700 text-sm bg-white/60"
                       >
-                        Donate
+                        {t("fundraising.donate")}
                       </button>
                     </div>
                   </div>
@@ -551,9 +551,11 @@ export default function FundraisingCampaigns() {
                     <div className="absolute inset-0 rounded-full flex items-center justify-center">
                       <div className="text-center">
                         <div className="text-xl font-bold text-emerald-700">
-                          {percent(selected || CAMPAIGNS[0])}%
+                          {percent(selected || localizedCampaigns[0])}%
                         </div>
-                        <div className="text-xs text-slate-500">Funded</div>
+                        <div className="text-xs text-slate-500">
+                          {t("fundraising.labels.funded")}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -605,13 +607,15 @@ export default function FundraisingCampaigns() {
                       aria-checked={false}
                     />
                     <span className="text-sm text-slate-600 dark:text-slate-300">
-                      Make this a monthly donation
+                      {t("fundraising.monthlyDonation")}
                     </span>
                   </label>
                 </div>
 
                 <form onSubmit={handleDonate} className="mt-4">
-                  <label className="text-sm">Custom amount (USD)</label>
+                  <label className="text-sm">
+                    {t("fundraising.customAmount")}
+                  </label>
                   <div className="mt-2 flex gap-2">
                     <input
                       type="number"
@@ -624,7 +628,7 @@ export default function FundraisingCampaigns() {
                       type="submit"
                       className="px-4 bg-emerald-600 text-white rounded-md"
                     >
-                      Donate
+                      {t("fundraising.donate")}
                     </button>
                   </div>
                 </form>
@@ -639,7 +643,9 @@ export default function FundraisingCampaigns() {
                   <div className="font-bold text-emerald-700">
                     {selected ? percent(selected) : 0}%
                   </div>
-                  <div className="text-slate-500">Funded</div>
+                  <div className="text-slate-500">
+                    {t("fundraising.labels.funded")}
+                  </div>
                 </div>
                 <div className="bg-white dark:bg-slate-900/60 rounded-md p-3 text-center">
                   <div className="font-bold text-emerald-700">
@@ -647,7 +653,9 @@ export default function FundraisingCampaigns() {
                       ? `$${selected.raised.toLocaleString()}`
                       : "-"}
                   </div>
-                  <div className="text-slate-500">Raised</div>
+                  <div className="text-slate-500">
+                    {t("fundraising.labels.raised")}
+                  </div>
                 </div>
               </div>
             </div>
@@ -658,7 +666,7 @@ export default function FundraisingCampaigns() {
         <section className="  flex justify-center items-center   bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900  px-6">
           <div className=" flex flex-col max-w-6xl w-full py-8">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Impact Snapshot
+              {t("fundraising.impact.title")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {METRICS.map((m) => (
@@ -681,7 +689,7 @@ export default function FundraisingCampaigns() {
                   </div>
 
                   <div className="relative z-10 text-sm text-slate-500 mt-2">
-                    {m.label}
+                    {t(m.label)}
                   </div>
                 </div>
               ))}
@@ -695,12 +703,10 @@ export default function FundraisingCampaigns() {
             {/* Left: headline + description */}
             <div className="md:col-span-1">
               <h3 className="text-2xl font-bold text-emerald-800">
-                Get Involved — Volunteer or Host an Event
+                {t("fundraising.volunteer.title")}
               </h3>
               <p className="text-slate-600 dark:text-slate-300 mt-3">
-                Join our field teams, host a local fundraiser, or help spread
-                the word. Below are upcoming opportunities — RSVP or sign up to
-                be notified about similar events.
+                {t("fundraising.volunteer.lead")}
               </p>
 
               <div className="mt-4 flex gap-2">
@@ -708,7 +714,7 @@ export default function FundraisingCampaigns() {
                   href="#campaigns"
                   className="inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-md shadow-sm"
                 >
-                  Volunteer Opportunities
+                  {t("fundraising.volunteer.cta")}
                 </a>
               </div>
             </div>
@@ -716,7 +722,7 @@ export default function FundraisingCampaigns() {
             {/* Middle: upcoming events list */}
             <div className="md:col-span-1 bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm">
               <h4 className="font-semibold text-emerald-700 mb-3">
-                Upcoming Events
+                {t("fundraising.events.title")}
               </h4>
               <ul className="flex flex-col gap-3">
                 {EVENTS.map((ev) => (
@@ -736,12 +742,14 @@ export default function FundraisingCampaigns() {
                       <div className="text-sm font-bold text-emerald-700">
                         {ev.spots}
                       </div>
-                      <div className="text-xs text-slate-400">spots</div>
+                      <div className="text-xs text-slate-400">
+                        {t("fundraising.events.spots")}
+                      </div>
                       <button
-                        onClick={() => setSelected(CAMPAIGNS[0])}
+                        onClick={() => setSelected(localizedCampaigns[0])}
                         className="mt-2 ml-auto inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 text-white text-xs"
                       >
-                        RSVP
+                        {t("fundraising.rsvp")}
                       </button>
                     </div>
                   </li>
@@ -755,7 +763,7 @@ export default function FundraisingCampaigns() {
         <section className="bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900 py-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Help & Questions
+              {t("fundraising.help.title")}
             </h2>
 
             <div className="grid  gap-6">
@@ -772,7 +780,7 @@ export default function FundraisingCampaigns() {
                           : "bg-white/60 text-slate-700"
                       }`}
                     >
-                      All
+                      {t("fundraising.faqall")}
                     </button>
                     {faqCategories.map((cat) => (
                       <button
@@ -804,7 +812,7 @@ export default function FundraisingCampaigns() {
                     if (!filtered.length) {
                       return (
                         <div className="text-sm text-slate-500">
-                          No results — try different keywords.
+                          {t("fundraising.faqnoResults")}
                         </div>
                       );
                     }
@@ -946,12 +954,10 @@ export default function FundraisingCampaigns() {
 
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800">
-                      Need help or want to partner with us?
+                      {t("fundraising.contact.title")}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-300 mt-1">
-                      Reach out to our team for campaign questions, partnership
-                      inquiries, or media requests. We typically reply within
-                      1-2 business days.
+                      {t("fundraising.contact.lead")}
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -959,7 +965,7 @@ export default function FundraisingCampaigns() {
                         href="/contact-us"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full shadow-sm"
                       >
-                        Contact page
+                        {t("fundraising.contact.cta")}
                       </a>
 
                       <a
