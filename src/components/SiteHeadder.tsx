@@ -111,7 +111,7 @@ const SiteHeadder: React.FC = () => {
       <div className="  mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/home1" className="flex items-center gap-3">
               <img
                 src="https://i.postimg.cc/DwdH9gv8/logo-stackly.png"
                 alt=""

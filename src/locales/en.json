@@ -1,1 +1,96 @@
-{}
+{
+  "volunteerRemote": {
+    "meta": {
+      "title": "Volunteer management tips for remote teams — Emerald Aid",
+      "description": "Practical tips to recruit, onboard, and manage remote volunteers with clarity, flexibility, and measurable impact."
+    },
+    "badge": "Guide",
+    "updated": "Updated {{date}}",
+    "title": "Volunteer management tips for remote teams",
+    "lead": "Remote volunteering unlocks talent beyond geography. These practical tips help you recruit, onboard, engage, and recognize remote volunteers while keeping coordination simple and impact measurable.",
+    "cta": {
+      "resources": "Volunteer Resources",
+      "ask": "Ask an Expert"
+    },
+    "by": "By {{author}}",
+    "leadShort": "Manage remote volunteers with clarity and empathy: define roles, set short milestones, and make communication predictable. Small investments in onboarding and recognition pay big dividends in retention.",
+    "metrics": {
+      "onboardingTime": "30–60 min",
+      "onboardingLabel": "Onboarding session",
+      "coordinationTime": "2–4 hrs",
+      "coordinationLabel": "Weekly coordination",
+      "responsibilitiesCount": "3 items",
+      "responsibilitiesLabel": "Clear responsibilities"
+    },
+    "sections": {
+      "recruit": {
+        "title": "1. Recruit with clear, bite-sized roles",
+        "body": "Break opportunities into small, well-defined tasks with expected time commitments and outcomes. Example: \"Data entry — 3 hours to clean 200 records\". Clarity reduces friction and increases sign-ups."
+      },
+      "onboard": {
+        "title": "2. Onboard quickly and consistently",
+        "body": "Use a 30–60 minute onboarding call or a short recorded walkthrough. Share a one-page role brief, key contacts, expected hours, and where to ask for help."
+      },
+      "communicate": {
+        "title": "3. Make communication predictable",
+        "body": "Choose 1–2 tools (e.g., Slack + email) and a weekly check-in rhythm. Use short agendas and micro-updates: what I did, what I will do, blockers."
+      },
+      "timezones": {
+        "title": "4. Support across timezones",
+        "body": "Prefer asynchronous updates for daily work. Schedule live meetings at rotating times or offer multiple session slots. Record meetings and publish concise notes so everyone can catch up."
+      },
+      "metrics": {
+        "title": "5. Build simple metrics and short milestones",
+        "body": "Define 1–3 measurable outcomes per volunteer role. Track progress with a shared sheet or lightweight project board (Trello, Notion). Celebrate small wins publicly to keep momentum."
+      },
+      "tools": {
+        "title": "6. Provide tools & reduce friction",
+        "body": "Provide templates, short SOPs, and the exact files or links volunteers need. Minimize tool-hopping by consolidating info in one accessible place."
+      },
+      "recognition": {
+        "title": "7. Recognition & retention",
+        "body": "Say thank you: a public shoutout, a short personalised note, or a small certificate goes a long way. Ask top contributors about deeper roles or longer-term opportunities."
+      }
+    },
+    "checklist": {
+      "title": "Quick checklist",
+      "items": [
+        "Create a one-page role brief",
+        "Run a 30–60 minute onboarding session",
+        "Set a single coordination channel and weekly recap",
+        "Track 1–3 measurable outcomes per role",
+        "Recognize contributors publicly each month"
+      ]
+    },
+    "templates": {
+      "title": "Templates & quick scripts",
+      "agendaTitle": "Meeting agenda (3 items)",
+      "agendaBody": "1) Introductions 2) Role brief & tools 3) First milestone and questions."
+    },
+    "ready": {
+      "title": "Ready to scale remote volunteering?",
+      "body": "Use clear roles, predictable rhythms, and light tooling to onboard and retain remote volunteers. If you want, we can help create role briefs and onboarding templates tailored to your programs."
+    },
+    "actions": { "hub": "Volunteer Hub", "request": "Request Templates" },
+    "aside": {
+      "takeawaysTitle": "Key takeaways",
+      "takeaways": [
+        "Define short, clear roles",
+        "Onboard in 30–60 minutes",
+        "Make communication predictable",
+        "Recognize contributors regularly"
+      ],
+      "shareTitle": "Share this guide",
+      "share": {
+        "twitter": "Twitter",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn"
+      },
+      "actionsTitle": "Quick actions",
+      "actions": {
+        "resources": "Volunteer resources",
+        "request": "Request templates"
+      }
+    }
+  }
+}
