@@ -1,8 +1,11 @@
 import Link from "next/link";
 import SiteFooter from "../src/components/SiteFooter";
 import SiteHeadder from "../src/components/SiteHeadder";
+import { useTranslation } from "react-i18next";
 
 const BlogPage = () => {
+  const { t } = useTranslation();
+
   const blogs = [
     {
       title: "How to run an effective emergency fundraiser",
@@ -64,25 +67,23 @@ const BlogPage = () => {
         <section className="relative bg-linear-to-r from-emerald-600 to-emerald-400 text-white min-h-screen flex items-center justify-center">
           <div className="max-w-5xl mx-auto px-6 text-center">
             <h1 className="text-4xl lg:text-5xl font-extrabold">
-              Insights & Stories
+              {t("blog.hero.title")}
             </h1>
             <p className="mt-4 text-lg max-w-3xl mx-auto">
-              News, field reports, and practical guides from our teams and
-              partners — all focused on creating accountable and effective
-              programs.
+              {t("blog.hero.lead")}
             </p>
             <div className="mt-8 flex justify-center gap-3">
               <Link
                 href="/contact-us"
                 className="bg-white text-emerald-600 px-5 py-3 rounded-full font-semibold"
               >
-                Support our work
+                {t("blog.hero.cta.support")}
               </Link>
               <Link
                 href="/services"
                 className="border border-white/30 text-white px-5 py-3 rounded-full"
               >
-                Our services
+                {t("blog.hero.cta.services")}
               </Link>
             </div>
           </div>
@@ -92,9 +93,11 @@ const BlogPage = () => {
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10">
-              <h3 className="text-2xl font-semibold">Latest posts</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("blog.latest.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Fresh content from our field teams and program leads.
+                {t("blog.latest.lead")}
               </p>
             </div>
 
@@ -128,7 +131,9 @@ const BlogPage = () => {
                           d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"
                         />
                       </svg>
-                      <span>{b.date}</span>
+                      <span>
+                        {t(`blog.posts.${i}.date`, { defaultValue: b.date })}
+                      </span>
                     </div>
                   </div>
 
@@ -140,15 +145,23 @@ const BlogPage = () => {
                     />
 
                     <div className="flex-1">
-                      <div className="text-xs text-gray-500">{b.author}</div>
+                      <div className="text-xs text-gray-500">
+                        {t(`blog.posts.${i}.author`, {
+                          defaultValue: b.author,
+                        })}
+                      </div>
                       <h4 className="mt-1 text-lg font-semibold text-gray-900 dark:text-gray-100">
                         <Link href={b.href} className="hover:underline">
-                          {b.title}
+                          {t(`blog.posts.${i}.title`, {
+                            defaultValue: b.title,
+                          })}
                         </Link>
                       </h4>
 
                       <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
-                        {b.excerpt}
+                        {t(`blog.posts.${i}.excerpt`, {
+                          defaultValue: b.excerpt,
+                        })}
                       </p>
 
                       <div className="mt-4 flex items-center justify-between">
@@ -156,7 +169,7 @@ const BlogPage = () => {
                           href={b.href}
                           className="inline-flex items-center text-emerald-600 font-medium hover:underline"
                         >
-                          Read post
+                          {t("blog.actions.readPost")}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-4 h-4 ml-2"
@@ -174,7 +187,7 @@ const BlogPage = () => {
                         </Link>
 
                         <div className="text-xs text-gray-400">
-                          • 4 min read
+                          {t("blog.readTime", { defaultValue: "• 4 min read" })}
                         </div>
                       </div>
                     </div>
@@ -189,10 +202,11 @@ const BlogPage = () => {
         <section className="py-16 bg-white dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold">Get involved</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("blog.getInvolved.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Join our work in the way that fits you best — volunteer,
-                fundraise, partner or help spread the word.
+                {t("blog.getInvolved.lead")}
               </p>
             </div>
 
@@ -307,10 +321,14 @@ const BlogPage = () => {
 
                       <div>
                         <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                          {c.title}
+                          {t(`blog.getInvolved.cards.${i}.title`, {
+                            defaultValue: c.title,
+                          })}
                         </h4>
                         <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
-                          {c.desc}
+                          {t(`blog.getInvolved.cards.${i}.desc`, {
+                            defaultValue: c.desc,
+                          })}
                         </p>
                       </div>
                     </div>
@@ -398,9 +416,11 @@ const BlogPage = () => {
         <section className="py-16 bg-white dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold">Upcoming events</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("blog.events.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Join us at these field events, trainings and fundraisers.
+                {t("blog.events.lead")}
               </p>
             </div>
 
@@ -441,10 +461,18 @@ const BlogPage = () => {
 
                       <div className="flex-1">
                         <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                          {e.title}
+                          {t(`blog.events.items.${i}.title`, {
+                            defaultValue: e.title,
+                          })}
                         </h4>
                         <div className="text-sm text-gray-500 mt-1">
-                          {e.loc} • {e.date}
+                          {t(`blog.events.items.${i}.loc`, {
+                            defaultValue: e.loc,
+                          })}{" "}
+                          •{" "}
+                          {t(`blog.events.items.${i}.date`, {
+                            defaultValue: e.date,
+                          })}
                         </div>
                         <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
                           Seats are limited — register to secure your spot and
@@ -458,7 +486,7 @@ const BlogPage = () => {
                         href={"/contact-us"}
                         className="inline-block bg-emerald-600 text-white px-4 py-2 rounded-md"
                       >
-                        Register
+                        {t("blog.events.register")}
                       </Link>
                     </div>
                   </article>
@@ -472,10 +500,11 @@ const BlogPage = () => {
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10">
-              <h3 className="text-2xl font-semibold">Volunteer resources</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("blog.resources.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Helpful guides, templates and quick-start materials for
-                volunteers — concise and ready to use.
+                {t("blog.resources.lead")}
               </p>
             </div>
 
@@ -534,24 +563,32 @@ const BlogPage = () => {
                     <div className="flex-1 flex flex-col h-full justify-between">
                       <div className="flex items-center justify-between">
                         <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                          {r.title}
+                          {t(`blog.resources.items.${i}.title`, {
+                            defaultValue: r.title,
+                          })}
                         </h4>
                         <div className="text-sm text-gray-500 dark:text-gray-400">
-                          {r.size}
+                          {t(`blog.resources.items.${i}.size`, {
+                            defaultValue: r.size,
+                          })}
                         </div>
                       </div>
 
                       <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                        {r.desc}
+                        {t(`blog.resources.items.${i}.desc`, {
+                          defaultValue: r.desc,
+                        })}
                       </p>
 
                       <div className="mt-3 flex flex-wrap items-center gap-2">
-                        {r.tags.map((t, j) => (
+                        {r.tags.map((tag, j) => (
                           <span
                             key={j}
                             className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
                           >
-                            {t}
+                            {t(`blog.resources.items.${i}.tags.${j}`, {
+                              defaultValue: tag,
+                            })}
                           </span>
                         ))}
                       </div>

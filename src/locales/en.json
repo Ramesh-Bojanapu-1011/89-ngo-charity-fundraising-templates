@@ -782,6 +782,118 @@
     "campaignsTitle": "Active Campaigns",
     "customAmount": "Custom amount (USD)"
   },
+  "blog": {
+    "hero": {
+      "title": "Insights & Stories",
+      "lead": "News, field reports, and practical guides from our teams and partners — all focused on creating accountable and effective programs.",
+      "cta": { "support": "Support our work", "services": "Our services" }
+    },
+    "latest": {
+      "title": "Latest posts",
+      "lead": "Fresh content from our field teams and program leads."
+    },
+    "posts": {
+      "0": {
+        "title": "How to run an effective emergency fundraiser",
+        "date": "Oct 2, 2025",
+        "excerpt": "Lessons from rapid-response campaigns: message, cadence, and local partners.",
+        "author": "Amina Farah"
+      },
+      "1": {
+        "title": "Designing school rebuild programs with local input",
+        "date": "Sep 14, 2025",
+        "excerpt": "A step-by-step look at community-led design and how it improves outcomes.",
+        "author": "Daniel Ortiz"
+      },
+      "2": {
+        "title": "Volunteer management tips for remote teams",
+        "date": "Aug 28, 2025",
+        "excerpt": "How to recruit, train, and retain volunteers when your program spans timezones.",
+        "author": "Rukmini Patel"
+      },
+      "3": {
+        "title": "Measuring impact: simple indicators you can use",
+        "date": "Jul 9, 2025",
+        "excerpt": "Practical monitoring indicators for small teams.",
+        "author": "Samuel K."
+      },
+      "4": {
+        "title": "Budget transparency: preparing donor-friendly reports",
+        "date": "Jun 21, 2025",
+        "excerpt": "Simple templates and tips to make financials clear.",
+        "author": "Finance Team"
+      }
+    },
+    "actions": { "readPost": "Read post", "readTime": "• 4 min read" },
+    "getInvolved": {
+      "title": "Get involved",
+      "lead": "Join our work in the way that fits you best — volunteer, fundraise, partner or help spread the word.",
+      "cards": {
+        "0": {
+          "title": "Volunteer",
+          "desc": "Lend your time on the ground or remotely — roles for different skills and availability."
+        },
+        "1": {
+          "title": "Fundraise",
+          "desc": "Start a fundraiser or join an existing campaign to mobilize your network."
+        },
+        "2": {
+          "title": "Partnerships",
+          "desc": "Collaborate with us — institutions, local orgs and corporate partners welcome."
+        },
+        "3": {
+          "title": "Share",
+          "desc": "Help amplify our stories — share reports, posts and calls to action with your network."
+        }
+      }
+    },
+    "events": {
+      "title": "Upcoming events",
+      "lead": "Join us at these field events, trainings and fundraisers.",
+      "items": {
+        "0": {
+          "title": "Community workshop",
+          "loc": "Kisumu",
+          "date": "Nov 20, 2025"
+        },
+        "1": {
+          "title": "Volunteer training",
+          "loc": "Hybrid",
+          "date": "Dec 5, 2025"
+        },
+        "2": {
+          "title": "Year-end fundraiser",
+          "loc": "Online",
+          "date": "Dec 18, 2025"
+        }
+      },
+      "register": "Register"
+    },
+    "resources": {
+      "title": "Volunteer resources",
+      "lead": "Helpful guides, templates and quick-start materials for volunteers — concise and ready to use.",
+      "items": {
+        "0": {
+          "title": "Volunteer handbook",
+          "desc": "Roles, safety and code of conduct. Essential reading for new volunteers.",
+          "tags": { "0": "Policy", "1": "Safety" },
+          "size": "2.4 MB"
+        },
+        "1": {
+          "title": "Remote volunteer toolkit",
+          "desc": "Templates, checklists and communication tips for remote roles.",
+          "tags": { "0": "Templates", "1": "Remote" },
+          "size": "1.1 MB"
+        },
+        "2": {
+          "title": "Training schedule",
+          "desc": "Upcoming sessions and recorded materials to bring you up to speed.",
+          "tags": { "0": "Training", "1": "Calendar" },
+          "size": "—"
+        }
+      }
+    }
+  },
   "volunteerManagement": {
     "meta": {
       "title": "Volunteer Management — Emerald Aid",
