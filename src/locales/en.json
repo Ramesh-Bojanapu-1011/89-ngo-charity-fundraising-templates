@@ -782,6 +782,126 @@
     "campaignsTitle": "Active Campaigns",
     "customAmount": "Custom amount (USD)"
   },
+  "volunteerManagement": {
+    "meta": {
+      "title": "Volunteer Management — Emerald Aid",
+      "description": "Find and manage volunteer opportunities — sign up for shifts, track hours, and join events supporting verified causes."
+    },
+    "hero": {
+      "badge": "Verified",
+      "updated": "Updated weekly",
+      "title": "Volunteer with us — make an impact locally and globally",
+      "lead": "Browse curated volunteer roles, sign up for shifts and events, and track your contributions. Short-term and recurring roles available to fit your schedule.",
+      "ctaBrowse": "Browse Opportunities",
+      "ctaJoin": "Join Now"
+    },
+    "campaigns": {
+      "c1": {
+        "title": "Community Volunteer Coordination",
+        "summary": "Support our volunteer management systems that help connect local helpers with rural community projects. Your contribution enhances scheduling, training, and on-site coordination."
+      },
+      "c2": {
+        "title": "Educational Outreach Volunteers",
+        "summary": "Join our team to assist with educational programs in underserved areas. Help organize learning materials, support teachers, and engage with students to foster a positive learning environment."
+      },
+      "c3": {
+        "title": "Emergency Response Support",
+        "summary": "Be part of our emergency response team, assisting with logistics, communication, and volunteer mobilization during crises. Your efforts will help ensure timely and effective aid delivery."
+      },
+      "c4": {
+        "title": "Youth Mentorship Program",
+        "summary": "Mentor young individuals in our community programs, providing guidance, support, and encouragement. Help shape the next generation of leaders through positive role modeling."
+      },
+      "c5": {
+        "title": "Health Awareness Campaigns",
+        "summary": "Contribute to health education initiatives by organizing community workshops, distributing informational materials, and assisting healthcare professionals in outreach efforts."
+      },
+      "c6": {
+        "title": "Technology for Good Volunteers",
+        "summary": "Leverage your tech skills to support our digital initiatives. Help with website updates, data management, and online outreach to enhance our overall impact."
+      }
+    },
+    "programsTitle": "Opportunities & Programs Seeking Volunteers",
+    "tags": {
+      "all": "All",
+      "community": "Community",
+      "volunteer": "Volunteer Management",
+      "education": "Education",
+      "emergency": "Emergency",
+      "youth": "Youth",
+      "mentorship": "Mentorship",
+      "health": "Health",
+      "tech": "Technology"
+    },
+    "processing": "Processing your sign-up — thank you!",
+    "thanks": "Thank you — your sign-up is received (demo). We will follow up by email.",
+    "view": "Details",
+    "join": "Join",
+    "labels": {
+      "funded": "Funded",
+      "raised": "Raised",
+      "of": "of",
+      "volunteersPrefix": "Volunteers",
+      "filled": "filled",
+      "raisedPrefix": "Raised"
+    },
+    "impact": { "title": "Volunteer Impact" },
+    "metrics": {
+      "donors": "Donors",
+      "campaigns": "Campaigns",
+      "raised": "Total raised",
+      "volunteers": "Volunteers",
+      "volunteerHours": "Volunteer Hours"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "spots": "spots",
+      "register": "Register",
+      "e1": {
+        "title": "Volunteer Orientation Day",
+        "location": "Community Center"
+      },
+      "e2": {
+        "title": "Leadership Skills Workshop",
+        "location": "Main Training Hall"
+      },
+      "e3": {
+        "title": "Volunteer Appreciation Meetup",
+        "location": "Online (Zoom)"
+      }
+    },
+    "volunteer": {
+      "title": "Get Involved — Volunteer or Host an Event",
+      "lead": "Join our field teams, host a local fundraiser,or help spread the word. Below are upcoming opportunities — RSVP or sign up to be notified about similar events."
+    },
+    "help": { "title": "Volunteer Help & FAQs" },
+    "faq": {
+      "noResults": "No results — try different keywords.",
+      "f1": {
+        "q": "How can I track volunteer hours and participation?",
+        "a": "You can track volunteer hours using our Volunteer Management System dashboard. Each volunteer logs their hours, and coordinators can review participation reports in real-time."
+      },
+      "f2": {
+        "q": "Can I assign different roles to volunteers for specific events?",
+        "a": "Yes, you can easily assign roles such as team leader, coordinator, or support staff for each event. Role assignments can be managed directly through the event management panel."
+      },
+      "f3": {
+        "q": "How do I communicate with my volunteers?",
+        "a": "You can send group messages, event updates, and reminders via the built-in communication tools. Notifications are sent through email and the volunteer portal to ensure no one misses key details."
+      },
+      "f4": {
+        "q": "Can I generate reports on volunteer performance and engagement?",
+        "a": "Absolutely! The system provides detailed analytics including total hours served, attendance rates, and engagement statistics, helping you recognize top volunteers and optimize scheduling."
+      }
+    },
+    "contact": {
+      "title": "Questions about volunteering?",
+      "lead": "Contact our volunteer support team for help with sign-ups, role requirements, or training. We usually respond within 1-2 business days.",
+      "cta": "Contact Support"
+    },
+    "monthlyDonation": "Make this a monthly donation",
+    "customAmount": "Custom amount (USD)"
+  },
   "onlineDonations": {
     "meta": {
       "title": "Online Donations — Emerald Aid",

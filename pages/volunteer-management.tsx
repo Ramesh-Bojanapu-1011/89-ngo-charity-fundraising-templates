@@ -1,105 +1,98 @@
 import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import SiteHeadder from "../src/components/SiteHeadder";
 import SiteFooter from "../src/components/SiteFooter";
 
 type Campaign = {
   id: string;
-  title: string;
   goal: number;
   raised: number;
   image: string;
-  summary: string;
-  tags?: string[];
+  tags?: string[]; // tag ids
 };
 
 const CAMPAIGNS: Campaign[] = [
   {
     id: "c1",
-    title: "Community Volunteer Coordination",
     goal: 25000,
     raised: 18250,
     image:
       "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support our volunteer management systems that help connect local helpers with rural community projects. Your contribution enhances scheduling, training, and on-site coordination.",
-    tags: ["Community", "Volunteer Management"],
+    tags: ["community", "volunteer"],
   },
   {
     id: "c2",
-    title: "Volunteer Training & Certification",
     goal: 15000,
     raised: 6400,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Help us train 1,000 volunteers through structured programs and certification workshops. Your support ensures effective leadership and field-readiness.",
-    tags: ["Education", "Volunteer Management"],
+    tags: ["education", "volunteer"],
   },
   {
     id: "c3",
-    title: "Rapid Response Volunteer Network",
     goal: 40000,
     raised: 31000,
     image:
       "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Build a rapid-response volunteer system for emergencies and relief operations. Funds will enhance logistics, safety training, and deployment tools.",
-    tags: ["Emergency", "Volunteer Management"],
+    tags: ["emergency", "volunteer"],
   },
   {
     id: "c4",
-    title: "Mentorship for Young Volunteers",
     goal: 18000,
     raised: 9200,
     image:
       "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Invest in mentorship programs that guide young volunteers toward community leadership and impactful service opportunities.",
-    tags: ["Youth", "Mentorship", "Volunteer Management"],
+    tags: ["youth", "mentorship", "volunteer"],
   },
   {
     id: "c5",
-    title: "Health Outreach Volunteer Program",
     goal: 30000,
     raised: 14500,
     image:
       "https://images.unsplash.com/photo-1580281657527-6c1b7dcb9b7d?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support mobile health initiatives run by volunteers — providing care, vaccination drives, and wellness education in underserved areas.",
-    tags: ["Health", "Volunteer Management"],
+    tags: ["health", "volunteer"],
   },
   {
     id: "c6",
-    title: "Volunteer Support and Engagement Hub",
     goal: 12000,
     raised: 7600,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Help build a digital hub that manages volunteer registration, tracking, and recognition — strengthening our volunteer community.",
-    tags: ["Technology", "Volunteer Management"],
+    tags: ["tech", "volunteer"],
   },
 ];
 
 export default function VolunteerDonationCampaigns() {
-  const [selected, setSelected] = useState<Campaign | null>(CAMPAIGNS[0]);
+  const { t, i18n } = useTranslation();
+
+  type LocalizedCampaign = Campaign & { title?: string; summary?: string };
+
+  const [selected, setSelected] = useState<LocalizedCampaign | null>(null);
   const [donation, setDonation] = useState<number>(50);
   const [status, setStatus] = useState<string | null>(null);
-  const [activeTag, setActiveTag] = useState<string>("All");
+  const [activeTag, setActiveTag] = useState<string>("all");
 
   const allTags = Array.from(
     new Set(CAMPAIGNS.flatMap((c) => c.tags ?? [])),
   ).sort();
-  const filterTags = ["All", ...allTags];
+  const filterTags = ["all", ...allTags];
+
+  const localizedCampaigns: LocalizedCampaign[] = CAMPAIGNS.map((c) => ({
+    ...c,
+    title: t(`volunteerManagement.campaigns.${c.id}.title`),
+    summary: t(`volunteerManagement.campaigns.${c.id}.summary`),
+  }));
+
+  useEffect(() => {
+    setSelected(localizedCampaigns[0] ?? null);
+  }, [i18n.language]);
 
   function handleDonate(e?: React.FormEvent) {
     e?.preventDefault();
-    setStatus("Processing your sign-up — thank you!");
+    setStatus(t("volunteerManagement.processing"));
     setTimeout(() => {
-      setStatus(
-        "Thank you — your sign-up is received (demo). We will follow up by email.",
-      );
+      setStatus(t("volunteerManagement.thanks"));
     }, 800);
   }
 
@@ -166,7 +159,7 @@ export default function VolunteerDonationCampaigns() {
   const METRICS = [
     {
       id: "donors",
-      label: "Donors",
+      label: "donors",
       value: 1240,
       duration: 1000,
       icon: (
@@ -200,7 +193,7 @@ export default function VolunteerDonationCampaigns() {
     },
     {
       id: "campaigns",
-      label: "Active Campaigns",
+      label: "campaigns",
       value: CAMPAIGNS.length,
       duration: 700,
       icon: (
@@ -222,7 +215,7 @@ export default function VolunteerDonationCampaigns() {
     },
     {
       id: "volunteerHours",
-      label: "Volunteer Hours",
+      label: "volunteerHours",
       value: 52340,
       duration: 1200,
       icon: (
@@ -250,7 +243,7 @@ export default function VolunteerDonationCampaigns() {
     },
     {
       id: "volunteers",
-      label: "Volunteers",
+      label: "volunteers",
       value: 320,
       duration: 900,
       icon: (
@@ -280,55 +273,17 @@ export default function VolunteerDonationCampaigns() {
 
   // Small set of upcoming events for the CTA panel
   const EVENTS = [
-    {
-      id: "e1",
-      title: "Volunteer Orientation Day",
-      date: "Nov 22",
-      location: "Community Center",
-      spots: 60,
-    },
-    {
-      id: "e2",
-      title: "Leadership Skills Workshop",
-      date: "Dec 6",
-      location: "Main Training Hall",
-      spots: 45,
-    },
-    {
-      id: "e3",
-      title: "Volunteer Appreciation Meetup",
-      date: "Jan 10",
-      location: "Online (Zoom)",
-      spots: 100,
-    },
+    { id: "e1", date: "Nov 22", location: "Community Center", spots: 60 },
+    { id: "e2", date: "Dec 6", location: "Main Training Hall", spots: 45 },
+    { id: "e3", date: "Jan 10", location: "Online (Zoom)", spots: 100 },
   ];
 
   // FAQs driven by React state so we can filter/search easily
   const FAQS = [
-    {
-      id: "f1",
-      q: "How can I track volunteer hours and participation?",
-      a: "You can track volunteer hours using our Volunteer Management System dashboard. Each volunteer logs their hours, and coordinators can review participation reports in real-time.",
-      category: "Volunteer Management",
-    },
-    {
-      id: "f2",
-      q: "Can I assign different roles to volunteers for specific events?",
-      a: "Yes, you can easily assign roles such as team leader, coordinator, or support staff for each event. Role assignments can be managed directly through the event management panel.",
-      category: "Volunteer Management",
-    },
-    {
-      id: "f3",
-      q: "How do I communicate with my volunteers?",
-      a: "You can send group messages, event updates, and reminders via the built-in communication tools. Notifications are sent through email and the volunteer portal to ensure no one misses key details.",
-      category: "Volunteer Management",
-    },
-    {
-      id: "f4",
-      q: "Can I generate reports on volunteer performance and engagement?",
-      a: "Absolutely! The system provides detailed analytics including total hours served, attendance rates, and engagement statistics, helping you recognize top volunteers and optimize scheduling.",
-      category: "Volunteer Management",
-    },
+    { id: "f1", category: "Volunteer Management" },
+    { id: "f2", category: "Volunteer Management" },
+    { id: "f3", category: "Volunteer Management" },
+    { id: "f4", category: "Volunteer Management" },
   ];
 
   // FAQ UI state
@@ -339,10 +294,10 @@ export default function VolunteerDonationCampaigns() {
   return (
     <>
       <Head>
-        <title>Volunteer Management — Emerald Aid</title>
+        <title>{t("volunteerManagement.meta.title")}</title>
         <meta
           name="description"
-          content="Find and manage volunteer opportunities — sign up for shifts, track hours, and join events supporting verified causes."
+          content={t("volunteerManagement.meta.description")}
         />
       </Head>
 
@@ -356,19 +311,19 @@ export default function VolunteerDonationCampaigns() {
               <div className="md:col-span-7">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                    Verified
+                    {t("volunteerManagement.hero.badge")}
                   </span>
-                  <span className="text-sm text-slate-500">Updated weekly</span>
+                  <span className="text-sm text-slate-500">
+                    {t("volunteerManagement.hero.updated")}
+                  </span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  Volunteer with us — make an impact locally and globally
+                  {t("volunteerManagement.hero.title")}
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Browse curated volunteer roles, sign up for shifts and events,
-                  and track your contributions. Short-term and recurring roles
-                  available to fit your schedule.
+                  {t("volunteerManagement.hero.lead")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -390,13 +345,13 @@ export default function VolunteerDonationCampaigns() {
                         d="M12 8v8m0 0l-3-3m3 3l3-3"
                       />
                     </svg>
-                    Browse Opportunities
+                    {t("volunteerManagement.hero.ctaBrowse")}
                   </a>
                   <a
                     href="#featured"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Join Now
+                    {t("volunteerManagement.hero.ctaJoin")}
                   </a>
                 </div>
               </div>
@@ -413,9 +368,12 @@ export default function VolunteerDonationCampaigns() {
                       {selected?.title}
                     </div>
                     <div className="text-xs text-slate-500">
-                      Volunteers {selected?.raised?.toLocaleString()} of{" "}
+                      {t("volunteerManagement.labels.volunteersPrefix")}{" "}
+                      {selected?.raised?.toLocaleString()}{" "}
+                      {t("volunteerManagement.labels.of")}{" "}
                       {selected?.goal?.toLocaleString()} (
-                      {percent(selected || CAMPAIGNS[0])}% filled)
+                      {percent(selected || CAMPAIGNS[0])}%{" "}
+                      {t("volunteerManagement.labels.filled")})
                     </div>
                   </div>
                 </div>
@@ -431,22 +389,24 @@ export default function VolunteerDonationCampaigns() {
         >
           <div className="max-w-6xl mx-auto flex flex-col gap-8 ">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Opportunities & Programs Seeking Volunteers
+              {t("volunteerManagement.programsTitle")}
             </h2>
             <div className="mb-4 flex flex-wrap justify-center items-center gap-2">
-              {filterTags.map((t) => (
+              {filterTags.map((tk) => (
                 <button
-                  key={t}
-                  onClick={() => setActiveTag(t)}
-                  aria-pressed={activeTag === t}
+                  key={tk}
+                  onClick={() => setActiveTag(tk)}
+                  aria-pressed={activeTag === tk}
                   className={
                     `text-sm px-3 py-1 rounded-full border transition ` +
-                    (activeTag === t
+                    (activeTag === tk
                       ? "bg-emerald-600 text-white border-emerald-600"
                       : "bg-white/60 dark:bg-slate-800/60 text-slate-700 border-slate-200")
                   }
                 >
-                  {t}
+                  {tk === "all"
+                    ? t("volunteerManagement.tags.all")
+                    : t(`volunteerManagement.tags.${tk}`)}
                 </button>
               ))}
             </div>
@@ -454,9 +414,9 @@ export default function VolunteerDonationCampaigns() {
             {/* filtered list */}
             {/** compute filtered campaigns */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(activeTag === "All"
-                ? CAMPAIGNS
-                : CAMPAIGNS.filter((c) => c.tags?.includes(activeTag))
+              {(activeTag === "all"
+                ? localizedCampaigns
+                : localizedCampaigns.filter((c) => c.tags?.includes(activeTag))
               ).map((c) => (
                 <article
                   key={c.id}
@@ -501,7 +461,7 @@ export default function VolunteerDonationCampaigns() {
                             key={tag}
                             className="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full"
                           >
-                            {tag}
+                            {t(`volunteerManagement.tags.${tag}`)}
                           </span>
                         ))}
                       </div>
@@ -512,7 +472,7 @@ export default function VolunteerDonationCampaigns() {
                         onClick={() => setSelected(c)}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md bg-emerald-600 text-white text-sm transition group-hover:scale-[1.02]"
                       >
-                        Details
+                        {t("volunteerManagement.view")}
                       </button>
                       <button
                         onClick={() => {
@@ -520,7 +480,7 @@ export default function VolunteerDonationCampaigns() {
                         }}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md border border-emerald-200 text-emerald-700 text-sm bg-white/60"
                       >
-                        Give
+                        {t("volunteerManagement.join")}
                       </button>
                     </div>
                   </div>
@@ -565,7 +525,9 @@ export default function VolunteerDonationCampaigns() {
                       {selected?.title}
                     </div>
                     <div className="text-xs text-white/90 mt-1">
-                      Raised ${selected?.raised?.toLocaleString()} of $
+                      {t("volunteerManagement.labels.volunteersPrefix")}{" "}
+                      {selected?.raised?.toLocaleString()}{" "}
+                      {t("volunteerManagement.labels.of")}{" "}
                       {selected?.goal?.toLocaleString()}
                     </div>
                   </div>
@@ -607,13 +569,15 @@ export default function VolunteerDonationCampaigns() {
                       aria-checked={false}
                     />
                     <span className="text-sm text-slate-600 dark:text-slate-300">
-                      Make this a monthly donation
+                      {t("volunteerManagement.monthlyDonation")}
                     </span>
                   </label>
                 </div>
 
                 <form onSubmit={handleDonate} className="mt-4">
-                  <label className="text-sm">Custom amount (USD)</label>
+                  <label className="text-sm">
+                    {t("volunteerManagement.customAmount")}
+                  </label>
                   <div className="mt-2 flex gap-2">
                     <input
                       type="number"
@@ -626,7 +590,7 @@ export default function VolunteerDonationCampaigns() {
                       type="submit"
                       className="px-4 bg-emerald-600 text-white rounded-md"
                     >
-                      Donate
+                      {t("volunteerManagement.join")}
                     </button>
                   </div>
                 </form>
@@ -641,7 +605,9 @@ export default function VolunteerDonationCampaigns() {
                   <div className="font-bold text-emerald-700">
                     {selected ? percent(selected) : 0}%
                   </div>
-                  <div className="text-slate-500">Funded</div>
+                  <div className="text-slate-500">
+                    {t("volunteerManagement.labels.funded")}
+                  </div>
                 </div>
                 <div className="bg-white dark:bg-slate-900/60 rounded-md p-3 text-center">
                   <div className="font-bold text-emerald-700">
@@ -649,7 +615,9 @@ export default function VolunteerDonationCampaigns() {
                       ? `$${selected.raised.toLocaleString()}`
                       : "-"}
                   </div>
-                  <div className="text-slate-500">Raised</div>
+                  <div className="text-slate-500">
+                    {t("volunteerManagement.labels.raised")}
+                  </div>
                 </div>
               </div>
             </div>
@@ -660,7 +628,7 @@ export default function VolunteerDonationCampaigns() {
         <section className="  flex justify-center items-center   bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900  px-6">
           <div className=" flex flex-col max-w-6xl w-full py-8">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Volunteer Impact
+              {t("volunteerManagement.impact.title")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {METRICS.map((m) => (
@@ -683,7 +651,7 @@ export default function VolunteerDonationCampaigns() {
                   </div>
 
                   <div className="relative z-10 text-sm text-slate-500 mt-2">
-                    {m.label}
+                    {t(`volunteerManagement.metrics.${m.label}`)}
                   </div>
                 </div>
               ))}
@@ -697,12 +665,10 @@ export default function VolunteerDonationCampaigns() {
             {/* Left: headline + description */}
             <div className="md:col-span-1">
               <h3 className="text-2xl font-bold text-emerald-800">
-                Get Involved — Volunteer or Host an Event
+                {t("volunteerManagement.volunteer.title")}
               </h3>
               <p className="text-slate-600 dark:text-slate-300 mt-3">
-                Join our field teams, host a local fundraiser, or help spread
-                the word. Below are upcoming opportunities — RSVP or sign up to
-                be notified about similar events.
+                {t("volunteerManagement.volunteer.lead")}
               </p>
 
               <div className="mt-4 flex gap-2">
@@ -718,7 +684,7 @@ export default function VolunteerDonationCampaigns() {
             {/* Middle: upcoming events list */}
             <div className="md:col-span-1 bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm">
               <h4 className="font-semibold text-emerald-700 mb-3">
-                Upcoming Events
+                {t("volunteerManagement.events.title")}
               </h4>
               <ul className="flex flex-col gap-3">
                 {EVENTS.map((ev) => (
@@ -728,22 +694,27 @@ export default function VolunteerDonationCampaigns() {
                   >
                     <div>
                       <div className="text-sm font-semibold text-emerald-800">
-                        {ev.title}
+                        {t(`volunteerManagement.events.${ev.id}.title`)}
                       </div>
                       <div className="text-xs text-slate-500">
-                        {ev.date} • {ev.location}
+                        {ev.date} •{" "}
+                        {t(`volunteerManagement.events.${ev.id}.location`, {
+                          defaultValue: ev.location,
+                        })}
                       </div>
                     </div>
                     <div className="text-right">
                       <div className="text-sm font-bold text-emerald-700">
                         {ev.spots}
                       </div>
-                      <div className="text-xs text-slate-400">spots</div>
+                      <div className="text-xs text-slate-400">
+                        {t("volunteerManagement.events.spots")}
+                      </div>
                       <button
-                        onClick={() => setSelected(CAMPAIGNS[0])}
+                        onClick={() => setSelected(localizedCampaigns[0])}
                         className="mt-2 ml-auto inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 text-white text-xs"
                       >
-                        Register
+                        {t("volunteerManagement.events.register")}
                       </button>
                     </div>
                   </li>
@@ -757,7 +728,7 @@ export default function VolunteerDonationCampaigns() {
         <section className="bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900 py-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Volunteer Help & FAQs
+              {t("volunteerManagement.help.title")}
             </h2>
 
             <div className="grid  gap-6">
@@ -796,7 +767,13 @@ export default function VolunteerDonationCampaigns() {
                 <div>
                   {(() => {
                     const q = faqQuery.trim().toLowerCase();
-                    const filtered = FAQS.filter((f) => {
+                    const enriched = FAQS.map((f) => ({
+                      ...f,
+                      q: t(`volunteerManagement.faq.${f.id}.q`),
+                      a: t(`volunteerManagement.faq.${f.id}.a`),
+                    }));
+
+                    const filtered = enriched.filter((f) => {
                       if (!q) return true;
                       return (f.q + " " + f.a + " " + f.category)
                         .toLowerCase()
@@ -806,7 +783,7 @@ export default function VolunteerDonationCampaigns() {
                     if (!filtered.length) {
                       return (
                         <div className="text-sm text-slate-500">
-                          No results — try different keywords.
+                          {t("volunteerManagement.faq.noResults")}
                         </div>
                       );
                     }
@@ -854,11 +831,7 @@ export default function VolunteerDonationCampaigns() {
                                 </div>
 
                                 <div
-                                  className={`mt-3 text-sm text-slate-500 transition-opacity duration-300 ${
-                                    openFaq === f.id
-                                      ? "opacity-100"
-                                      : "opacity-0 h-0 overflow-hidden"
-                                  }`}
+                                  className={`mt-3 text-sm text-slate-500 transition-opacity duration-300 ${openFaq === f.id ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}
                                 >
                                   {f.a}
                                 </div>
@@ -900,12 +873,10 @@ export default function VolunteerDonationCampaigns() {
 
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800">
-                      Questions about volunteering?
+                      {t("volunteerManagement.contact.title")}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-300 mt-1">
-                      Contact our volunteer support team for help with sign-ups,
-                      role requirements, or training. We usually respond within
-                      1-2 business days.
+                      {t("volunteerManagement.contact.lead")}
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -913,7 +884,7 @@ export default function VolunteerDonationCampaigns() {
                         href="/contact-us"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full shadow-sm"
                       >
-                        Contact Support
+                        {t("volunteerManagement.contact.cta")}
                       </a>
 
                       <a
