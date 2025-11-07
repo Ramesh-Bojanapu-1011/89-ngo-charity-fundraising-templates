@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import SiteFooter from "../src/components/SiteFooter";
 import SiteHeadder from "../src/components/SiteHeadder";
+import { useTranslation } from "react-i18next";
 
 // Small CountUp component that starts when it scrolls into view
 function Counter({
@@ -59,48 +60,84 @@ function Counter({
 }
 
 export default function Home1() {
+  const { t } = useTranslation();
   const impactMetrics = [
-    { label: "Donations", end: 120, suffix: "K+", duration: 1200 },
-    { label: "Donors", end: 8, suffix: "K+", duration: 1200 },
-    { label: "Campaigns", end: 500, suffix: "+", duration: 1200 },
+    {
+      label: t("home1.impact.metrics.donations", "Donations"),
+      end: 120,
+      suffix: "K+",
+      duration: 1200,
+    },
+    {
+      label: t("home1.impact.metrics.volunteers", "Volunteers"),
+      end: 8,
+      suffix: "K+",
+      duration: 1200,
+    },
+    {
+      label: t("home1.impact.metrics.campaigns", "Campaigns"),
+      end: 500,
+      suffix: "+",
+      duration: 1200,
+    },
   ];
+
+  // partner names come from translations so they update with language changes
+  const partners = t("home1.impact.partners", {
+    returnObjects: true,
+  }) as string[];
 
   const getInvolved = [
     {
-      title: "Donate",
-      desc: "Support ongoing campaigns with a one-time or recurring gift.",
+      title: t("home1.getInvolved.donate.title", "Donate"),
+      desc: t(
+        "home1.getInvolved.donate.desc",
+        "Support ongoing campaigns with a one-time or recurring gift.",
+      ),
       href: "/donate",
-      cta: "Give now",
+      cta: t("home1.getInvolved.donate.cta", "Give now"),
       style: "accent",
     },
     {
-      title: "Volunteer",
-      desc: "Join local initiatives or help remotely — we make signups easy.",
+      title: t("home1.getInvolved.volunteer.title", "Volunteer"),
+      desc: t(
+        "home1.getInvolved.volunteer.desc",
+        "Join local initiatives or help remotely — we make signups easy.",
+      ),
       href: "/volunteer",
-      cta: "Sign up",
+      cta: t("home1.getInvolved.volunteer.cta", "Sign up"),
       style: "outline",
     },
     {
-      title: "Host an event",
-      desc: "Use our event templates to run fundraisers, workshops and community meetups.",
+      title: t("home1.getInvolved.host.title", "Host an event"),
+      desc: t(
+        "home1.getInvolved.host.desc",
+        "Use our event templates to run fundraisers, workshops and community meetups.",
+      ),
       href: "/events",
-      cta: "Create event",
+      cta: t("home1.getInvolved.host.cta", "Create event"),
       style: "neutral",
     },
     {
-      title: "Spread the word",
-      desc: "Share campaigns on social media to amplify your impact.",
+      title: t("home1.getInvolved.spread.title", "Spread the word"),
+      desc: t(
+        "home1.getInvolved.spread.desc",
+        "Share campaigns on social media to amplify your impact.",
+      ),
       href: "#",
-      cta: "Share",
+      cta: t("home1.getInvolved.spread.cta", "Share"),
       style: "neutral",
     },
   ];
 
   const howSteps = [
     {
-      step: "Step 1",
-      title: "Create your page",
-      desc: "Pick a template, add your story and images — no design skills required.",
+      step: t("home1.how.step1.step", "Step 1"),
+      title: t("home1.how.step1.title", "Create your page"),
+      desc: t(
+        "home1.how.step1.desc",
+        "Pick a template, add your story and images — no design skills required.",
+      ),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -119,9 +156,12 @@ export default function Home1() {
       ),
     },
     {
-      step: "Step 2",
-      title: "Share & collect",
-      desc: "Share across social media, email and embed the donation component — supporters give in seconds.",
+      step: t("home1.how.step2.step", "Step 2"),
+      title: t("home1.how.step2.title", "Share & collect"),
+      desc: t(
+        "home1.how.step2.desc",
+        "Share across social media, email and embed the donation component — supporters give in seconds.",
+      ),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -140,9 +180,12 @@ export default function Home1() {
       ),
     },
     {
-      step: "Step 3",
-      title: "Manage & report",
-      desc: "Track donations, export reports and share outcomes with supporters to build trust.",
+      step: t("home1.how.step3.step", "Step 3"),
+      title: t("home1.how.step3.title", "Manage & report"),
+      desc: t(
+        "home1.how.step3.desc",
+        "Track donations, export reports and share outcomes with supporters to build trust.",
+      ),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -162,30 +205,16 @@ export default function Home1() {
     },
   ];
 
-  const testimonials = [
-    {
-      quote:
-        "Using the fundraising templates helped us double donations in one quarter.",
-      name: "Charity A",
-      role: "Campaign Lead",
-      avatar: "CA",
-      bg: "bg-emerald-600",
-    },
-    {
-      quote: "Event management was simple — RSVPs and ticketing in minutes.",
-      name: "Nonprofit B",
-      role: "Events Coordinator",
-      avatar: "NB",
-      bg: "bg-emerald-500",
-    },
-    {
-      quote: "Volunteers signed up quickly thanks to the clean signup flow.",
-      name: "Org C",
-      role: "Volunteer Manager",
-      avatar: "OC",
-      bg: "bg-emerald-700",
-    },
-  ];
+  // testimonials loaded from translations so they update when language changes
+  const testimonials = t("home1.testimonials.items", {
+    returnObjects: true,
+  }) as Array<{
+    quote: string;
+    name: string;
+    role: string;
+    avatar?: string;
+    bg?: string;
+  }>;
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 caret-transparent">
@@ -217,17 +246,21 @@ export default function Home1() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="relative z-10">
                 <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">
-                  NGO · Charity · Fundraising
+                  {t("home1.hero.badge", "NGO · Charity · Fundraising")}
                 </div>
 
                 <h1 className="mt-6 text-4xl lg:text-5xl font-extrabold leading-tight drop-shadow-md">
-                  Empower Communities. Transform Lives.
+                  {t(
+                    "home1.hero.title",
+                    "Empower Communities. Transform Lives.",
+                  )}
                 </h1>
 
                 <p className="mt-4 text-lg text-white/95 max-w-xl">
-                  Beautiful templates and tools built for nonprofits — tell your
-                  story, accept donations, organize volunteers, and report
-                  impact.
+                  {t(
+                    "home1.hero.lead",
+                    "Beautiful templates and tools built for nonprofits — tell your story, accept donations, organize volunteers, and report impact.",
+                  )}
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3 items-center">
@@ -249,14 +282,14 @@ export default function Home1() {
                         d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"
                       />
                     </svg>
-                    Donate Now
+                    {t("home1.hero.cta.donate", "Donate Now")}
                   </Link>
 
                   <a
                     href="#services"
                     className="inline-flex items-center gap-2 border border-white/30 text-white px-5 py-3 rounded-full hover:bg-white/10 transition"
                   >
-                    Explore Services
+                    {t("home1.hero.cta.explore", "Explore Services")}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-4 h-4"
@@ -277,11 +310,15 @@ export default function Home1() {
                 <div className="mt-8 flex gap-8 text-white/95">
                   <div>
                     <div className="text-3xl font-bold">120K+</div>
-                    <div className="text-sm opacity-90">Donations raised</div>
+                    <div className="text-sm opacity-90">
+                      {t("home1.hero.metrics.donations", "Donations raised")}
+                    </div>
                   </div>
                   <div>
                     <div className="text-3xl font-bold">8K+</div>
-                    <div className="text-sm opacity-90">Volunteers engaged</div>
+                    <div className="text-sm opacity-90">
+                      {t("home1.hero.metrics.volunteers", "Volunteers engaged")}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -340,12 +377,13 @@ export default function Home1() {
               {/* left: copy + features */}
               <div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold">
-                  About our templates
+                  {t("home1.about.title", "About our templates")}
                 </h2>
                 <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl">
-                  Designed with NGOs, charities and fundraisers in mind —
-                  flexible templates that make storytelling, donations and
-                  volunteer management simple and effective.
+                  {t(
+                    "home1.about.lead",
+                    "Designed with NGOs, charities and fundraisers in mind — flexible templates that make storytelling, donations and volunteer management simple and effective.",
+                  )}
                 </p>
 
                 <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -367,10 +405,14 @@ export default function Home1() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold">Easy to customize</div>
+                      <div className="font-semibold">
+                        {t("home1.features.easy.title", "Easy to customize")}
+                      </div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">
-                        Drag & drop sections, use preset styles and launch
-                        quickly.
+                        {t(
+                          "home1.features.easy.desc",
+                          "Drag & drop sections, use preset styles and launch quickly.",
+                        )}
                       </div>
                     </div>
                   </div>
@@ -393,9 +435,14 @@ export default function Home1() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold">Secure donations</div>
+                      <div className="font-semibold">
+                        {t("home1.features.secure.title", "Secure donations")}
+                      </div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">
-                        PCI-ready flows, multiple gateways and donor receipts.
+                        {t(
+                          "home1.features.secure.desc",
+                          "PCI-ready flows, multiple gateways and donor receipts.",
+                        )}
                       </div>
                     </div>
                   </div>
@@ -418,9 +465,14 @@ export default function Home1() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold">Volunteer tools</div>
+                      <div className="font-semibold">
+                        {t("home1.features.tools.title", "Volunteer tools")}
+                      </div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">
-                        Signup forms, scheduling and shift management built in.
+                        {t(
+                          "home1.features.tools.desc",
+                          "Signup forms, scheduling and shift management built in.",
+                        )}
                       </div>
                     </div>
                   </div>
@@ -443,9 +495,14 @@ export default function Home1() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold">Events & ticketing</div>
+                      <div className="font-semibold">
+                        {t("home1.features.events.title", "Events & ticketing")}
+                      </div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">
-                        Create public events, sell tickets and manage attendees.
+                        {t(
+                          "home1.features.events.desc",
+                          "Create public events, sell tickets and manage attendees.",
+                        )}
                       </div>
                     </div>
                   </div>
@@ -456,13 +513,13 @@ export default function Home1() {
                     href="/services"
                     className="inline-block bg-emerald-600 text-white px-5 py-3 rounded-md font-semibold shadow hover:opacity-95"
                   >
-                    See services
+                    {t("home1.actions.services", "See services")}
                   </Link>
                   <Link
                     href="/donate"
                     className="inline-block border border-emerald-600 text-emerald-600 px-5 py-3 rounded-md"
                   >
-                    Start a campaign
+                    {t("home1.actions.startCampaign", "Start a campaign")}
                   </Link>
                 </div>
 
@@ -525,10 +582,14 @@ export default function Home1() {
         <section id="how" className="py-16 bg-white dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-semibold">How it works</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("home1.how.title", "How it works")}
+              </h3>
               <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Launch a campaign in minutes — build fast pages, accept
-                donations, recruit volunteers and show impact.
+                {t(
+                  "home1.how.lead",
+                  "Launch a campaign in minutes — build fast pages, accept donations, recruit volunteers and show impact.",
+                )}
               </p>
             </div>
 
@@ -597,10 +658,14 @@ export default function Home1() {
               {/* metrics */}
               <div className="w-full lg:w-1/3">
                 <div className="mb-6">
-                  <h3 className="text-2xl font-semibold">Impact & partners</h3>
+                  <h3 className="text-2xl font-semibold">
+                    {t("home1.impact.title", "Impact & partners")}
+                  </h3>
                   <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-lg">
-                    Trusted by nonprofits and supported by partners who help us
-                    scale projects and reach more people.
+                    {t(
+                      "home1.impact.lead",
+                      "Trusted by nonprofits and supported by partners who help us scale projects and reach more people.",
+                    )}
                   </p>
                 </div>
 
@@ -627,13 +692,7 @@ export default function Home1() {
               <div className="w-full lg:w-2/3">
                 <div className="bg-white/50 dark:bg-gray-800/40 rounded-xl p-6 shadow-inner">
                   <div className="flex items-center justify-center flex-wrap gap-4">
-                    {[
-                      "Hope Foundation",
-                      "CharityWorks",
-                      "GoodHands",
-                      "BrightAid",
-                      "LocalCare",
-                    ].map((name, i) => (
+                    {partners.map((name, i) => (
                       <div
                         key={i}
                         className="flex items-center justify-center w-36 h-16 rounded-lg bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:scale-105 transition transform overflow-hidden"
@@ -673,16 +732,17 @@ export default function Home1() {
         </section>
 
         {/* Get Involved — new card band look */}
-        <section
-          id="get-involved"
-          className="py-16 bg-gray-50 dark:bg-gray-900"
-        >
+        <section id="get-involved" className="py-16 bg-white dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10">
-              <h3 className="text-2xl font-semibold">Get involved</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("home1.getInvolved.title", "Get involved")}
+              </h3>
               <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Pick one of the simple ways to help — each option gives you a
-                clear next step.
+                {t(
+                  "home1.getInvolved.lead",
+                  "Pick one of the simple ways to help — each option gives you a clear next step.",
+                )}
               </p>
             </div>
 
@@ -792,15 +852,19 @@ export default function Home1() {
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-semibold">Success Stories</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("home1.testimonials.title", "Success Stories")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Real results from organizations using the templates. Short,
-                believable quotes with the person and role shown.
+                {t(
+                  "home1.testimonials.lead",
+                  "Real results from organizations using the templates. Short, believable quotes with the person and role shown.",
+                )}
               </p>
             </div>
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((t, i) => (
+              {testimonials.map((item, i) => (
                 <article
                   key={i}
                   className="relative p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-2"
@@ -821,27 +885,31 @@ export default function Home1() {
                   </svg>
 
                   <p className="mt-2 text-gray-700 dark:text-gray-200 leading-relaxed">
-                    “{t.quote}”
+                    “{item.quote}”
                   </p>
 
                   <div className="mt-6 flex items-center gap-3">
                     <div className="hidden sm:block">
                       <div
-                        className={`${t.bg} w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold`}
+                        className={`${item.bg} w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold`}
                       >
-                        <img
-                          src={t.avatar}
-                          alt=""
-                          className="w-full h-full rounded-full"
-                        />
+                        {item.avatar ? (
+                          <img
+                            src={item.avatar}
+                            alt=""
+                            className="w-full h-full rounded-full"
+                          />
+                        ) : (
+                          <span className="text-sm">{item.name}</span>
+                        )}
                       </div>
                     </div>
                     <div>
                       <div className="font-semibold text-gray-900 dark:text-gray-100">
-                        {t.name}
+                        {item.name}
                       </div>
                       <div className="text-sm text-gray-500 dark:text-gray-400">
-                        {t.role}
+                        {item.role}
                       </div>
                     </div>
                   </div>

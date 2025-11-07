@@ -148,5 +148,130 @@
     "subscribeButton": "Subscribe",
     "copyright": "© {{year}} NGO / Charity. All rights reserved.",
     "madeWith": "Made with ❤️ for causes"
+  },
+  "home1": {
+    "hero": {
+      "badge": "NGO · Charity · Fundraising",
+      "title": "Empower Communities. Transform Lives.",
+      "lead": "Beautiful templates and tools built for nonprofits — tell your story, accept donations, organize volunteers, and report impact.",
+      "cta": { "donate": "Donate Now", "explore": "Explore Services" },
+      "metrics": {
+        "donations": "Donations raised",
+        "volunteers": "Volunteers engaged"
+      }
+    },
+    "impact": {
+      "title": "Impact & partners",
+      "lead": "Trusted by nonprofits and supported by partners who help us scale projects and reach more people.",
+      "metrics": {
+        "donations": "Donations",
+        "volunteers": "Volunteers",
+        "campaigns": "Campaigns"
+      },
+      "partners": [
+        "Hope Foundation",
+        "CharityWorks",
+        "GoodHands",
+        "BrightAid",
+        "LocalCare"
+      ]
+    },
+    "about": {
+      "title": "About our templates",
+      "lead": "Designed with NGOs, charities and fundraisers in mind — flexible templates that make storytelling, donations and volunteer management simple and effective."
+    },
+    "features": {
+      "easy": {
+        "title": "Easy to customize",
+        "desc": "Drag & drop sections, use preset styles and launch quickly."
+      },
+      "secure": {
+        "title": "Secure donations",
+        "desc": "PCI-ready flows, multiple gateways and donor receipts."
+      },
+      "tools": {
+        "title": "Volunteer tools",
+        "desc": "Signup forms, scheduling and shift management built in."
+      },
+      "events": {
+        "title": "Events & ticketing",
+        "desc": "Create public events, sell tickets and manage attendees."
+      }
+    },
+    "actions": {
+      "services": "See services",
+      "startCampaign": "Start a campaign"
+    },
+    "how": {
+      "title": "How it works",
+      "lead": "Launch a campaign in minutes — build fast pages, accept donations, recruit volunteers and show impact.",
+      "step1": {
+        "step": "Step 1",
+        "title": "Create your page",
+        "desc": "Pick a template, add your story and images — no design skills required."
+      },
+      "step2": {
+        "step": "Step 2",
+        "title": "Share & collect",
+        "desc": "Share across social media, email and embed the donation component — supporters give in seconds."
+      },
+      "step3": {
+        "step": "Step 3",
+        "title": "Manage & report",
+        "desc": "Track donations, export reports and share outcomes with supporters to build trust."
+      }
+    },
+    "getInvolved": {
+      "title": "Get involved",
+      "lead": "Pick one of the simple ways to help — each option gives you a clear next step.",
+      "donate": {
+        "title": "Donate",
+        "desc": "Support ongoing campaigns with a one-time or recurring gift.",
+        "cta": "Give now"
+      },
+      "volunteer": {
+        "title": "Volunteer",
+        "desc": "Join local initiatives or help remotely — we make signups easy.",
+        "cta": "Sign up"
+      },
+      "host": {
+        "title": "Host an event",
+        "desc": "Use our event templates to run fundraisers, workshops and community meetups.",
+        "cta": "Create event"
+      },
+      "spread": {
+        "title": "Spread the word",
+        "desc": "Share campaigns on social media to amplify your impact.",
+        "cta": "Share"
+      }
+    },
+    "testimonials": {
+      "title": "Success Stories",
+      "lead": "Real results from organizations using the templates. Short, believable quotes with the person and role shown."
+      ,
+      "items": [
+        {
+          "quote": "Using the fundraising templates helped us double donations in one quarter.",
+          "name": "Charity A",
+          "role": "Campaign Lead",
+          "avatar": "https://randomuser.me/api/portraits/men/90.jpg",
+          "bg": "bg-emerald-600"
+        },
+        {
+          "quote": "Event management was simple — RSVPs and ticketing in minutes.",
+          "name": "Nonprofit B",
+          "role": "Events Coordinator",
+          "avatar": "https://randomuser.me/api/portraits/men/39.jpg",
+          "bg": "bg-emerald-500"
+        },
+        {
+          "quote": "Volunteers signed up quickly thanks to the clean signup flow.",
+          "name": "Org C",
+          "role": "Volunteer Manager",
+          "avatar": "https://randomuser.me/api/portraits/men/68.jpg",
+          "bg": "bg-emerald-700"
+        }
+      ]
+    }
   }
 }
