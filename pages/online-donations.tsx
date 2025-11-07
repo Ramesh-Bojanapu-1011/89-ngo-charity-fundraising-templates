@@ -1,103 +1,100 @@
 import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import SiteHeadder from "../src/components/SiteHeadder";
 import SiteFooter from "../src/components/SiteFooter";
 
 type Campaign = {
   id: string;
-  title: string;
   goal: number;
   raised: number;
   image: string;
-  summary: string;
-  tags?: string[];
+  tags?: string[]; // tag identifiers
 };
 
+// Keep language-agnostic fields in code (ids, numbers, images, tags).
 const CAMPAIGNS: Campaign[] = [
   {
     id: "c1",
-    title: "Digital Fundraising for Clean Water",
     goal: 25000,
     raised: 18250,
     image:
       "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Your online donation brings clean water to 5 remote villages. Every contribution funds wells, filtration systems, and sanitation training — all tracked digitally for full transparency.",
-    tags: ["Water", "Online Donations"],
+    tags: ["water", "online"],
   },
   {
     id: "c2",
-    title: "E-Donations for School Supplies",
     goal: 15000,
     raised: 6400,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Join our online donation drive to provide school kits and learning tools for 1,000 children. Your digital gift supports education instantly with secure online giving.",
-    tags: ["Education", "Online Donations"],
+    tags: ["education", "online"],
   },
   {
     id: "c3",
-    title: "Online Emergency Relief Fund",
     goal: 40000,
     raised: 31000,
     image:
       "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Contribute through our online donation platform to deliver rapid aid — medical kits, food, and temporary housing — to flood-affected families in need.",
-    tags: ["Emergency", "Online Donations"],
+    tags: ["emergency", "online"],
   },
   {
     id: "c4",
-    title: "Scholarships Through Online Giving",
     goal: 18000,
     raised: 9200,
     image:
       "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support girls’ education online. Each donation funds scholarships, mentorship, and digital learning access for deserving students worldwide.",
-    tags: ["Education", "Women", "Online Donations"],
+    tags: ["education", "women", "online"],
   },
   {
     id: "c5",
-    title: "Online Support for Mobile Health Clinics",
     goal: 30000,
     raised: 14500,
     image:
       "https://images.unsplash.com/photo-1580281657527-6c1b7dcb9b7d?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Make a difference with your online donation. Help mobile clinics deliver vaccines and essential healthcare services to rural communities.",
-    tags: ["Health", "Online Donations"],
+    tags: ["health", "online"],
   },
   {
     id: "c6",
-    title: "Online Small Business Support Fund",
     goal: 12000,
     raised: 7600,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Donate online to empower micro-entrepreneurs with startup grants and digital training. Your contribution helps grow small businesses sustainably.",
-    tags: ["Livelihoods", "Online Donations"],
+    tags: ["livelihoods", "online"],
   },
 ];
 
 export default function DonationCampaigns() {
-  const [selected, setSelected] = useState<Campaign | null>(CAMPAIGNS[0]);
+  const { t, i18n } = useTranslation();
+
+  type LocalizedCampaign = Campaign & { title?: string; summary?: string };
+
+  const [selected, setSelected] = useState<LocalizedCampaign | null>(null);
   const [donation, setDonation] = useState<number>(50);
   const [status, setStatus] = useState<string | null>(null);
-  const [activeTag, setActiveTag] = useState<string>("All");
+  const [activeTag, setActiveTag] = useState<string>("all");
 
   const allTags = Array.from(
     new Set(CAMPAIGNS.flatMap((c) => c.tags ?? [])),
   ).sort();
-  const filterTags = ["All", ...allTags];
+  const filterTags = ["all", ...allTags];
+
+  // Build localized campaigns (no returnObjects: translate per-id fields)
+  const localizedCampaigns: LocalizedCampaign[] = CAMPAIGNS.map((c) => ({
+    ...c,
+    title: t(`onlineDonations.campaigns.${c.id}.title`),
+    summary: t(`onlineDonations.campaigns.${c.id}.summary`),
+  }));
+
+  useEffect(() => {
+    setSelected(localizedCampaigns[0] ?? null);
+  }, [i18n.language]);
 
   function handleDonate(e?: React.FormEvent) {
     e?.preventDefault();
-    setStatus("Processing your donation — thank you!");
+    setStatus(t("onlineDonations.processing"));
     setTimeout(() => {
-      setStatus("Thank you — your donation is received (demo).");
+      setStatus(t("onlineDonations.thanks"));
     }, 800);
   }
 
@@ -164,7 +161,7 @@ export default function DonationCampaigns() {
   const METRICS = [
     {
       id: "donors",
-      label: "Donors",
+      label: "donors",
       value: 1240,
       duration: 1000,
       icon: (
@@ -198,7 +195,7 @@ export default function DonationCampaigns() {
     },
     {
       id: "campaigns",
-      label: "Active Campaigns",
+      label: "campaigns",
       value: CAMPAIGNS.length,
       duration: 700,
       icon: (
@@ -220,7 +217,7 @@ export default function DonationCampaigns() {
     },
     {
       id: "raised",
-      label: "Total Raised",
+      label: "raised",
       value: 123450,
       duration: 1200,
       icon: (
@@ -248,7 +245,7 @@ export default function DonationCampaigns() {
     },
     {
       id: "volunteers",
-      label: "Volunteers",
+      label: "volunteers",
       value: 320,
       duration: 900,
       icon: (
@@ -278,55 +275,17 @@ export default function DonationCampaigns() {
 
   // Small set of upcoming events for the CTA panel
   const EVENTS = [
-    {
-      id: "e1",
-      title: "Virtual Donation Drive Launch",
-      date: "Nov 22",
-      location: "Online Event",
-      spots: 100,
-    },
-    {
-      id: "e2",
-      title: "Digital Fundraising Walk",
-      date: "Dec 6",
-      location: "City Center & Online",
-      spots: 120,
-    },
-    {
-      id: "e3",
-      title: "Online Donor Training Session",
-      date: "Jan 10",
-      location: "Virtual (Zoom)",
-      spots: 60,
-    },
+    { id: "e1", date: "Nov 22", location: "Online Event", spots: 100 },
+    { id: "e2", date: "Dec 6", location: "City Center & Online", spots: 120 },
+    { id: "e3", date: "Jan 10", location: "Virtual (Zoom)", spots: 60 },
   ];
 
   // FAQs driven by React state so we can filter/search easily
   const FAQS = [
-    {
-      id: "f1",
-      q: "How are my online donations used?",
-      a: "Online donations are directed to the specific program you choose and to vetted local partners. Campaign pages show how funds are allocated and program outcomes.",
-      category: "Donations",
-    },
-    {
-      id: "f2",
-      q: "Will I get a tax receipt?",
-      a: "Yes — for online donations you will receive an email receipt immediately. Consult your local tax rules for deductibility. Contact support for custom receipts.",
-      category: "Donations",
-    },
-    {
-      id: "f3",
-      q: "What payment methods are accepted?",
-      a: "We accept major credit/debit cards and common digital wallets. All payments are processed securely — contact donation support for questions about specific payment options.",
-      category: "Donations",
-    },
-    {
-      id: "f4",
-      q: "How do recurring (monthly) donations work?",
-      a: "When you opt for monthly support, we charge the selected amount each month and email you a monthly receipt. You can update or cancel at any time from your donation confirmation link or by contacting support.",
-      category: "Donations",
-    },
+    { id: "f1", category: "Donations" },
+    { id: "f2", category: "Donations" },
+    { id: "f3", category: "Donations" },
+    { id: "f4", category: "Donations" },
   ];
 
   // FAQ UI state
@@ -337,10 +296,10 @@ export default function DonationCampaigns() {
   return (
     <>
       <Head>
-        <title>Online Donations — Emerald Aid</title>
+        <title>{t("onlineDonations.meta.title")}</title>
         <meta
           name="description"
-          content="Secure online donations to verified causes — give once or set up monthly support."
+          content={t("onlineDonations.meta.description")}
         />
       </Head>
 
@@ -354,20 +313,19 @@ export default function DonationCampaigns() {
               <div className="md:col-span-7">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                    Verified
+                    {t("onlineDonations.hero.badge")}
                   </span>
-                  <span className="text-sm text-slate-500">Updated weekly</span>
+                  <span className="text-sm text-slate-500">
+                    {t("onlineDonations.hero.updated")}
+                  </span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  Give online — secure, simple donations that reach verified
-                  causes
+                  {t("onlineDonations.hero.title")}
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Choose a cause, donate with confidence and receive instant
-                  receipts. One-time gifts and monthly support help sustain our
-                  programs around the world.
+                  {t("onlineDonations.hero.lead")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -389,13 +347,13 @@ export default function DonationCampaigns() {
                         d="M12 8v8m0 0l-3-3m3 3l3-3"
                       />
                     </svg>
-                    Browse Causes
+                    {t("onlineDonations.hero.ctaBrowse")}
                   </a>
                   <a
                     href="#featured"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Give Online
+                    {t("onlineDonations.hero.ctaDonate")}
                   </a>
                 </div>
               </div>
@@ -412,7 +370,9 @@ export default function DonationCampaigns() {
                       {selected?.title}
                     </div>
                     <div className="text-xs text-slate-500">
-                      Raised ${selected?.raised?.toLocaleString()} of $
+                      {t("onlineDonations.labels.raisedPrefix")} $
+                      {selected?.raised?.toLocaleString()}{" "}
+                      {t("onlineDonations.labels.of")} $
                       {selected?.goal?.toLocaleString()} (
                       {percent(selected || CAMPAIGNS[0])}%)
                     </div>
@@ -430,22 +390,24 @@ export default function DonationCampaigns() {
         >
           <div className="max-w-6xl mx-auto flex flex-col gap-8 ">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Causes Accepting Online Donations
+              {t("onlineDonations.campaignsTitle")}
             </h2>
             <div className="mb-4 flex flex-wrap justify-center items-center gap-2">
-              {filterTags.map((t) => (
+              {filterTags.map((tk) => (
                 <button
-                  key={t}
-                  onClick={() => setActiveTag(t)}
-                  aria-pressed={activeTag === t}
+                  key={tk}
+                  onClick={() => setActiveTag(tk)}
+                  aria-pressed={activeTag === tk}
                   className={
                     `text-sm px-3 py-1 rounded-full border transition ` +
-                    (activeTag === t
+                    (activeTag === tk
                       ? "bg-emerald-600 text-white border-emerald-600"
                       : "bg-white/60 dark:bg-slate-800/60 text-slate-700 border-slate-200")
                   }
                 >
-                  {t}
+                  {tk === "all"
+                    ? t("onlineDonations.tags.all")
+                    : t(`onlineDonations.tags.${tk}`)}
                 </button>
               ))}
             </div>
@@ -453,9 +415,9 @@ export default function DonationCampaigns() {
             {/* filtered list */}
             {/** compute filtered campaigns */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(activeTag === "All"
-                ? CAMPAIGNS
-                : CAMPAIGNS.filter((c) => c.tags?.includes(activeTag))
+              {(activeTag === "all"
+                ? localizedCampaigns
+                : localizedCampaigns.filter((c) => c.tags?.includes(activeTag))
               ).map((c) => (
                 <article
                   key={c.id}
@@ -500,7 +462,7 @@ export default function DonationCampaigns() {
                             key={tag}
                             className="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full"
                           >
-                            {tag}
+                            {t(`onlineDonations.tags.${tag}`)}
                           </span>
                         ))}
                       </div>
@@ -511,7 +473,7 @@ export default function DonationCampaigns() {
                         onClick={() => setSelected(c)}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md bg-emerald-600 text-white text-sm transition group-hover:scale-[1.02]"
                       >
-                        Details
+                        {t("onlineDonations.view")}
                       </button>
                       <button
                         onClick={() => {
@@ -519,7 +481,7 @@ export default function DonationCampaigns() {
                         }}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md border border-emerald-200 text-emerald-700 text-sm bg-white/60"
                       >
-                        Give
+                        {t("onlineDonations.donate")}
                       </button>
                     </div>
                   </div>
@@ -564,7 +526,9 @@ export default function DonationCampaigns() {
                       {selected?.title}
                     </div>
                     <div className="text-xs text-white/90 mt-1">
-                      Raised ${selected?.raised?.toLocaleString()} of $
+                      {t("onlineDonations.labels.raisedPrefix")} $
+                      {selected?.raised?.toLocaleString()}{" "}
+                      {t("onlineDonations.labels.of")} $
                       {selected?.goal?.toLocaleString()}
                     </div>
                   </div>
@@ -606,13 +570,15 @@ export default function DonationCampaigns() {
                       aria-checked={false}
                     />
                     <span className="text-sm text-slate-600 dark:text-slate-300">
-                      Make this a monthly donation
+                      {t("onlineDonations.monthlyDonation")}
                     </span>
                   </label>
                 </div>
 
                 <form onSubmit={handleDonate} className="mt-4">
-                  <label className="text-sm">Custom amount (USD)</label>
+                  <label className="text-sm">
+                    {t("onlineDonations.customAmount")}
+                  </label>
                   <div className="mt-2 flex gap-2">
                     <input
                       type="number"
@@ -625,7 +591,7 @@ export default function DonationCampaigns() {
                       type="submit"
                       className="px-4 bg-emerald-600 text-white rounded-md"
                     >
-                      Donate
+                      {t("onlineDonations.donate")}
                     </button>
                   </div>
                 </form>
@@ -640,7 +606,9 @@ export default function DonationCampaigns() {
                   <div className="font-bold text-emerald-700">
                     {selected ? percent(selected) : 0}%
                   </div>
-                  <div className="text-slate-500">Funded</div>
+                  <div className="text-slate-500">
+                    {t("onlineDonations.labels.funded")}
+                  </div>
                 </div>
                 <div className="bg-white dark:bg-slate-900/60 rounded-md p-3 text-center">
                   <div className="font-bold text-emerald-700">
@@ -648,7 +616,9 @@ export default function DonationCampaigns() {
                       ? `$${selected.raised.toLocaleString()}`
                       : "-"}
                   </div>
-                  <div className="text-slate-500">Raised</div>
+                  <div className="text-slate-500">
+                    {t("onlineDonations.labels.raised")}
+                  </div>
                 </div>
               </div>
             </div>
@@ -659,7 +629,7 @@ export default function DonationCampaigns() {
         <section className="  flex justify-center items-center   bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900  px-6">
           <div className=" flex flex-col max-w-6xl w-full py-8">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Online Giving Impact
+              {t("onlineDonations.impact.title")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {METRICS.map((m) => (
@@ -682,7 +652,7 @@ export default function DonationCampaigns() {
                   </div>
 
                   <div className="relative z-10 text-sm text-slate-500 mt-2">
-                    {m.label}
+                    {t(`onlineDonations.metrics.${m.label}`)}
                   </div>
                 </div>
               ))}
@@ -696,12 +666,10 @@ export default function DonationCampaigns() {
             {/* Left: headline + description */}
             <div className="md:col-span-1">
               <h3 className="text-2xl font-bold text-emerald-800">
-                Get Involved — Volunteer or Host an Event
+                {t("onlineDonations.volunteer.title")}
               </h3>
               <p className="text-slate-600 dark:text-slate-300 mt-3">
-                Join our field teams, host a local fundraiser, or help spread
-                the word. Below are upcoming opportunities — RSVP or sign up to
-                be notified about similar events.
+                {t("onlineDonations.volunteer.lead")}
               </p>
 
               <div className="mt-4 flex gap-2">
@@ -717,7 +685,7 @@ export default function DonationCampaigns() {
             {/* Middle: upcoming events list */}
             <div className="md:col-span-1 bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm">
               <h4 className="font-semibold text-emerald-700 mb-3">
-                Upcoming Events
+                {t("onlineDonations.events.title")}
               </h4>
               <ul className="flex flex-col gap-3">
                 {EVENTS.map((ev) => (
@@ -727,22 +695,27 @@ export default function DonationCampaigns() {
                   >
                     <div>
                       <div className="text-sm font-semibold text-emerald-800">
-                        {ev.title}
+                        {t(`onlineDonations.events.${ev.id}.title`)}
                       </div>
                       <div className="text-xs text-slate-500">
-                        {ev.date} • {ev.location}
+                        {ev.date} •{" "}
+                        {t(`onlineDonations.events.${ev.id}.location`, {
+                          defaultValue: ev.location,
+                        })}
                       </div>
                     </div>
                     <div className="text-right">
                       <div className="text-sm font-bold text-emerald-700">
                         {ev.spots}
                       </div>
-                      <div className="text-xs text-slate-400">spots</div>
+                      <div className="text-xs text-slate-400">
+                        {t("onlineDonations.events.spots")}
+                      </div>
                       <button
-                        onClick={() => setSelected(CAMPAIGNS[0])}
+                        onClick={() => setSelected(localizedCampaigns[0])}
                         className="mt-2 ml-auto inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 text-white text-xs"
                       >
-                        Register
+                        {t("onlineDonations.events.register")}
                       </button>
                     </div>
                   </li>
@@ -756,7 +729,7 @@ export default function DonationCampaigns() {
         <section className="bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900 py-16">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Donation Help & FAQs
+              {t("onlineDonations.help.title")}
             </h2>
 
             <div className="grid  gap-6">
@@ -795,7 +768,13 @@ export default function DonationCampaigns() {
                 <div>
                   {(() => {
                     const q = faqQuery.trim().toLowerCase();
-                    const filtered = FAQS.filter((f) => {
+                    const enriched = FAQS.map((f) => ({
+                      ...f,
+                      q: t(`onlineDonations.faq.${f.id}.q`),
+                      a: t(`onlineDonations.faq.${f.id}.a`),
+                    }));
+
+                    const filtered = enriched.filter((f) => {
                       if (!q) return true;
                       return (f.q + " " + f.a + " " + f.category)
                         .toLowerCase()
@@ -805,7 +784,7 @@ export default function DonationCampaigns() {
                     if (!filtered.length) {
                       return (
                         <div className="text-sm text-slate-500">
-                          No results — try different keywords.
+                          {t("onlineDonations.faq.noResults")}
                         </div>
                       );
                     }
@@ -901,11 +880,7 @@ export default function DonationCampaigns() {
                                 </div>
 
                                 <div
-                                  className={`mt-3 text-sm text-slate-500 transition-opacity duration-300 ${
-                                    openFaq === f.id
-                                      ? "opacity-100"
-                                      : "opacity-0 h-0 overflow-hidden"
-                                  }`}
+                                  className={`mt-3 text-sm text-slate-500 transition-opacity duration-300 ${openFaq === f.id ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}
                                 >
                                   {f.a}
                                 </div>
@@ -947,12 +922,10 @@ export default function DonationCampaigns() {
 
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800">
-                      Questions about online giving?
+                      {t("onlineDonations.contact.title")}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-300 mt-1">
-                      Contact our donation support team for help with payment,
-                      receipts, or recurring gift setup. We usually respond
-                      within 1-2 business days.
+                      {t("onlineDonations.contact.lead")}
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -960,7 +933,7 @@ export default function DonationCampaigns() {
                         href="/contact-us"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full shadow-sm"
                       >
-                        Contact Support
+                        {t("onlineDonations.contact.cta")}
                       </a>
 
                       <a

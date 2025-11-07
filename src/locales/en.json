@@ -781,5 +781,123 @@
     "monthlyDonation": "Make this a monthly donation",
     "campaignsTitle": "Active Campaigns",
     "customAmount": "Custom amount (USD)"
+  },
+  "onlineDonations": {
+    "meta": {
+      "title": "Online Donations — Emerald Aid",
+      "description": "Secure online donations to verified causes — give once or set up monthly support."
+    },
+    "hero": {
+      "badge": "Verified",
+      "updated": "Updated weekly",
+      "title": "Give online — secure, simple donations that reach verified causes",
+      "lead": "Choose a cause, donate with confidence and receive instant receipts. One-time gifts and monthly support help sustain our programs around the world.",
+      "ctaBrowse": "Browse Causes",
+      "ctaDonate": "Give Online"
+    },
+    "campaignsTitle": "Causes Accepting Online Donations",
+    "campaigns": {
+      "c1": {
+        "title": "Digital Fundraising for Clean Water",
+        "summary": "Your online donation brings clean water to remote villages — funding wells, filters and sanitation training."
+      },
+      "c2": {
+        "title": "E-Donations for School Supplies",
+        "summary": "Provide school kits and learning tools for children in underserved communities through secure online giving."
+      },
+      "c3": {
+        "title": "Online Emergency Relief Fund",
+        "summary": "Support rapid aid: medical kits, food and temporary housing for disaster-affected families."
+      },
+      "c4": {
+        "title": "Scholarships Through Online Giving",
+        "summary": "Support girls’ education with scholarships, mentorship and access to learning resources."
+      },
+      "c5": {
+        "title": "Support for Mobile Health Clinics",
+        "summary": "Help mobile clinics deliver vaccines and essential healthcare services to remote communities."
+      },
+      "c6": {
+        "title": "Small Business Support Fund",
+        "summary": "Empower micro-entrepreneurs with startup grants and digital training to rebuild livelihoods."
+      }
+    },
+    "tags": {
+      "all": "All",
+      "water": "Water",
+      "education": "Education",
+      "emergency": "Emergency",
+      "women": "Women",
+      "health": "Health",
+      "livelihoods": "Livelihoods",
+      "online": "Online Donations"
+    },
+    "processing": "Processing your donation — thank you!",
+    "thanks": "Thank you — your donation is received (demo).",
+    "view": "Details",
+    "donate": "Donate",
+    "rsvp": "RSVP",
+    "labels": {
+      "funded": "Funded",
+      "raised": "Raised",
+      "of": "of",
+      "raisedPrefix": "Raised"
+    },
+    "impact": { "title": "Online Giving Impact" },
+    "metrics": {
+      "donors": "Donors",
+      "campaigns": "Active Campaigns",
+      "raised": "Total Raised",
+      "volunteers": "Volunteers"
+    },
+    "volunteer": {
+      "title": "Get Involved — Volunteer or Host an Event",
+      "lead": "Join our field teams, host a local fundraiser, or help spread the word.",
+      "cta": "Volunteer Opportunities"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "spots": "spots",
+      "register": "Register",
+      "e1": {
+        "title": "Virtual Donation Drive Launch",
+        "location": "Online Event"
+      },
+      "e2": {
+        "title": "Digital Fundraising Walk",
+        "location": "City Center & Online"
+      },
+      "e3": {
+        "title": "Online Donor Training Session",
+        "location": "Virtual (Zoom)"
+      }
+    },
+    "help": { "title": "Donation Help & FAQs" },
+    "faq": {
+      "noResults": "No results — try different keywords.",
+      "f1": {
+        "q": "How are my online donations used?",
+        "a": "Online donations are directed to the specific program you choose and to vetted local partners. Campaign pages show how funds are allocated and program outcomes."
+      },
+      "f2": {
+        "q": "Will I get a tax receipt?",
+        "a": "Yes — for online donations you will receive an email receipt immediately. Consult your local tax rules for deductibility."
+      },
+      "f3": {
+        "q": "What payment methods are accepted?",
+        "a": "We accept major credit/debit cards and common digital wallets. All payments are processed securely."
+      },
+      "f4": {
+        "q": "How do recurring (monthly) donations work?",
+        "a": "When you opt for monthly support, we charge the selected amount each month and email you a monthly receipt. You can update or cancel at any time."
+      }
+    },
+    "contact": {
+      "title": "Questions about online giving?",
+      "lead": "Contact our donation support team for help with payment, receipts, or recurring gift setup. We usually respond within 1-2 business days.",
+      "cta": "Contact Support"
+    },
+    "monthlyDonation": "Make this a monthly donation",
+    "customAmount": "Custom amount (USD)"
   }
 }
