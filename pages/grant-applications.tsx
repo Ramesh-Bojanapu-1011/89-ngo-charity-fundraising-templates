@@ -1,96 +1,89 @@
 import Head from "next/head";
 import React, { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import SiteHeadder from "../src/components/SiteHeadder";
 import SiteFooter from "../src/components/SiteFooter";
 
 type Campaign = {
   id: string;
-  title: string;
   goal: number;
   raised: number;
   image: string;
-  summary: string;
-  tags?: string[];
+  tags?: string[]; // tag ids
 };
 
+// Keep campaign data language-agnostic: textual values (title/summary) live in locale files.
 const CAMPAIGNS: Campaign[] = [
   {
     id: "c1",
-    title: "Grant Application Management Platform",
     goal: 25000,
     raised: 18250,
     image:
       "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support our all-in-one platform for managing grant applications — from proposal drafting to submission tracking and funding disbursement.",
-    tags: ["Technology", "Grant Applications"],
+    tags: ["technology", "grant_applications"],
   },
   {
     id: "c2",
-    title: "Proposal Writing Training Program",
     goal: 15000,
     raised: 6400,
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Help train organizations and individuals to craft strong, data-driven grant proposals. Your support enables capacity-building workshops and mentorship programs.",
-    tags: ["Training", "Grant Applications"],
+    tags: ["training", "grant_applications"],
   },
   {
     id: "c3",
-    title: "Funder-Applicant Matching System",
     goal: 40000,
     raised: 31000,
     image:
       "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Develop an AI-powered system that connects applicants with relevant grant opportunities based on goals, impact areas, and eligibility.",
-    tags: ["AI", "Grant Applications"],
+    tags: ["ai", "grant_applications"],
   },
   {
     id: "c4",
-    title: "Youth Grant Writing Mentorship",
     goal: 18000,
     raised: 9200,
     image:
       "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Empower young changemakers through mentorship programs focused on writing, submitting, and managing successful grant proposals.",
-    tags: ["Mentorship", "Youth", "Grant Applications"],
+    tags: ["mentorship", "youth", "grant_applications"],
   },
   {
     id: "c5",
-    title: "Sustainable Funding Initiative",
     goal: 30000,
     raised: 14500,
     image:
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Support long-term sustainability for nonprofits through grants that focus on renewable funding, impact measurement, and financial resilience.",
-    tags: ["Sustainability", "Grant Applications"],
+    tags: ["sustainability", "grant_applications"],
   },
   {
     id: "c6",
-    title: "Grant Tracking & Reporting Hub",
     goal: 12000,
     raised: 7600,
     image:
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
-    summary:
-      "Help us build a centralized hub to monitor active grants, manage milestones, and generate transparent impact reports for funders.",
-    tags: ["Technology", "Grant Applications"],
+    tags: ["technology", "grant_applications"],
   },
 ];
 export default function GrantApplicationManager() {
-  const [selected, setSelected] = useState<Campaign | null>(CAMPAIGNS[0]);
+  const { t, i18n } = useTranslation();
+
+  // localizedCampaigns computed at render-time from CAMPAIGNS to avoid returnObjects
+  const localizedCampaigns = CAMPAIGNS.map((c) => ({
+    ...c,
+    title: t(`grantApplications.campaigns.${c.id}.title`),
+    summary: t(`grantApplications.campaigns.${c.id}.summary`),
+  }));
+
+  const [selected, setSelected] = useState<
+    null | (Campaign & { title?: string; summary?: string })
+  >(null);
   const [donation, setDonation] = useState<number>(50);
   const [status, setStatus] = useState<string | null>(null);
-  const [activeTag, setActiveTag] = useState<string>("All");
+  const [activeTag, setActiveTag] = useState<string>("all");
 
   const allTags = Array.from(
     new Set(CAMPAIGNS.flatMap((c) => c.tags ?? [])),
   ).sort();
-  const filterTags = ["All", ...allTags];
+  const filterTags = ["all", ...allTags];
 
   function handleDonate(e?: React.FormEvent) {
     e?.preventDefault();
@@ -162,10 +155,11 @@ export default function GrantApplicationManager() {
   }
 
   // Metrics data for Impact Snapshot (rendered via map)
+  // metrics are static data but labels are localized at render time
   const METRICS = [
     {
       id: "grantsSubmitted",
-      label: "Grants Submitted",
+      label: t("grantApplications.metrics.grantsSubmitted"),
       value: 980,
       duration: 1000,
       icon: (
@@ -193,7 +187,7 @@ export default function GrantApplicationManager() {
     },
     {
       id: "activeGrants",
-      label: "Active Grants",
+      label: t("grantApplications.metrics.activeGrants"),
       value: CAMPAIGNS.length,
       duration: 700,
       icon: (
@@ -215,7 +209,7 @@ export default function GrantApplicationManager() {
     },
     {
       id: "fundsSecured",
-      label: "Funds Secured",
+      label: t("grantApplications.metrics.fundsSecured"),
       value: 5234000,
       duration: 1200,
       icon: (
@@ -243,7 +237,7 @@ export default function GrantApplicationManager() {
     },
     {
       id: "organizationsHelped",
-      label: "Organizations Supported",
+      label: t("grantApplications.metrics.organizationsHelped"),
       value: 320,
       duration: 900,
       icon: (
@@ -272,56 +266,20 @@ export default function GrantApplicationManager() {
   ];
 
   // Small set of upcoming events for the CTA panel
+  // events: keep language-agnostic fields but compute title from locales
   const EVENTS = [
-    {
-      id: "e1",
-      title: "Grant Writing Essentials Workshop",
-      date: "Nov 22",
-      location: "Innovation Hub",
-      spots: 60,
-    },
-    {
-      id: "e2",
-      title: "Funding Strategy Webinar",
-      date: "Dec 6",
-      location: "Online (Zoom)",
-      spots: 100,
-    },
-    {
-      id: "e3",
-      title: "Impact Reporting Masterclass",
-      date: "Jan 10",
-      location: "Main Training Hall",
-      spots: 45,
-    },
+    { id: "e1", date: "Nov 22", location: "Innovation Hub", spots: 60 },
+    { id: "e2", date: "Dec 6", location: "Online (Zoom)", spots: 100 },
+    { id: "e3", date: "Jan 10", location: "Main Training Hall", spots: 45 },
   ];
 
   // FAQs driven by React state so we can filter/search easily
+  // FAQ entries are language-agnostic ids; q/a come from locale files
   const FAQS = [
-    {
-      id: "f1",
-      q: "How do I find suitable grants for my project?",
-      a: "Use our Grant Finder tool to filter opportunities by funding amount, focus area, location, and eligibility. It simplifies matching your project with the right funders.",
-      category: "Grant Applications",
-    },
-    {
-      id: "f2",
-      q: "Can I manage multiple grant applications at once?",
-      a: "Yes, our dashboard lets you track submission deadlines, document uploads, and funder communications all in one place — reducing admin time significantly.",
-      category: "Grant Applications",
-    },
-    {
-      id: "f3",
-      q: "How do I track funding status and reporting deadlines?",
-      a: "The Grant Management System automatically updates status changes, reminders, and report deadlines so your team never misses a milestone.",
-      category: "Grant Applications",
-    },
-    {
-      id: "f4",
-      q: "Can I generate financial and impact reports for funders?",
-      a: "Absolutely! Our reporting tools compile funding data, expenditure summaries, and measurable impact indicators ready to share with funders and stakeholders.",
-      category: "Grant Applications",
-    },
+    { id: "f1", category: "grant_applications" },
+    { id: "f2", category: "grant_applications" },
+    { id: "f3", category: "grant_applications" },
+    { id: "f4", category: "grant_applications" },
   ];
 
   // FAQ UI state
@@ -329,13 +287,30 @@ export default function GrantApplicationManager() {
   const [openFaq, setOpenFaq] = useState<string | null>(null);
   const faqCategories = Array.from(new Set(FAQS.map((f) => f.category)));
 
+  // localized datasources
+  const localizedEvents = EVENTS.map((ev) => ({
+    ...ev,
+    title: t(`grantApplications.events.${ev.id}.title`),
+  }));
+
+  const localizedFaqs = FAQS.map((f) => ({
+    ...f,
+    q: t(`grantApplications.faqs.${f.id}.q`),
+    a: t(`grantApplications.faqs.${f.id}.a`),
+  }));
+
+  // set default selected campaign on mount / when language changes
+  useEffect(() => {
+    setSelected(localizedCampaigns[0] ?? null);
+  }, [i18n.language]);
+
   return (
     <>
       <Head>
-        <title>Grant Applications — Emerald Aid</title>
+        <title>{t("grantApplications.meta.title")}</title>
         <meta
           name="description"
-          content="Create and manage grant calls — accept applications, run reviews, and manage awards for verified causes."
+          content={t("grantApplications.meta.description")}
         />
       </Head>
 
@@ -349,19 +324,19 @@ export default function GrantApplicationManager() {
               <div className="md:col-span-7">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                    Verified
+                    {t("grantApplications.hero.badge")}
                   </span>
-                  <span className="text-sm text-slate-500">Updated weekly</span>
+                  <span className="text-sm text-slate-500">
+                    {t("grantApplications.hero.updated")}
+                  </span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  Grant Applications — manage requests, reviews, and awards
+                  {t("grantApplications.hero.title")}
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  Create and manage grant calls, accept applications, and track
-                  awards. Use tools for review workflows, budgeting and
-                  reporting.
+                  {t("grantApplications.hero.lead")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -383,13 +358,13 @@ export default function GrantApplicationManager() {
                         d="M12 8v8m0 0l-3-3m3 3l3-3"
                       />
                     </svg>
-                    Browse Grants
+                    {t("grantApplications.hero.ctaBrowse")}
                   </a>
                   <a
                     href="#featured"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Create Grant Call
+                    {t("grantApplications.hero.ctaCreate")}
                   </a>
                 </div>
               </div>
@@ -424,22 +399,24 @@ export default function GrantApplicationManager() {
         >
           <div className="max-w-6xl mx-auto flex flex-col gap-8 ">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Open Grant Calls & Programs
+              {t("grantApplications.campaignsTitle")}
             </h2>
             <div className="mb-4 flex flex-wrap justify-center items-center gap-2">
-              {filterTags.map((t) => (
+              {filterTags.map((tagId) => (
                 <button
-                  key={t}
-                  onClick={() => setActiveTag(t)}
-                  aria-pressed={activeTag === t}
+                  key={tagId}
+                  onClick={() => setActiveTag(tagId)}
+                  aria-pressed={activeTag === tagId}
                   className={
                     `text-sm px-3 py-1 rounded-full border transition ` +
-                    (activeTag === t
+                    (activeTag === tagId
                       ? "bg-emerald-600 text-white border-emerald-600"
                       : "bg-white/60 dark:bg-slate-800/60 text-slate-700 border-slate-200")
                   }
                 >
-                  {t}
+                  {tagId === "all"
+                    ? t("grantApplications.tags.all")
+                    : t(`grantApplications.tags.${tagId}`)}
                 </button>
               ))}
             </div>
@@ -447,9 +424,9 @@ export default function GrantApplicationManager() {
             {/* filtered list */}
             {/** compute filtered campaigns */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(activeTag === "All"
-                ? CAMPAIGNS
-                : CAMPAIGNS.filter((c) => c.tags?.includes(activeTag))
+              {(activeTag === "all"
+                ? localizedCampaigns
+                : localizedCampaigns.filter((c) => c.tags?.includes(activeTag))
               ).map((c) => (
                 <article
                   key={c.id}
@@ -482,10 +459,12 @@ export default function GrantApplicationManager() {
                     <div className="flex items-center justify-between text-sm text-slate-500">
                       <div className="flex items-center gap-3">
                         <div className="text-sm text-slate-700 dark:text-slate-300">
-                          {c.raised.toLocaleString()} applications
+                          {c.raised.toLocaleString()}{" "}
+                          {t("grantApplications.labels.applications")}
                         </div>
                         <div className="text-xs text-slate-400">
-                          slots {c.goal.toLocaleString()}
+                          {t("grantApplications.labels.slots")}{" "}
+                          {c.goal.toLocaleString()}
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
@@ -494,7 +473,7 @@ export default function GrantApplicationManager() {
                             key={tag}
                             className="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full"
                           >
-                            {tag}
+                            {t(`grantApplications.tags.${tag}`)}
                           </span>
                         ))}
                       </div>
@@ -505,7 +484,7 @@ export default function GrantApplicationManager() {
                         onClick={() => setSelected(c)}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md bg-emerald-600 text-white text-sm transition group-hover:scale-[1.02]"
                       >
-                        Details
+                        {t("grantApplications.actions.details")}
                       </button>
                       <button
                         onClick={() => {
@@ -513,7 +492,7 @@ export default function GrantApplicationManager() {
                         }}
                         className="flex-1 inline-flex items-center justify-center gap-2 py-2 rounded-md border border-emerald-200 text-emerald-700 text-sm bg-white/60"
                       >
-                        Register
+                        {t("grantApplications.actions.register")}
                       </button>
                     </div>
                   </div>
@@ -653,7 +632,7 @@ export default function GrantApplicationManager() {
         <section className="  flex justify-center items-center   bg-linear-to-b from-white to-emerald-50 dark:from-slate-800 dark:to-slate-900  px-6">
           <div className=" flex flex-col max-w-6xl w-full py-8">
             <h2 className="text-2xl text-center font-bold text-emerald-800 mb-4">
-              Grant Metrics
+              {t("grantApplications.impact.title")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {METRICS.map((m) => (
@@ -686,12 +665,10 @@ export default function GrantApplicationManager() {
             {/* Left: headline + description */}
             <div className="md:col-span-1">
               <h3 className="text-2xl font-bold text-emerald-800">
-                Apply or Review Grants
+                {t("grantApplications.apply.title")}
               </h3>
               <p className="text-slate-600 dark:text-slate-300 mt-3">
-                Apply for funding, review grant calls, or host a program. Below
-                are current opportunities — submit an application or sign up to
-                be notified about similar calls.
+                {t("grantApplications.apply.lead")}
               </p>
 
               <div className="mt-4 flex gap-2">
@@ -699,7 +676,7 @@ export default function GrantApplicationManager() {
                   href="#campaigns"
                   className="inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-md shadow-sm"
                 >
-                  Grant Opportunities
+                  {t("grantApplications.hero.ctaBrowse")}
                 </a>
               </div>
             </div>
@@ -707,10 +684,10 @@ export default function GrantApplicationManager() {
             {/* Middle: upcoming events list */}
             <div className="md:col-span-1 bg-white dark:bg-slate-800 rounded-lg p-4 shadow-sm">
               <h4 className="font-semibold text-emerald-700 mb-3">
-                Open Grant Calls
+                {t("grantApplications.events.title")}
               </h4>
               <ul className="flex flex-col gap-3">
-                {EVENTS.map((ev) => (
+                {localizedEvents.map((ev) => (
                   <li
                     key={ev.id}
                     className="flex items-center justify-between gap-3 p-2 rounded-md hover:bg-emerald-50 dark:hover:bg-slate-900 transition"
@@ -727,12 +704,14 @@ export default function GrantApplicationManager() {
                       <div className="text-sm font-bold text-emerald-700">
                         {ev.spots}
                       </div>
-                      <div className="text-xs text-slate-400">slots</div>
+                      <div className="text-xs text-slate-400">
+                        {t("grantApplications.labels.slots")}
+                      </div>
                       <button
                         onClick={() => setSelected(CAMPAIGNS[0])}
                         className="mt-2 ml-auto inline-flex items-center px-3 py-1 rounded-full bg-emerald-600 text-white text-xs"
                       >
-                        Apply
+                        {t("grantApplications.actions.apply")}
                       </button>
                     </div>
                   </li>
@@ -763,7 +742,7 @@ export default function GrantApplicationManager() {
                           : "bg-white/60 text-slate-700"
                       }`}
                     >
-                      All
+                      {t("grantApplications.tags.all")}
                     </button>
                     {faqCategories.map((cat) => (
                       <button
@@ -776,7 +755,7 @@ export default function GrantApplicationManager() {
                             : "bg-white/60 text-slate-700"
                         }`}
                       >
-                        {cat}
+                        {t(`grantApplications.tags.${cat}`)}
                       </button>
                     ))}
                   </div>
@@ -785,8 +764,14 @@ export default function GrantApplicationManager() {
                 <div>
                   {(() => {
                     const q = faqQuery.trim().toLowerCase();
-                    const filtered = FAQS.filter((f) => {
+                    const filtered = localizedFaqs.filter((f) => {
                       if (!q) return true;
+                      // if user clicked a category tag, match category directly
+                      if (
+                        faqCategories.map((c) => c.toLowerCase()).includes(q)
+                      ) {
+                        return f.category.toLowerCase() === q;
+                      }
                       return (f.q + " " + f.a + " " + f.category)
                         .toLowerCase()
                         .includes(q);
@@ -795,7 +780,7 @@ export default function GrantApplicationManager() {
                     if (!filtered.length) {
                       return (
                         <div className="text-sm text-slate-500">
-                          No results — try different keywords.
+                          {t("grantApplications.faqs.noResults")}
                         </div>
                       );
                     }
@@ -819,7 +804,9 @@ export default function GrantApplicationManager() {
                                       {f.q}
                                     </div>
                                     <div className="text-xs text-emerald-700 mt-1">
-                                      {f.category}
+                                      {t(
+                                        `grantApplications.tags.${f.category}`,
+                                      )}
                                     </div>
                                   </div>
                                   <button className="text-slate-400 hover:text-slate-600">
@@ -889,12 +876,10 @@ export default function GrantApplicationManager() {
 
                   <div>
                     <h3 className="text-xl font-bold text-emerald-800">
-                      Questions about grants?
+                      {t("grantApplications.contact.title")}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-300 mt-1">
-                      Contact our grants support team for help with
-                      applications, eligibility, or reporting. We usually
-                      respond within 1-2 business days.
+                      {t("grantApplications.contact.lead")}
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -902,14 +887,14 @@ export default function GrantApplicationManager() {
                         href="/contact-us"
                         className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-full shadow-sm"
                       >
-                        Contact Grant Support
+                        {t("grantApplications.contact.cta")}
                       </a>
 
                       <a
-                        href="mailto:events@emeraldaid.org"
+                        href={`mailto:${t("grantApplications.contact.email")}`}
                         className="inline-flex items-center gap-2 px-3 py-2 border border-emerald-200 text-emerald-700 rounded-md"
                       >
-                        grants@emeraldaid.org
+                        {t("grantApplications.contact.email")}
                       </a>
                     </div>
                   </div>

@@ -1132,5 +1132,113 @@
       "lead": "Contact our events support team for help with publishing, registrations, or logistics. We usually respond within 1-2 business days.",
       "cta": "Contact Event Support"
     }
+  },
+  "grantApplications": {
+    "meta": {
+      "title": "Grant Applications — Emerald Aid",
+      "description": "Create and manage grant calls — accept applications, run reviews, and manage awards for verified causes."
+    },
+    "hero": {
+      "badge": "Verified",
+      "updated": "Updated weekly",
+      "title": "Grant Applications — manage requests, reviews, and awards",
+      "lead": "Create and manage grant calls, accept applications, and track awards. Use tools for review workflows, budgeting and reporting.",
+      "ctaBrowse": "Browse Grants",
+      "ctaCreate": "Create Grant Call"
+    },
+    "campaignsTitle": "Open Grant Calls & Programs",
+    "apply": {
+      "title": "Apply or Review Grants",
+      "lead": "Apply for funding, review grant calls, or host a program. Below are current opportunities — submit an application or sign up to be notified about similar calls."
+    },
+    "campaigns": {
+      "c1": {
+        "title": "Grant Application Management Platform",
+        "summary": "Support our all-in-one platform for managing grant applications — from proposal drafting to submission tracking and funding disbursement."
+      },
+      "c2": {
+        "title": "Proposal Writing Training Program",
+        "summary": "Train organizations and individuals to craft data-driven grant proposals through workshops and mentorship."
+      },
+      "c3": {
+        "title": "Funder-Applicant Matching System",
+        "summary": "Develop an intelligent system that connects applicants with relevant funders based on impact areas and eligibility."
+      },
+      "c4": {
+        "title": "Youth Grant Writing Mentorship",
+        "summary": "Empower young changemakers through mentorship focused on proposal writing and grant management."
+      },
+      "c5": {
+        "title": "Sustainable Funding Initiative",
+        "summary": "Support long-term sustainability for nonprofits through grants that focus on renewable funding and impact measurement."
+      },
+      "c6": {
+        "title": "Grant Tracking & Reporting Hub",
+        "summary": "Build a centralized hub to monitor active grants, manage milestones, and generate transparent impact reports."
+      }
+    },
+    "tags": {
+      "all": "All",
+      "technology": "Technology",
+      "grant_applications": "Grant Applications",
+      "training": "Training",
+      "ai": "AI",
+      "mentorship": "Mentorship",
+      "youth": "Youth",
+      "sustainability": "Sustainability"
+    },
+    "processing": "Processing your sign-up — thank you!",
+    "thanks": "Thank you — your sign-up is received (demo). We will follow up by email.",
+    "labels": {
+      "applications": "applications",
+      "slots": "slots",
+      "filled": "Filled",
+      "of": "of"
+    },
+    "impact": { "title": "Grant Application Metrics" },
+
+    "metrics": {
+      "grantsSubmitted": "Grants Submitted",
+      "activeGrants": "Active Grants",
+      "fundsSecured": "Funds Secured",
+      "organizationsHelped": "Organizations Supported"
+    },
+    "events": {
+      "title": "Open Grant Calls",
+      "e1": { "title": "Grant Writing Essentials Workshop" },
+      "e2": { "title": "Funding Strategy Webinar" },
+      "e3": { "title": "Impact Reporting Masterclass" }
+    },
+
+    "faqs": {
+      "f1": {
+        "q": "How do I find suitable grants for my project?",
+        "a": "Use our Grant Finder tool to filter opportunities by funding amount, focus area, location, and eligibility."
+      },
+      "f2": {
+        "q": "Can I manage multiple grant applications at once?",
+        "a": "Yes — track deadlines, documents, and funder communications all in one dashboard."
+      },
+      "f3": {
+        "q": "How do I track funding status and reporting deadlines?",
+        "a": "Our Grant Management System updates status changes, reminders, and report deadlines so your team never misses a milestone."
+      },
+      "noResults": "No results — try different keywords.",
+      "f4": {
+        "q": "Can I generate financial and impact reports for funders?",
+        "a": "Yes — reporting tools compile funding data, expenditure summaries and measurable impact indicators ready for funders."
+      }
+    },
+    "actions": {
+      "apply": "Apply",
+      "details": "Details",
+      "register": "Register"
+    },
+    "contact": {
+      "title": "Questions about grants?",
+      "lead": "Contact our grants support team for help with applications, eligibility, or reporting. We usually respond within 1-2 business days.",
+      "cta": "Contact Grant Support",
+      "email": "grants@emeraldaid.org"
+    }
   }
 }
