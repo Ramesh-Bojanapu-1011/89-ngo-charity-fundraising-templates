@@ -34,7 +34,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 40000,
     raised: 31000,
     image:
-      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/55/98/54/559854a4e950d74efffdb379143e5d2a.jpg",
     tags: ["emergency", "volunteer"],
   },
   {
@@ -42,7 +42,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 18000,
     raised: 9200,
     image:
-      "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/0d/02/a4/0d02a4ee45f608945402d1942c9fa473.jpg",
     tags: ["youth", "mentorship", "volunteer"],
   },
   {
@@ -50,7 +50,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 30000,
     raised: 14500,
     image:
-      "https://images.unsplash.com/photo-1580281657527-6c1b7dcb9b7d?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/e3/9b/a4/e39ba4547d0b035aef4ce8478e394765.jpg",
     tags: ["health", "volunteer"],
   },
   {
@@ -58,7 +58,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 12000,
     raised: 7600,
     image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/56/0f/37/560f3751d3914720c73d09ff2f9aeb8c.jpg",
     tags: ["tech", "volunteer"],
   },
 ];
