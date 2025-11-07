@@ -236,7 +236,10 @@ export default function AdminDashboard() {
                 <div className="text-2xl font-extrabold">
                   {totalUsers ? Math.floor(totalUsers / 10) : 0}+
                 </div>
-                <div className="text-sm opacity-90 mt-1">Estimated Revenue</div>
+                <div className="text-sm opacity-90 mt-1">
+                  {" "}
+                  {t("admin.stats.estimated")}
+                </div>
               </div>
               <div className="opacity-90">
                 <DollarSign className="w-8 h-8" />

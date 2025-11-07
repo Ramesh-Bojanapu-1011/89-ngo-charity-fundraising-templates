@@ -1751,5 +1751,31 @@
       "success": "תודה — נרשמת בהצלחה.",
       "validationError": "אנא הזן כתובת דוא\"ל חוקית."
     }
+  },
+  "admin": {
+    "heading": "לוח ניהול",
+    "stats": {
+      "totalUsers": "סה״כ משתמשים",
+      "loggedUsers": "משתמשים מחוברים",
+      "activeUsers": "פעילים כעת",
+      "estimated": "תרומות מוערכות"
+    },
+    "pie": {
+      "logged": "מחובר",
+      "notLogged": "לא מחובר"
+    },
+    "charts": {
+      "dailyLogins": "כניסות יומיות (14 יום)",
+      "userStatus": "סטטוס משתמש"
+    },
+    "table": {
+      "title": "משתמשים",
+      "name": "שם",
+      "email": "אימייל",
+      "role": "תפקיד",
+      "registered": "נרשם בתאריך",
+      "lastLogin": "כניסה אחרונה",
+      "lastLogout": "יציאה אחרונה"
+    }
   }
 }

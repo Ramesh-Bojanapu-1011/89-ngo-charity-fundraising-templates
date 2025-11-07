@@ -1778,5 +1778,31 @@
       "success": "Thanks — you're subscribed.",
       "validationError": "Please enter a valid email address."
     }
+  },
+  "admin": {
+    "heading": "Admin Dashboard",
+    "stats": {
+      "totalUsers": "Total users",
+      "loggedUsers": "Users logged in",
+      "activeUsers": "Active now",
+      "estimated": "Estimated donations"
+    },
+    "pie": {
+      "logged": "Logged in",
+      "notLogged": "Not logged in"
+    },
+    "charts": {
+      "dailyLogins": "Daily logins (14 days)",
+      "userStatus": "User status"
+    },
+    "table": {
+      "title": "Users",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "registered": "Registered",
+      "lastLogin": "Last login",
+      "lastLogout": "Last logout"
+    }
   }
 }
