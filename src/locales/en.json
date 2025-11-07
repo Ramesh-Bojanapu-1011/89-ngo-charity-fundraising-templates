@@ -272,5 +272,126 @@
         }
       ]
     }
+  },
+  "home2": {
+    "hero": {
+      "badge": "NGO · Charity · Fundraising",
+      "title": "Bring hope to communities—fast.",
+      "lead": "Launch fundraising campaigns, recruit volunteers, and show donors the impact of their gifts with beautiful templates and simple tools.",
+      "cta": { "donate": "Donate", "explore": "Explore services" }
+    },
+    "about": {
+      "title": "Built for non-profits and grassroots teams",
+      "lead": "Templates and workflows designed to reduce friction: from donor checkout to volunteer coordination and reporting."
+    },
+    "services": [
+      {
+        "title": "Donation Pages",
+        "desc": "Beautiful, conversion-optimized donation pages with multiple payment gateways."
+      },
+      {
+        "title": "Volunteer Management",
+        "desc": "Signups, shift scheduling and reminders to keep volunteers engaged."
+      },
+      {
+        "title": "Events & Ticketing",
+        "desc": "Create events, sell tickets and track attendees with minimal setup."
+      },
+      {
+        "title": "Reporting & Donor CRM",
+        "desc": "Export donations, donor details and performance reports in a click."
+      }
+    ],
+    "how": [
+      {
+        "step": "1",
+        "title": "Choose a template",
+        "desc": "Pick a design that fits your cause and customize copy and images."
+      },
+      {
+        "step": "2",
+        "title": "Publish & share",
+        "desc": "Share the campaign link or embed the donation widget on your site."
+      },
+      {
+        "step": "3",
+        "title": "Receive funds",
+        "desc": "Donations reach your connected gateway securely and reliably."
+      }
+    ],
+    "metrics": {
+      "title": "Our impact in numbers",
+      "lead": "Thousands of campaigns launched, millions raised, and communities supported worldwide.",
+      "items": [
+        {
+          "label": "Donations",
+          "end": 120000,
+          "format": "compact",
+          "suffix": "+"
+        },
+        {
+          "label": "Volunteers",
+          "end": 8000,
+          "format": "compact",
+          "suffix": "+"
+        },
+        {
+          "label": "Campaigns",
+          "end": 500,
+          "format": "standard",
+          "suffix": "+"
+        }
+      ]
+    },
+    "volunteers": [
+      {
+        "name": "Aisha Khan",
+        "role": "Community Organizer",
+        "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=60",
+        "quote": "Helping neighbors start local projects is the most rewarding work I've done."
+      },
+      {
+        "name": "Miguel Santos",
+        "role": "Field Medic",
+        "img": "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=900&q=60",
+        "quote": "We bring care directly to communities — and every donation stretches further."
+      },
+      {
+        "name": "Priya Sharma",
+        "role": "Youth Coordinator",
+        "img": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=60",
+        "quote": "I love introducing young volunteers to meaningful, real-world impact."
+      }
+    ],
+    "campaigns": [
+      {
+        "title": "Clean Water Drive",
+        "img": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=60",
+        "raised": 42000,
+        "goal": 60000
+      },
+      {
+        "title": "School Supplies",
+        "img": "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=900&q=60",
+        "raised": 18500,
+        "goal": 25000
+      },
+      {
+        "title": "Mobile Clinics",
+        "img": "https://images.unsplash.com/photo-1584466994517-4f7e5b2b1b64?auto=format&fit=crop&w=900&q=60",
+        "raised": 72000,
+        "goal": 100000
+      }
+    ],
+    "sections": {
+      "servicesTitle": "Services",
+      "servicesLead": "Everything you need to run successful campaigns.",
+      "howTitle": "How it works",
+      "howLead": "Simple steps to get your campaign live and collecting funds.",
+      "volunteersTitle": "Volunteer Spotlights",
+      "volunteersLead": "Meet a few of the people powering our work — then join them.",
+      "campaignsTitle": "Featured campaigns",
+      "campaignsLead": "Hand-picked community projects you can support today."
+    }
   }
 }

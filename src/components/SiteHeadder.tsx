@@ -289,7 +289,7 @@ const SiteHeadder: React.FC = () => {
                   aria-haspopup="menu"
                   className="flex items-center gap-2 text-sm px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
-                  <div className="size-8 bg-gray-100 rounded-full flex justify-center items-center font-semibold">
+                  <div className="size-8 bg-gray-100 rounded-full flex justify-center items-center font-semibold text-black">
                     {user
                       ? `${(user.firstname || "").charAt(0).toUpperCase()}${(
                           user.lastname || ""

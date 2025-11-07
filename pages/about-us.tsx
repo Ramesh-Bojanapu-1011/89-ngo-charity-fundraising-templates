@@ -278,7 +278,7 @@ const AboutUs = () => {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
-                    href="/donate"
+                    href="/contact-us"
                     className="inline-flex items-center gap-2 bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold shadow"
                   >
                     Donate

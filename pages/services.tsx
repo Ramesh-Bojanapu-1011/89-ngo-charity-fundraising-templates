@@ -172,7 +172,7 @@ const ServicesPage = () => {
               </p>
               <div className="mt-8 flex justify-center gap-3">
                 <Link
-                  href="/donate"
+                  href="/contact-us"
                   className="bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold"
                 >
                   Donate
@@ -539,7 +539,7 @@ const ServicesPage = () => {
                           View
                         </a>
                         <a
-                          href="/donate"
+                          href="/contact-us"
                           className="bg-emerald-600 text-white px-3 py-2 rounded-full text-sm"
                         >
                           Donate

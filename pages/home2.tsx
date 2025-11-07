@@ -1,95 +1,113 @@
-import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import SiteHeadder from "../src/components/SiteHeadder";
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import SiteFooter from "../src/components/SiteFooter";
+import SiteHeadder from "../src/components/SiteHeadder";
 
 export default function Home2() {
+  const { t } = useTranslation();
+
   const services = [
     {
-      title: "Donation Pages",
-      desc: "Beautiful, conversion-optimized donation pages with multiple payment gateways.",
+      title: t("home2.services.0.title"),
+      desc: t("home2.services.0.desc"),
     },
     {
-      title: "Volunteer Management",
-      desc: "Signups, shift scheduling and reminders to keep volunteers engaged.",
+      title: t("home2.services.1.title"),
+      desc: t("home2.services.1.desc"),
     },
     {
-      title: "Events & Ticketing",
-      desc: "Create events, sell tickets and track attendees with minimal setup.",
+      title: t("home2.services.2.title"),
+      desc: t("home2.services.2.desc"),
     },
     {
-      title: "Reporting & Donor CRM",
-      desc: "Export donations, donor details and performance reports in a click.",
+      title: t("home2.services.3.title"),
+      desc: t("home2.services.3.desc"),
     },
   ];
 
   const how = [
     {
-      step: "1",
-      title: "Choose a template",
-      desc: "Pick a design that fits your cause and customize copy and images.",
+      step: t("home2.how.0.step"),
+      title: t("home2.how.0.title"),
+      desc: t("home2.how.0.desc"),
     },
     {
-      step: "2",
-      title: "Publish & share",
-      desc: "Share the campaign link or embed the donation widget on your site.",
+      step: t("home2.how.1.step"),
+      title: t("home2.how.1.title"),
+      desc: t("home2.how.1.desc"),
     },
     {
-      step: "3",
-      title: "Receive funds",
-      desc: "Donations reach your connected gateway securely and reliably.",
+      step: t("home2.how.2.step"),
+      title: t("home2.how.2.title"),
+      desc: t("home2.how.2.desc"),
     },
   ];
 
   const campaigns = [
     {
-      title: "Clean Water Drive",
-      img: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=60",
-      raised: 42000,
-      goal: 60000,
+      title: t("home2.campaigns.0.title"),
+      img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=60",
+      raised: 8500,
+      goal: 10000,
     },
     {
-      title: "School Supplies",
-      img: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=900&q=60",
-      raised: 18500,
-      goal: 25000,
+      title: t("home2.campaigns.1.title"),
+      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=60",
+      raised: 4200,
+      goal: 5000,
     },
     {
-      title: "Mobile Clinics",
-      img: "https://images.unsplash.com/photo-1584466994517-4f7e5b2b1b64?auto=format&fit=crop&w=900&q=60",
-      raised: 72000,
-      goal: 100000,
+      title: t("home2.campaigns.2.title"),
+      img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=60",
+      raised: 7600,
+      goal: 8000,
     },
   ];
 
   const volunteers = [
     {
-      name: "Aisha Khan",
-      role: "Community Organizer",
-      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=60",
-      quote:
-        "Helping neighbors start local projects is the most rewarding work I've done.",
+      name: t("home2.volunteers.0.name"),
+      role: t("home2.volunteers.0.role"),
+      img: "https://randomuser.me/api/portraits/women/68.jpg",
+      quote: t("home2.volunteers.0.quote"),
     },
     {
-      name: "Miguel Santos",
-      role: "Field Medic",
-      img: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=900&q=60",
-      quote:
-        "We bring care directly to communities — and every donation stretches further.",
+      name: t("home2.volunteers.1.name"),
+      role: t("home2.volunteers.1.role"),
+      img: "https://randomuser.me/api/portraits/men/45.jpg",
+      quote: t("home2.volunteers.1.quote"),
     },
     {
-      name: "Priya Sharma",
-      role: "Youth Coordinator",
-      img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=60",
-      quote:
-        "I love introducing young volunteers to meaningful, real-world impact.",
+      name: t("home2.volunteers.2.name"),
+      role: t("home2.volunteers.2.role"),
+      img: "https://randomuser.me/api/portraits/women/12.jpg",
+      quote: t("home2.volunteers.2.quote"),
     },
   ];
 
   const metrics = [
-    { label: "Donations", end: 120000, format: "compact", suffix: "+" },
-    { label: "Volunteers", end: 8000, format: "compact", suffix: "+" },
-    { label: "Campaigns", end: 500, format: "standard", suffix: "+" },
+    {
+      label: t("home2.metrics.items.0.label"),
+      end: 12500,
+      format: t("home2.metrics.items.0.format"),
+    },
+    {
+      label: t("home2.metrics.items.0.label"),
+      end: 2500000,
+      format: t("home2.metrics.items.0.format"),
+      suffix: "+",
+    },
+    {
+      label: t("home2.metrics.items.0.label"),
+      end: 320,
+      format: t("home2.metrics.items.0.format"),
+    },
+    {
+      label: t("home2.metrics.items.0.label"),
+      end: 8400,
+      format: t("home2.metrics.items.0.format"),
+    },
   ];
 
   const Counter = ({
@@ -161,29 +179,30 @@ export default function Home2() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">
-                  NGO · Charity · Fundraising
+                  {t("home2.hero.badge", "NGO · Charity · Fundraising")}
                 </div>
                 <h1 className="mt-6 text-4xl lg:text-5xl font-extrabold leading-tight">
-                  Bring hope to communities—fast.
+                  {t("home2.hero.title", "Bring hope to communities—fast.")}
                 </h1>
                 <p className="mt-4 text-lg text-white/95 max-w-lg">
-                  Launch fundraising campaigns, recruit volunteers, and show
-                  donors the impact of their gifts with beautiful templates and
-                  simple tools.
+                  {t(
+                    "home2.hero.lead",
+                    "Launch fundraising campaigns, recruit volunteers, and show donors the impact of their gifts with beautiful templates and simple tools.",
+                  )}
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
-                    href="/donate"
+                    href="/contact-us"
                     className="inline-flex items-center gap-2 bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold shadow"
                   >
-                    Donate
+                    {t("home2.hero.cta.donate", "Donate")}
                   </Link>
                   <a
                     href="#services"
                     className="inline-flex items-center gap-2 border border-white/30 text-white px-5 py-3 rounded-full"
                   >
-                    Explore services
+                    {t("home2.hero.cta.explore", "Explore services")}
                   </a>
                 </div>
               </div>
@@ -202,16 +221,21 @@ export default function Home2() {
         </section>
 
         {/* About */}
-        <section id="about" className="py-16">
+        <section id="about" className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold">
-                  Built for non-profits and grassroots teams
+                  {t(
+                    "home2.about.title",
+                    "Built for non-profits and grassroots teams",
+                  )}
                 </h2>
                 <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-xl">
-                  Templates and workflows designed to reduce friction: from
-                  donor checkout to volunteer coordination and reporting.
+                  {t(
+                    "home2.about.lead",
+                    "Templates and workflows designed to reduce friction: from donor checkout to volunteer coordination and reporting.",
+                  )}
                 </p>
                 <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <li className="flex items-start gap-3">
@@ -266,10 +290,9 @@ export default function Home2() {
               </div>
 
               <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow">
-                <h4 className="font-semibold">Why organizations trust us</h4>
+                <h4 className="font-semibold"> {t("home2.metrics.title")}</h4>
                 <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
-                  Security, reliability and a focus on transparency help
-                  nonprofits build long-term donor relationships.
+                  {t("home2.metrics.lead")}
                 </p>
                 <div className="mt-6 grid grid-cols-3 gap-4 text-center">
                   {metrics.map((m, i) => (
@@ -291,12 +314,17 @@ export default function Home2() {
         </section>
 
         {/* Services */}
-        <section id="services" className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section id="services" className="py-16  bg-white dark:bg-gray-800  ">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold">Services</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("home2.sections.servicesTitle", "Services")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Everything you need to run successful campaigns.
+                {t(
+                  "home2.sections.servicesLead",
+                  "Everything you need to run successful campaigns.",
+                )}
               </p>
             </div>
 
@@ -334,12 +362,17 @@ export default function Home2() {
         </section>
 
         {/* How it works */}
-        <section id="how" className="py-16">
+        <section id="how" className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-semibold">How it works</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("home2.sections.howTitle", "How it works")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Simple steps to get your campaign live and collecting funds.
+                {t(
+                  "home2.sections.howLead",
+                  "Simple steps to get your campaign live and collecting funds.",
+                )}
               </p>
             </div>
 
@@ -376,13 +409,18 @@ export default function Home2() {
         {/* Volunteer Spotlights */}
         <section
           id="volunteers"
-          className="py-16 bg-linear-to-r from-emerald-50 to-white"
+          className="py-16   bg-white dark:bg-gray-800"
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-semibold">Volunteer Spotlights</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("home2.sections.volunteersTitle", "Volunteer Spotlights")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Meet a few of the people powering our work — then join them.
+                {t(
+                  "home2.sections.volunteersLead",
+                  "Meet a few of the people powering our work — then join them.",
+                )}
               </p>
             </div>
 
@@ -425,12 +463,17 @@ export default function Home2() {
         </section>
 
         {/* Featured campaigns */}
-        <section id="campaigns" className="py-16 bg-white dark:bg-gray-900">
+        <section id="campaigns" className="py-16  bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-semibold">Featured campaigns</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("home2.sections.campaignsTitle", "Featured campaigns")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Hand-picked community projects you can support today.
+                {t(
+                  "home2.sections.campaignsLead",
+                  "Hand-picked community projects you can support today.",
+                )}
               </p>
             </div>
 

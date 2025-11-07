@@ -94,7 +94,7 @@ export default function Home1() {
         "home1.getInvolved.donate.desc",
         "Support ongoing campaigns with a one-time or recurring gift.",
       ),
-      href: "/donate",
+      href: "/contact-us",
       cta: t("home1.getInvolved.donate.cta", "Give now"),
       style: "accent",
     },
@@ -279,7 +279,7 @@ export default function Home1() {
 
                 <div className="mt-8 flex flex-wrap gap-3 items-center">
                   <Link
-                    href="/donate"
+                    href="/contact-us"
                     className="inline-flex items-center gap-3 bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold shadow hover:scale-[1.02] transform transition"
                   >
                     <svg
@@ -530,7 +530,7 @@ export default function Home1() {
                     {t("home1.actions.services", "See services")}
                   </Link>
                   <Link
-                    href="/donate"
+                    href="/contact-us"
                     className="inline-block border border-emerald-600 text-emerald-600 px-5 py-3 rounded-md"
                   >
                     {t("home1.actions.startCampaign", "Start a campaign")}
