@@ -1302,36 +1302,36 @@
       },
       "monthlyDonation": "اجعل هذا تبرعًا شهريًا",
       "customAmount": "المبلغ المخصص (USD)"
-    },
-    "footer": {
-      "quickLinksTitle": "روابط سريعة",
-      "quickLinks": {
-        "home1": "الصفحة 1",
-        "home2": "الصفحة 2",
-        "about": "معلومات عنا",
-        "services": "الخدمات",
-        "blog": "المدونة",
-        "contact": "اتصل بنا"
-      },
-      "servicesTitle": "الخدمات",
-      "services": {
-        "fundraising": "حملات جمع التبرعات",
-        "onlineDonations": "التبرعات عبر الإنترنت",
-        "volunteer": "إدارة المتطوعين",
-        "events": "إدارة الفعاليات",
-        "grants": "طلبات المنح",
-        "advocacy": "الدعوة والتوعية"
-      },
-      "aboutText": "قوالب جميلة ومتجاوبة مصممة خصيصًا للمنظمات غير الربحية والجمعيات الخيرية. أنشئ صفحات جمع التبرعات، ونظم الفعاليات، وتواصل مع المتبرعين والمتطوعين.",
-      "contactTitle": "اتصل بنا",
-      "address": "قوالب المنظمات غير الربحية\n123 Giving Lane, City, Country",
-      "phoneLabel": "هاتف",
-      "emailLabel": "البريد الإلكتروني",
-      "subscribePlaceholder": "بريدك الإلكتروني",
-      "subscribeButton": "اشترك",
-      "copyright": "© {{year}} منظمة / جمعية خيرية. جميع الحقوق محفوظة.",
-      "madeWith": "مصنوع بمحبة ❤️ لأجل القضايا"
     }
+  },
+  "footer": {
+    "quickLinksTitle": "روابط سريعة",
+    "quickLinks": {
+      "home1": "الصفحة 1",
+      "home2": "الصفحة 2",
+      "about": "معلومات عنا",
+      "services": "الخدمات",
+      "blog": "المدونة",
+      "contact": "اتصل بنا"
+    },
+    "servicesTitle": "الخدمات",
+    "services": {
+      "fundraising": "حملات جمع التبرعات",
+      "onlineDonations": "التبرعات عبر الإنترنت",
+      "volunteer": "إدارة المتطوعين",
+      "events": "إدارة الفعاليات",
+      "grants": "طلبات المنح",
+      "advocacy": "الدعوة والتوعية"
+    },
+    "aboutText": "قوالب جميلة ومتجاوبة مصممة خصيصًا للمنظمات غير الربحية والجمعيات الخيرية. أنشئ صفحات جمع التبرعات، ونظم الفعاليات، وتواصل مع المتبرعين والمتطوعين.",
+    "contactTitle": "اتصل بنا",
+    "address": "قوالب المنظمات غير الربحية\n123 Giving Lane, City, Country",
+    "phoneLabel": "هاتف",
+    "emailLabel": "البريد الإلكتروني",
+    "subscribePlaceholder": "بريدك الإلكتروني",
+    "subscribeButton": "اشترك",
+    "copyright": "© {{year}} منظمة / جمعية خيرية. جميع الحقوق محفوظة.",
+    "madeWith": "مصنوع بمحبة ❤️ لأجل القضايا"
   },
   "grantApplications": {
     "meta": {
