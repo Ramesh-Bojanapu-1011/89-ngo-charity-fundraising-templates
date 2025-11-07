@@ -215,31 +215,30 @@
     },
     "testimonials": {
       "title": "סיפורי הצלחה",
-      "lead": "תוצאות אמיתיות מארגונים שמשתמשים בתבניות. ציטוטים קצרים עם שם ותפקיד."
-    ,
-    "items": [
-      {
-        "quote": "השימוש בתבניות לגיוס תרומות עזר לנו להכפיל את התרומות ברבע אחד.",
-        "name": "עמותה א",
-        "role": "מוביל קמפיין",
-        "avatar": "https://randomuser.me/api/portraits/men/90.jpg",
-        "bg": "bg-emerald-600"
-      },
-      {
-        "quote": "ניהול אירועים היה פשוט — אישורי הגעה ומכירת כרטיסים בדקות.",
-        "name": "ארגון ב",
-        "role": "מנהל אירועים",
-        "avatar": "https://randomuser.me/api/portraits/men/39.jpg",
-        "bg": "bg-emerald-500"
-      },
-      {
-        "quote": "מתנדבים נרשמו במהירות הודות לזרימת ההרשמה הנקייה.",
-        "name": "ארגון ג",
-        "role": "מנהל מתנדבים",
-        "avatar": "https://randomuser.me/api/portraits/men/68.jpg",
-        "bg": "bg-emerald-700"
-      }
-    ]
+      "lead": "תוצאות אמיתיות מארגונים שמשתמשים בתבניות. ציטוטים קצרים עם שם ותפקיד.",
+      "items": [
+        {
+          "quote": "השימוש בתבניות לגיוס תרומות עזר לנו להכפיל את התרומות ברבע אחד.",
+          "name": "עמותה א",
+          "role": "מוביל קמפיין",
+          "avatar": "https://randomuser.me/api/portraits/men/90.jpg",
+          "bg": "bg-emerald-600"
+        },
+        {
+          "quote": "ניהול אירועים היה פשוט — אישורי הגעה ומכירת כרטיסים בדקות.",
+          "name": "ארגון ב",
+          "role": "מנהל אירועים",
+          "avatar": "https://randomuser.me/api/portraits/men/39.jpg",
+          "bg": "bg-emerald-500"
+        },
+        {
+          "quote": "מתנדבים נרשמו במהירות הודות לזרימת ההרשמה הנקייה.",
+          "name": "ארגון ג",
+          "role": "מנהל מתנדבים",
+          "avatar": "https://randomuser.me/api/portraits/men/68.jpg",
+          "bg": "bg-emerald-700"
+        }
+      ]
     }
   },
   "footer": {

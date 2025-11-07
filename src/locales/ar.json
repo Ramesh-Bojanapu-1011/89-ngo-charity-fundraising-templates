@@ -215,31 +215,30 @@
     },
     "testimonials": {
       "title": "قصص نجاح",
-      "lead": "نتائج حقيقية من منظمات تستخدم القوالب. اقتباسات قصيرة مع اسم ودور الشخص."
-    ,
-    "items": [
-      {
-        "quote": "ساعدتنا قوالب جمع التبرعات على مضاعفة التبرعات في ربع واحد.",
-        "name": "جمعية أ",
-        "role": "قائد الحملة",
-        "avatar": "https://randomuser.me/api/portraits/men/90.jpg",
-        "bg": "bg-emerald-600"
-      },
-      {
-        "quote": "كان إدارة الفعاليات بسيطًا — الحضور والتذاكر في دقائق.",
-        "name": "منظمة ب",
-        "role": "منسق الفعاليات",
-        "avatar": "https://randomuser.me/api/portraits/men/39.jpg",
-        "bg": "bg-emerald-500"
-      },
-      {
-        "quote": "سجل المتطوعون بسرعة بفضل واجهة التسجيل النظيفة.",
-        "name": "مؤسسة ج",
-        "role": "مدير المتطوعين",
-        "avatar": "https://randomuser.me/api/portraits/men/68.jpg",
-        "bg": "bg-emerald-700"
-      }
-    ]
+      "lead": "نتائج حقيقية من منظمات تستخدم القوالب. اقتباسات قصيرة مع اسم ودور الشخص.",
+      "items": [
+        {
+          "quote": "ساعدتنا قوالب جمع التبرعات على مضاعفة التبرعات في ربع واحد.",
+          "name": "جمعية أ",
+          "role": "قائد الحملة",
+          "avatar": "https://randomuser.me/api/portraits/men/90.jpg",
+          "bg": "bg-emerald-600"
+        },
+        {
+          "quote": "كان إدارة الفعاليات بسيطًا — الحضور والتذاكر في دقائق.",
+          "name": "منظمة ب",
+          "role": "منسق الفعاليات",
+          "avatar": "https://randomuser.me/api/portraits/men/39.jpg",
+          "bg": "bg-emerald-500"
+        },
+        {
+          "quote": "سجل المتطوعون بسرعة بفضل واجهة التسجيل النظيفة.",
+          "name": "مؤسسة ج",
+          "role": "مدير المتطوعين",
+          "avatar": "https://randomuser.me/api/portraits/men/68.jpg",
+          "bg": "bg-emerald-700"
+        }
+      ]
     }
   },
   "footer": {

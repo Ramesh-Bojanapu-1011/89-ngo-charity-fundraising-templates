@@ -206,15 +206,29 @@ export default function Home1() {
   ];
 
   // testimonials loaded from translations so they update when language changes
-  const testimonials = t("home1.testimonials.items", {
-    returnObjects: true,
-  }) as Array<{
-    quote: string;
-    name: string;
-    role: string;
-    avatar?: string;
-    bg?: string;
-  }>;
+  const testimonials = [
+    {
+      quote: t("home1.testimonials.items.0.quote"),
+      name: t("home1.testimonials.items.0.name"),
+      role: t("home1.testimonials.items.0.role"),
+      avatar: "https://randomuser.me/api/portraits/men/90.jpg",
+      bg: "bg-emerald-600",
+    },
+    {
+      quote: t("home1.testimonials.items.1.quote"),
+      name: t("home1.testimonials.items.1.name"),
+      role: t("home1.testimonials.items.1.role"),
+      avatar: "https://randomuser.me/api/portraits/men/39.jpg",
+      bg: "bg-emerald-500",
+    },
+    {
+      quote: t("home1.testimonials.items.2.quote"),
+      name: t("home1.testimonials.items.2.name"),
+      role: t("home1.testimonials.items.2.role"),
+      avatar: "https://randomuser.me/api/portraits/men/68.jpg",
+      bg: "bg-emerald-700",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 caret-transparent">
