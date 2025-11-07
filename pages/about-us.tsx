@@ -276,7 +276,7 @@ const AboutUs = () => {
                     {t("about.cta.donate")}
                   </Link>
                   <Link
-                    href="/volunteer"
+                    href="/services"
                     className="inline-flex items-center gap-2 border border-white/30 text-white px-5 py-3 rounded-full"
                   >
                     {t("about.cta.volunteer")}

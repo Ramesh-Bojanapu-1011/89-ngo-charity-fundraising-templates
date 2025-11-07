@@ -2,104 +2,188 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import SiteFooter from "../src/components/SiteFooter";
 import SiteHeadder from "../src/components/SiteHeadder";
+import { useTranslation } from "react-i18next";
 
 const ServicesPage = () => {
+  const { t } = useTranslation();
+
   const services = [
     {
-      title: "Fundraising Campaigns",
-      desc: "Beautiful campaign pages to tell your story",
+      title: t("servicesPage.items.0.title"),
+      desc: t("servicesPage.items.0.desc"),
       href: "/fundraising-campaigns",
     },
     {
-      title: "Online Donations",
-      desc: "Secure donations with optimized checkout",
-      href: "/online-donations",
-    },
-    {
-      title: "Volunteer Management",
-      desc: "Organize and schedule volunteers easily",
+      title: t("servicesPage.items.1.title"),
+      desc: t("servicesPage.items.1.desc"),
       href: "/volunteer-management",
     },
     {
-      title: "Event Management",
-      desc: "Create events, sell tickets, manage RSVPs",
+      title: t("servicesPage.items.2.title"),
+      desc: t("servicesPage.items.2.desc"),
+      href: "/donation-processing",
+    },
+    {
+      title: t("servicesPage.items.3.title"),
+      desc: t("servicesPage.items.3.desc"),
       href: "/event-management",
     },
     {
-      title: "Grant Applications",
-      desc: "Templates and tracking for grant writing",
-      href: "/grant-applications",
+      title: t("servicesPage.items.4.title"),
+      desc: t("servicesPage.items.4.desc"),
+      href: "/membership-management",
     },
     {
-      title: "Advocacy & Outreach",
-      desc: "Share campaigns and mobilize supporters",
-      href: "/advocacy-outreach",
+      title: t("servicesPage.items.5.title"),
+      desc: t("servicesPage.items.5.desc"),
+      href: "/reporting-analytics",
     },
   ];
 
   const metrics = [
-    { label: "Communities", value: 245 },
-    { label: "Volunteers", value: 842 },
-    { label: "Projects", value: 124 },
+    { label: t("servicesPage.metrics.0.label"), value: 245 },
+    { label: t("servicesPage.metrics.1.label"), value: 842 },
+    { label: t("servicesPage.metrics.2.label"), value: 124 },
   ];
 
   const testimonials = [
     {
-      name: "Amina",
-      role: "Community leader",
-      org: "Kakuma Community",
-      quote: "They rebuilt our school quickly and with care.",
+      name: t("servicesPage.testimonials.0.name"),
+      role: t("servicesPage.testimonials.0.role"),
       avatar:
         "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=60&auto=format&fit=crop",
-      href: "/partners/amina",
+      quote: t("servicesPage.testimonials.0.quote"),
+      org: t("servicesPage.testimonials.0.org"),
     },
     {
-      name: "Daniel",
-      role: "Field coordinator",
-      org: "ReliefWorks",
-      quote: "Volunteer coordination was easy and impactful.",
+      name: t("servicesPage.testimonials.1.name"),
+      role: t("servicesPage.testimonials.1.role"),
       avatar:
         "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=60&auto=format&fit=crop",
-      href: "/partners/daniel",
+      quote: t("servicesPage.testimonials.1.quote"),
+      org: t("servicesPage.testimonials.1.org"),
     },
     {
-      name: "Global Partner",
-      role: "Strategic partner",
-      org: "Global Aid Network",
-      quote: "Transparent reporting made us confident to give.",
+      name: t("servicesPage.testimonials.2.name"),
+      role: t("servicesPage.testimonials.2.role"),
+      quote: t("servicesPage.testimonials.2.quote"),
+      org: t("servicesPage.testimonials.2.org"),
       avatar:
         "https://images.unsplash.com/photo-1531123414780-fd3d0f4e1b4f?w=800&q=60&auto=format&fit=crop",
-      href: "/partners/global",
     },
   ];
 
   const campaigns = [
     {
-      title: "Clean Water for Village X",
-      desc: "Drill wells, install filtration and train maintenance teams.",
+      title: t("servicesPage.campaigns.0.title"),
+      desc: t("servicesPage.campaigns.0.desc"),
       image:
         "https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=1200&q=60&auto=format&fit=crop",
       raised: 42000,
       goal: 60000,
-      href: "/campaigns/water-village-x",
     },
     {
-      title: "School Rebuild Program",
-      desc: "Rebuild classrooms and provide school supplies for 500 children.",
+      title: t("servicesPage.campaigns.1.title"),
+      desc: t("servicesPage.campaigns.1.desc"),
       image:
         "https://images.unsplash.com/photo-1529078155058-5d716f45d604?w=1200&q=60&auto=format&fit=crop",
       raised: 27500,
       goal: 50000,
-      href: "/campaigns/school-rebuild",
     },
     {
-      title: "Emergency Medical Kits",
-      desc: "Supply first-response kits and train local health volunteers.",
+      title: t("servicesPage.campaigns.2.title"),
+      desc: t("servicesPage.campaigns.2.desc"),
       image:
         "https://images.unsplash.com/photo-1584438784816-3a5f29a9b0b3?w=1200&q=60&auto=format&fit=crop",
       raised: 18000,
       goal: 20000,
-      href: "/campaigns/medical-kits",
+    },
+  ];
+
+  const howSteps = [
+    {
+      title: t("servicesPage.howSteps.0.title"),
+      body: t("servicesPage.howSteps.0.body"),
+      icon: (
+        <>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-emerald-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 14c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z"
+            />
+          </svg>
+        </>
+      ),
+    },
+    {
+      title: t("servicesPage.howSteps.1.title"),
+      body: t("servicesPage.howSteps.1.body"),
+      icon: (
+        <>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-emerald-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 12l2 2 4-4"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6"
+            />
+          </svg>
+        </>
+      ),
+    },
+    {
+      title: t("servicesPage.howSteps.2.title"),
+      body: t("servicesPage.howSteps.2.body"),
+      icon: (
+        <>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6 text-emerald-600"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M11 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M21 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"
+            />
+          </svg>
+        </>
+      ),
     },
   ];
 
@@ -164,24 +248,21 @@ const ServicesPage = () => {
           <div className="max-w-6xl mx-auto px-6 py-24 lg:py-32 text-center">
             <div className="max-w-3xl mx-auto">
               <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight">
-                Our Services
+                {t("servicesPage.hero.title")}
               </h1>
-              <p className="mt-4 text-lg">
-                Programs designed to support communities in crisis and build
-                lasting resilience.
-              </p>
+              <p className="mt-4 text-lg">{t("servicesPage.hero.lead")}</p>
               <div className="mt-8 flex justify-center gap-3">
                 <Link
                   href="/contact-us"
                   className="bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold"
                 >
-                  Donate
+                  {t("servicesPage.hero.ctaDonate")}
                 </Link>
                 <Link
-                  href="/volunteer"
+                  href="/services"
                   className="border border-white/30 text-white px-5 py-3 rounded-full"
                 >
-                  Volunteer
+                  {t("servicesPage.hero.ctaVolunteer")}
                 </Link>
               </div>
             </div>
@@ -192,10 +273,11 @@ const ServicesPage = () => {
         <section id="services" className="py-16 bg-white dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10">
-              <h3 className="text-2xl font-semibold">What we provide</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("servicesPage.what.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Comprehensive tools and templates that make fundraising, events
-                and volunteer coordination simple and effective.
+                {t("servicesPage.what.lead")}
               </p>
             </div>
 
@@ -218,9 +300,13 @@ const ServicesPage = () => {
                             </p>
 
                             <ul className="mt-3 text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                              <li>• Responsive campaign pages</li>
-                              <li>• Fast donation checkout</li>
-                              <li>• Integrated volunteer signups</li>
+                              {(
+                                (t("servicesPage.cardBullets", {
+                                  returnObjects: true,
+                                }) as string[] | undefined) || []
+                              ).map((b, bi) => (
+                                <li key={bi}>• {b}</li>
+                              ))}
                             </ul>
                           </div>
                         </div>
@@ -246,14 +332,14 @@ const ServicesPage = () => {
                             d="M9 5l7 7-7 7"
                           />
                         </svg>
-                        Learn more
+                        {t("servicesPage.learnMore")}
                       </Link>
 
                       <a
                         href="/contact"
                         className="text-xs text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"
                       >
-                        Get help
+                        {t("servicesPage.getHelp")}
                       </a>
                     </div>
                   </div>
@@ -268,12 +354,11 @@ const ServicesPage = () => {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
               <div className="lg:col-span-2">
-                <h2 className="text-3xl font-extrabold">How we work</h2>
+                <h2 className="text-3xl font-extrabold">
+                  {t("servicesPage.how.title")}
+                </h2>
                 <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-2xl">
-                  We partner with local organizations, prioritize community
-                  leadership, and transparently report outcomes. Below is our
-                  simple, repeatable approach that keeps communities at the
-                  center.
+                  {t("servicesPage.how.lead")}
                 </p>
 
                 <div className="mt-10 relative">
@@ -281,89 +366,11 @@ const ServicesPage = () => {
                   <div className="hidden lg:block absolute left-10 top-6 bottom-6 w-px bg-emerald-100 dark:bg-emerald-700" />
 
                   <ol className="space-y-10">
-                    {[
-                      {
-                        title: "Assess",
-                        body: "Rapid needs assessments with trusted local partners to design relevant, community-led responses.",
-                        icon: (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6 text-emerald-600"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2z"
-                            />
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M12 14c-4 0-6 2-6 4v1h12v-1c0-2-2-4-6-4z"
-                            />
-                          </svg>
-                        ),
-                      },
-                      {
-                        title: "Act",
-                        body: "Deliver targeted programs, source local teams, and scale what works with careful stewardship of funds.",
-                        icon: (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6 text-emerald-600"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M9 12l2 2 4-4"
-                            />
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M21 12v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6"
-                            />
-                          </svg>
-                        ),
-                      },
-                      {
-                        title: "Account",
-                        body: "Measure outcomes, publish transparent reports, and iterate together with community feedback.",
-                        icon: (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-6 h-6 text-emerald-600"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M11 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
-                            />
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M21 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"
-                            />
-                          </svg>
-                        ),
-                      },
-                    ].map((s, idx) => (
+                    {howSteps.map((s, idx) => (
                       <li key={idx} className="relative flex items-start gap-6">
                         <div className="shrink-0">
                           <div className="w-14 h-14 rounded-full bg-white dark:bg-gray-800 shadow flex items-center justify-center ring-1 ring-emerald-100 dark:ring-emerald-700">
+                            {/* Decorative icon placeholder - keep existing visuals */}
                             {s.icon}
                           </div>
                         </div>
@@ -383,7 +390,9 @@ const ServicesPage = () => {
               </div>
 
               <aside className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-md lg:sticky lg:top-28">
-                <h4 className="font-semibold">Quick metrics</h4>
+                <h4 className="font-semibold">
+                  {t("servicesPage.metricsTitle")}
+                </h4>
                 <div className="mt-4 space-y-4">
                   {metrics.map((m, i) => (
                     <div key={i} className="flex items-center justify-between">
@@ -396,15 +405,7 @@ const ServicesPage = () => {
                 </div>
 
                 <div className="mt-6 text-xs text-gray-500">
-                  Real-time figures across our programs — updated monthly.
-                </div>
-                <div className="mt-4">
-                  <a
-                    href="/impact"
-                    className="inline-block text-sm font-medium text-emerald-600 hover:underline"
-                  >
-                    See detailed reports
-                  </a>
+                  {t("servicesPage.metricsInfo.note")}
                 </div>
               </aside>
             </div>
@@ -416,16 +417,15 @@ const ServicesPage = () => {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10">
               <h3 className="text-3xl font-extrabold">
-                Partners & Testimonials
+                {t("servicesPage.partners.title")}
               </h3>
               <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Stories from partners and field leaders who see our work in
-                action. Real voices, real impact.
+                {t("servicesPage.partners.lead")}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map((t, i) => (
+              {testimonials.map((item, i) => (
                 <article
                   key={i}
                   className="relative group   rounded-3xl bg-linear-to-b from-emerald-50 to-white dark:from-emerald-900 dark:to-gray-800 p-6 shadow-lg"
@@ -447,26 +447,26 @@ const ServicesPage = () => {
                   <div className="flex items-start gap-4">
                     <div className="-mt-10">
                       <img
-                        src={t.avatar}
-                        alt={`${t.name} avatar`}
+                        src={item.avatar}
+                        alt={`${item.name} avatar`}
                         className="w-20 h-20 rounded-xl object-cover ring-4 ring-white dark:ring-gray-900 shadow-md"
                       />
                     </div>
 
                     <div className="flex-1">
                       <blockquote className="text-gray-800 dark:text-gray-100 italic text-lg leading-relaxed">
-                        “{t.quote}”
+                        “{item.quote}”
                       </blockquote>
 
                       <div className="mt-4 flex items-center justify-between">
                         <div>
                           <div className="font-semibold text-gray-900 dark:text-gray-100">
-                            {t.name}
+                            {item.name}
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-400">
-                            {t.role} •{" "}
+                            {item.role} •{" "}
                             <span className="text-xs text-gray-400">
-                              {t.org}
+                              {item.org}
                             </span>
                           </div>
                         </div>
@@ -483,10 +483,11 @@ const ServicesPage = () => {
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold">Featured campaigns</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("servicesPage.featured.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Hand-picked campaigns that need your support today. Each shows
-                progress and what donations will achieve.
+                {t("servicesPage.featured.lead")}
               </p>
             </div>
 
@@ -519,8 +520,13 @@ const ServicesPage = () => {
 
                       <div className="mt-4">
                         <div className="flex items-center justify-between text-xs text-gray-500">
-                          <div>{c.raised.toLocaleString()} raised</div>
-                          <div>{c.goal.toLocaleString()} goal</div>
+                          <div>
+                            {c.raised.toLocaleString()}{" "}
+                            {t("servicesPage.raised")}
+                          </div>
+                          <div>
+                            {c.goal.toLocaleString()} {t("servicesPage.goal")}
+                          </div>
                         </div>
 
                         <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -533,16 +539,10 @@ const ServicesPage = () => {
 
                       <div className="mt-4 flex items-center justify-between">
                         <a
-                          href={c.href}
-                          className="text-sm text-emerald-600 font-medium hover:underline"
-                        >
-                          View
-                        </a>
-                        <a
                           href="/contact-us"
                           className="bg-emerald-600 text-white px-3 py-2 rounded-full text-sm"
                         >
-                          Donate
+                          {t("servicesPage.campaignCTA")}
                         </a>
                       </div>
                     </div>
@@ -585,13 +585,13 @@ const ServicesPage = () => {
                 <div className="absolute -bottom-6 left-6 hidden md:block">
                   <div className="rounded-xl bg-white dark:bg-gray-800 p-4 shadow-lg w-64">
                     <div className="text-sm text-gray-500">
-                      Recent milestone
+                      {t("servicesPage.impact.milestoneLabel")}
                     </div>
                     <div className="mt-2 text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      10,000 meals delivered
+                      {t("servicesPage.impact.milestoneCount")}
                     </div>
                     <div className="mt-3 text-xs text-gray-500">
-                      Thanks to donors and volunteers across our programs.
+                      {t("servicesPage.impact.milestoneNote")}
                     </div>
                   </div>
                 </div>
@@ -599,45 +599,46 @@ const ServicesPage = () => {
 
               <div>
                 <h3 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-                  Impact snapshot
+                  {t("servicesPage.impact.title")}
                 </h3>
                 <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-xl">
-                  A quick view of the measurable outcomes our programs deliver —
-                  transparent, local-led, and accountable.
+                  {t("servicesPage.impact.lead")}
                 </p>
 
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="rounded-xl bg-white dark:bg-gray-800 p-4 shadow flex flex-col items-start">
-                    <div className="text-sm text-gray-500">People served</div>
+                    <div className="text-sm text-gray-500">
+                      {t("servicesPage.impact.tile1.title")}
+                    </div>
                     <div className="mt-2 text-2xl font-bold text-emerald-600">
                       <Counter end={24500} />
                     </div>
                     <div className="mt-2 text-xs text-gray-500">
-                      Since Jan 2024
+                      {t("servicesPage.impact.tile1.note")}
                     </div>
                   </div>
 
                   <div className="rounded-xl bg-white dark:bg-gray-800 p-4 shadow flex flex-col items-start">
                     <div className="text-sm text-gray-500">
-                      Projects completed
+                      {t("servicesPage.impact.tile2.title")}
                     </div>
                     <div className="mt-2 text-2xl font-bold text-emerald-600">
                       <Counter end={124} />
                     </div>
                     <div className="mt-2 text-xs text-gray-500">
-                      Across 20 regions
+                      {t("servicesPage.impact.tile2.note")}
                     </div>
                   </div>
 
                   <div className="rounded-xl bg-white dark:bg-gray-800 p-4 shadow flex flex-col items-start">
                     <div className="text-sm text-gray-500">
-                      Volunteers active
+                      {t("servicesPage.impact.tile3.title")}
                     </div>
                     <div className="mt-2 text-2xl font-bold text-emerald-600">
                       <Counter end={842} />
                     </div>
                     <div className="mt-2 text-xs text-gray-500">
-                      Field & remote
+                      {t("servicesPage.impact.tile3.note")}
                     </div>
                   </div>
                 </div>

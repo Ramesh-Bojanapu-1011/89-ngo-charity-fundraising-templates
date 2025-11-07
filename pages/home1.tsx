@@ -104,7 +104,7 @@ export default function Home1() {
         "home1.getInvolved.volunteer.desc",
         "Join local initiatives or help remotely — we make signups easy.",
       ),
-      href: "/volunteer",
+      href: "/services",
       cta: t("home1.getInvolved.volunteer.cta", "Sign up"),
       style: "outline",
     },

@@ -518,5 +518,153 @@
       "campaignsTitle": "Featured campaigns",
       "campaignsLead": "Hand-picked community projects you can support today."
     }
+  },
+  "servicesPage": {
+    "learnMore": "Learn more",
+    "getHelp": "Get help",
+    "hero": {
+      "title": "Our Services",
+      "lead": "Programs designed to support communities in crisis and build lasting resilience.",
+      "ctaDonate": "Donate",
+      "ctaVolunteer": "Volunteer"
+    },
+    "what": {
+      "title": "What we provide",
+      "lead": "Comprehensive tools and templates that make fundraising, events and volunteer coordination simple and effective."
+    },
+    "cardBullets": [
+      "Responsive campaign pages",
+      "Fast donation checkout",
+      "Integrated volunteer signups"
+    ],
+
+    "items": [
+      {
+        "title": "Fundraising Campaigns",
+        "desc": "Beautiful campaign pages to tell your story",
+        "href": "/fundraising-campaigns"
+      },
+      {
+        "title": "Online Donations",
+        "desc": "Secure donations with optimized checkout",
+        "href": "/online-donations"
+      },
+      {
+        "title": "Volunteer Management",
+        "desc": "Organize and schedule volunteers easily",
+        "href": "/volunteer-management"
+      },
+      {
+        "title": "Event Management",
+        "desc": "Create events, sell tickets, manage RSVPs",
+        "href": "/event-management"
+      },
+      {
+        "title": "Grant Applications",
+        "desc": "Templates and tracking for grant writing",
+        "href": "/grant-applications"
+      },
+      {
+        "title": "Advocacy & Outreach",
+        "desc": "Share campaigns and mobilize supporters",
+        "href": "/advocacy-outreach"
+      }
+    ],
+    "metricsTitle": "Quick metrics",
+    "metrics": [
+      { "label": "Communities", "value": 245 },
+      { "label": "Volunteers", "value": 842 },
+      { "label": "Projects", "value": 124 }
+    ],
+    "metricsInfo": {
+      "note": "Real-time figures across our programs — updated monthly.",
+      "detailLink": "See detailed reports"
+    },
+    "partners": {
+      "title": "Partners & Testimonials",
+      "lead": "Stories from partners and field leaders who see our work in action. Real voices, real impact."
+    },
+    "testimonials": [
+      {
+        "name": "Amina",
+        "role": "Community leader",
+        "org": "Kakuma Community",
+        "quote": "They rebuilt our school quickly and with care.",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=60&auto=format&fit=crop"
+      },
+      {
+        "name": "Daniel",
+        "role": "Field coordinator",
+        "org": "ReliefWorks",
+        "quote": "Volunteer coordination was easy and impactful.",
+        "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=60&auto=format&fit=crop"
+      },
+      {
+        "name": "Global Partner",
+        "role": "Strategic partner",
+        "org": "Global Aid Network",
+        "quote": "Transparent reporting made us confident to give.",
+        "avatar": "https://images.unsplash.com/photo-1531123414780-fd3d0f4e1b4f?w=800&q=60&auto=format&fit=crop"
+      }
+    ],
+    "featured": {
+      "title": "Featured campaigns",
+      "lead": "Hand-picked campaigns that need your support today. Each shows progress and what donations will achieve."
+    },
+    "campaigns": [
+      {
+        "title": "Clean Water for Village X",
+        "desc": "Drill wells, install filtration and train maintenance teams.",
+        "image": "https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=1200&q=60&auto=format&fit=crop",
+        "raised": 42000,
+        "goal": 60000
+      },
+      {
+        "title": "School Rebuild Program",
+        "desc": "Rebuild classrooms and provide school supplies for 500 children.",
+        "image": "https://images.unsplash.com/photo-1529078155058-5d716f45d604?w=1200&q=60&auto=format&fit=crop",
+        "raised": 27500,
+        "goal": 50000
+      },
+      {
+        "title": "Emergency Medical Kits",
+        "desc": "Supply first-response kits and train local health volunteers.",
+        "image": "https://images.unsplash.com/photo-1584438784816-3a5f29a9b0b3?w=1200&q=60&auto=format&fit=crop",
+        "raised": 18000,
+        "goal": 20000
+      }
+    ],
+    "raised": "raised",
+    "goal": "goal",
+    "campaignCTA": "Donate",
+    "how": {
+      "title": "How we work",
+      "lead": "We partner with local organizations, prioritize community leadership, and transparently report outcomes. Below is our simple, repeatable approach that keeps communities at the center."
+    },
+    "howSteps": [
+      {
+        "title": "Assess",
+        "body": "Rapid needs assessments with trusted local partners to design relevant, community-led responses."
+      },
+      {
+        "title": "Act",
+        "body": "Deliver targeted programs, source local teams, and scale what works with careful stewardship of funds."
+      },
+      {
+        "title": "Account",
+        "body": "Measure outcomes, publish transparent reports, and iterate together with community feedback."
+      }
+    ],
+
+    "impact": {
+      "title": "Impact snapshot",
+      "lead": "A quick view of the measurable outcomes our programs deliver — transparent, local-led, and accountable.",
+      "milestoneLabel": "Recent milestone",
+      "milestoneCount": "10,000 meals delivered",
+      "milestoneNote": "Thanks to donors and volunteers across our programs.",
+      "tile1": { "title": "People served", "note": "Since Jan 2024" },
+      "tile2": { "title": "Projects completed", "note": "Across 20 regions" },
+      "tile3": { "title": "Volunteers active", "note": "Field & remote" }
+    }
   }
 }
