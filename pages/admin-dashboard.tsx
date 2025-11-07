@@ -56,11 +56,11 @@ try {
 // Brand color palette: teal/cyan primary with complementary accents
 const PRIMARY_COLOR = "#0EA5A4"; // Teal-500 (brand primary)
 const CHART_COLORS = [
-  "#0EA5A4", // Teal
-  "#06B6D4", // Cyan
-  "#F97316", // Orange
-  "#8B5CF6", // Violet
-  "#EF4444", // Red
+  "#0EA5A4", // Emerald/teal
+  "#34D399", // Emerald-300
+  "#10B981", // Emerald-500
+  "#059669", // Emerald-600
+  "#065f46", // Emerald-800
 ];
 
 function formatDateShort(iso?: string) {
@@ -88,7 +88,7 @@ const StatCard: React.FC<StatCardProps> = ({
   color,
 }) => (
   // Minimalist Card: Reduced padding, cleaner shadow, subtle focus ring on hover.
-  <div className="p-5 bg-white rounded-xl shadow-sm dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition duration-300 hover:ring-2 hover:ring-indigo-500 hover:ring-opacity-50">
+  <div className="p-5 bg-white rounded-xl shadow-sm dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition duration-300 hover:ring-2 hover:ring-emerald-500 hover:ring-opacity-50">
     <div className="flex items-start justify-between">
       <div className="text-left">
         <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1">
@@ -164,7 +164,7 @@ export default function AdminDashboard() {
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* REFINED HEADING - Use font-extrabold for punch */}
         <h1 className="text-4xl flex items-center gap-4 font-extrabold mb-10 text-slate-900 dark:text-white">
-          <LayoutDashboard className="w-9 h-9 text-indigo-500" />
+          <LayoutDashboard className="w-9 h-9 text-emerald-600" />
           {t("admin.heading")}
         </h1>
 
@@ -172,7 +172,9 @@ export default function AdminDashboard() {
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           <div
             className="rounded-xl p-5 text-white shadow-lg"
-            style={{ background: "linear-gradient(90deg,#0ea5a4,#06b6d4)" }}
+            style={{
+              background: `linear-gradient(90deg, ${PRIMARY_COLOR}, #059669)`,
+            }}
           >
             <div className="flex items-start justify-between">
               <div>
@@ -189,7 +191,9 @@ export default function AdminDashboard() {
 
           <div
             className="rounded-xl p-5 text-white shadow-lg"
-            style={{ background: "linear-gradient(90deg,#06b6d4,#0ea5a4)" }}
+            style={{
+              background: `linear-gradient(90deg, #059669, ${PRIMARY_COLOR})`,
+            }}
           >
             <div className="flex items-start justify-between">
               <div>
@@ -206,7 +210,7 @@ export default function AdminDashboard() {
 
           <div
             className="rounded-xl p-5 text-white shadow-lg"
-            style={{ background: "linear-gradient(90deg,#10b981,#14b8a6)" }}
+            style={{ background: `linear-gradient(90deg, #10B981, #059669)` }}
           >
             <div className="flex items-start justify-between">
               <div>
@@ -223,7 +227,9 @@ export default function AdminDashboard() {
 
           <div
             className="rounded-xl p-5 text-white shadow-lg"
-            style={{ background: "linear-gradient(90deg,#f97316,#fb7185)" }}
+            style={{
+              background: `linear-gradient(90deg, ${PRIMARY_COLOR}, #10B981)`,
+            }}
           >
             <div className="flex items-start justify-between">
               <div>
