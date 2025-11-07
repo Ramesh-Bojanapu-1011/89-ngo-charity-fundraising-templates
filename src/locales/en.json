@@ -1461,5 +1461,119 @@
       "cta": "Contact Grant Support",
       "email": "grants@emeraldaid.org"
     }
+  },
+  "emergency": {
+    "meta": {
+      "title": "How to run an effective emergency fundraiser — Emerald Aid",
+      "description": "Practical, step-by-step guidance to launch a fast, effective emergency fundraiser — plan, mobilize supporters, set messaging, and manage logistics."
+    },
+    "hero": {
+      "badge": "Guide",
+      "updated": "Updated {{date}}",
+      "title": "How to run an effective emergency fundraiser",
+      "lead": "When a crisis hits, speed and clarity matter. This practical step-by-step guide helps nonprofits and community groups launch a focused emergency fundraiser that raises resources quickly and responsibly.",
+      "imgAlt": "volunteers packing relief supplies",
+      "summary": "Launch an effective emergency fundraiser in hours — not weeks. This concise playbook focuses on speed, clarity, and measurable impact so you can mobilize support and deliver results fast."
+    },
+    "quote": "“Speed builds trust when it’s paired with clarity — tell donors exactly what you will do and how you’ll follow up.”",
+    "actions": {
+      "exploreTemplates": "Explore Campaign Templates",
+      "talkToTeam": "Talk to our team",
+      "createCampaign": "Create a Campaign",
+      "contactSupport": "Contact Support"
+    },
+    "tags": {
+      "emergency": "Emergency",
+      "fundraising": "Fundraising",
+      "guide": "Guide"
+    },
+    "metrics": {
+      "onboardingTime": { "value": "72 hrs", "label": "Initial updates" },
+      "sampleGoal": { "value": "$20k", "label": "Sample goal" },
+      "seedSupporters": { "value": "5+", "label": "Seed supporters" }
+    },
+    "sections": {
+      "moveFast": {
+        "title": "1. Move fast — then be transparent",
+        "body": "The first step is a 24–48 hour plan: name the need, pick a single goal, and decide how you will use and report funds. Use one clear sentence on the fundraiser page that answers those questions — donors need clarity more than detail."
+      },
+      "goal": {
+        "title": "2. Set a clear goal and timeline",
+        "body": "Pick one measurable goal and a tight timeline. Specificity increases urgency and trust — for example: \"Raise $20,000 in 10 days to deliver 400 hygiene kits.\" Post daily milestones (e.g., 25% reached) to maintain momentum."
+      },
+      "mobilize": {
+        "title": "3. Mobilize your network quickly",
+        "body": "Start with your inner circle: board members, past major donors, and active volunteers. Ask five trusted supporters to seed the campaign — early momentum makes the page more persuasive to the broader audience."
+      },
+      "messaging": {
+        "title": "4. Use simple, human messaging",
+        "body": "Focus on one short human story and a single supporting image. Then explain the impact in concrete amounts — that helps donors choose an amount and visualize the result."
+      },
+      "logistics": {
+        "title": "5. Logistics & stewardship",
+        "body": "Plan how you will deliver aid quickly and responsibly. Assign clear roles for logistics and communications, collect proof at handoff, and publish a summary within 7 days of distribution to maintain trust.",
+        "list": {
+          "assign": "Assign one logistics lead and one communications lead.",
+          "proof": "Collect proof at handoff (photo + short note).",
+          "publish": "Publish a summary within 7 days of distribution."
+        }
+      },
+      "checklist": { "title": "Quick checklist" }
+    },
+    "personalMessage": {
+      "title": "Personal message starter",
+      "body": "“We’re launching an emergency fund to help [who]. Would you consider a seed gift today? We’ll share daily updates.”"
+    },
+    "channels": {
+      "title": "Channels that work",
+      "email": "Email: short, urgent subject line and clear CTA — keep it under 3 sentences.",
+      "social": "Social: one strong image, one-sentence ask, clear link.",
+      "sms": "SMS/WhatsApp: short, direct, to small consent-based lists.",
+      "media": "Local media & partners: provide a fact-sheet and one spokesperson."
+    },
+    "checklist": {
+      "define": "Define goal & short timeline (amount & end date)",
+      "publish": "Publish a 1-sentence plan on the fundraiser page",
+      "seed": "Seed the campaign with 3–5 supporters",
+      "prepare": "Prepare 2 email templates + 1 social post",
+      "commit": "Commit to daily or every-other-day updates"
+    },
+    "examples": {
+      "title": "Examples & messaging snippets",
+      "headline": "Headline: “Emergency Relief for Riverside Families — Help us deliver food kits in 5 days”",
+      "emailSubject": {
+        "title": "Email subject",
+        "body": "Urgent: Help deliver food kits to Riverside families — 10-day goal"
+      },
+      "tweet": {
+        "title": "Tweet",
+        "body": "Floods displaced families in Riverside. We’re raising $12k for emergency kits — donate & share: [link]"
+      }
+    },
+    "cta": {
+      "title": "Ready to start?",
+      "lead": "Use our campaign templates to spin up an emergency fundraiser in minutes, or contact our team for help with messaging and logistics."
+    },
+    "aside": {
+      "takeawaysTitle": "Key takeaways",
+      "takeaways": [
+        "Set a single goal & short timeline",
+        "Seed the campaign with 3–5 initial supporters",
+        "Use simple messaging + one image",
+        "Report progress daily while momentum is high"
+      ],
+      "shareTitle": "Share this guide",
+      "share": {
+        "twitter": "Twitter",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn"
+      },
+      "actionsTitle": "Quick actions",
+      "actions": {
+        "createCampaign": "Create a campaign",
+        "contactSupport": "Contact support"
+      }
+    },
+    "auther": { "by": "By {{author}}", "date": "{{date}}" }
   }
 }

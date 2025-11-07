@@ -1,21 +1,18 @@
 import Head from "next/head";
 import SiteFooter from "../src/components/SiteFooter";
 import SiteHeadder from "../src/components/SiteHeadder";
+import { useTranslation } from "react-i18next";
 
 export default function EmergencyFundraiser() {
   const publishedDate = "Nov 7, 2025";
   const author = "Emerald Aid Editorial";
+  const { t } = useTranslation();
 
   return (
     <>
       <Head>
-        <title>
-          How to run an effective emergency fundraiser — Emerald Aid
-        </title>
-        <meta
-          name="description"
-          content="Practical, step-by-step guidance to launch a fast, effective emergency fundraiser — plan, mobilize supporters, set messaging, and manage logistics."
-        />
+        <title>{t("emergency.hero.title")}</title>
+        <meta name="description" content={t("emergency.hero.lead")} />
       </Head>
 
       <SiteHeadder />
@@ -28,22 +25,16 @@ export default function EmergencyFundraiser() {
               <div className="md:col-span-8">
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">
-                    Guide
-                  </span>
-                  <span className="text-sm text-slate-500">
-                    Updated {publishedDate}
+                    {t("emergency.hero.badge")}
                   </span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-extrabold text-emerald-900 leading-tight">
-                  How to run an effective emergency fundraiser
+                  {t("emergency.hero.title")}
                 </h1>
 
                 <p className="mt-4 text-lg text-slate-600 dark:text-slate-300 max-w-2xl">
-                  When a crisis hits, speed and clarity matter. This practical
-                  step-by-step guide helps nonprofits and community groups
-                  launch a focused emergency fundraiser that raises resources
-                  quickly and responsibly.
+                  {t("emergency.hero.lead")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -51,13 +42,13 @@ export default function EmergencyFundraiser() {
                     href="/fundraising-campaigns"
                     className="inline-flex items-center gap-2 bg-emerald-600 text-white px-5 py-3 rounded-full shadow hover:scale-[1.01] transition-transform"
                   >
-                    Explore Campaign Templates
+                    {t("emergency.actions.exploreTemplates")}
                   </a>
                   <a
                     href="/contact-us"
                     className="inline-flex items-center gap-2 px-4 py-3 border border-emerald-200 text-emerald-700 rounded-full"
                   >
-                    Talk to our team
+                    {t("emergency.actions.talkToTeam")}
                   </a>
                 </div>
               </div>
@@ -66,14 +57,16 @@ export default function EmergencyFundraiser() {
                 <div className="rounded-xl overflow-hidden shadow-lg">
                   <img
                     src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop"
-                    alt="volunteers packing relief supplies"
+                    alt={t("emergency.hero.imgAlt")}
                     className="w-full h-64 object-cover"
                   />
 
                   <div className="p-4 bg-white dark:bg-slate-800">
-                    <div className="text-xs text-slate-500">By {author}</div>
+                    <div className="text-xs text-slate-500">
+                      {t("emergency.auther.by", { author: author })}
+                    </div>
                     <div className="text-sm text-slate-400 mt-1">
-                      {publishedDate}
+                      {t("emergency.auther.date", { date: publishedDate })}
                     </div>
                   </div>
                 </div>
@@ -88,171 +81,141 @@ export default function EmergencyFundraiser() {
             <article className="   flex flex-col gap-6 md:col-span-2   ">
               <div className="mb-4 flex flex-wrap items-center gap-2">
                 <span className="text-xs px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full">
-                  Emergency
+                  {t("emergency.tags.emergency")}
                 </span>
                 <span className="text-xs px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">
-                  Fundraising
+                  {t("emergency.tags.fundraising")}
                 </span>
                 <span className="text-xs px-2 py-1 bg-white/60 dark:bg-slate-800 text-slate-700 rounded-full">
-                  Guide
+                  {t("emergency.tags.guide")}
                 </span>
               </div>
 
               <div className="rounded-lg p-5 bg-emerald-50 dark:bg-slate-800 border border-emerald-100 mb-6">
                 <p className="lead text-slate-700 dark:text-slate-300">
-                  Launch an effective emergency fundraiser in hours — not weeks.
-                  This concise playbook focuses on speed, clarity, and
-                  measurable impact so you can mobilize support and deliver
-                  results fast.
+                  {t("emergency.hero.summary")}
                 </p>
 
                 <div className="mt-4 grid grid-cols-3 gap-2 text-sm">
                   <div className="text-center">
-                    <div className="font-bold text-emerald-800">72 hrs</div>
-                    <div className="text-slate-500">Initial updates</div>
+                    <div className="font-bold text-emerald-800">
+                      {t("emergency.metrics.onboardingTime.value")}
+                    </div>
+                    <div className="text-slate-500">
+                      {t("emergency.metrics.onboardingTime.label")}
+                    </div>
                   </div>
                   <div className="text-center">
-                    <div className="font-bold text-emerald-800">$20k</div>
-                    <div className="text-slate-500">Sample goal</div>
+                    <div className="font-bold text-emerald-800">
+                      {t("emergency.metrics.sampleGoal.value")}
+                    </div>
+                    <div className="text-slate-500">
+                      {t("emergency.metrics.sampleGoal.label")}
+                    </div>
                   </div>
                   <div className="text-center">
-                    <div className="font-bold text-emerald-800">5+</div>
-                    <div className="text-slate-500">Seed supporters</div>
+                    <div className="font-bold text-emerald-800">
+                      {t("emergency.metrics.seedSupporters.value")}
+                    </div>
+                    <div className="text-slate-500">
+                      {t("emergency.metrics.seedSupporters.label")}
+                    </div>
                   </div>
                 </div>
               </div>
 
               <section>
-                <h2>1. Move fast — then be transparent</h2>
-                <p>
-                  The first step is a 24–48 hour plan: name the need, pick a
-                  single goal, and decide how you will use and report funds. Use
-                  one clear sentence on the fundraiser page that answers those
-                  questions — donors need clarity more than detail.
-                </p>
+                <h2>{t("emergency.sections.moveFast.title")}</h2>
+                <p>{t("emergency.sections.moveFast.body")}</p>
               </section>
 
               <blockquote className="border-l-4 border-emerald-300 pl-4 italic text-slate-700 dark:text-slate-300 my-6">
-                “Speed builds trust when it’s paired with clarity — tell donors
-                exactly what you will do and how you’ll follow up.”
+                {t("emergency.quote")}
               </blockquote>
 
               <section>
-                <h2>2. Set a clear goal and timeline</h2>
-                <p>
-                  Pick one measurable goal and a tight timeline. Specificity
-                  increases urgency and trust — for example: “Raise $20,000 in
-                  10 days to deliver 400 hygiene kits.” Post daily milestones
-                  (e.g., 25% reached) to maintain momentum.
-                </p>
+                <h2>{t("emergency.sections.goal.title")}</h2>
+                <p>{t("emergency.sections.goal.body")}</p>
               </section>
 
               <section>
-                <h2>3. Mobilize your network quickly</h2>
-                <p>
-                  Start with your inner circle: board members, past major
-                  donors, and active volunteers. Ask five trusted supporters to
-                  seed the campaign — early momentum makes the page more
-                  persuasive to the broader audience.
-                </p>
+                <h2>{t("emergency.sections.mobilize.title")}</h2>
+                <p>{t("emergency.sections.mobilize.body")}</p>
 
                 <div className="mt-3 p-3 bg-emerald-50 dark:bg-slate-800 rounded-md">
                   <div className="text-sm font-semibold text-emerald-800">
-                    Personal message starter
+                    {t("emergency.personalMessage.title")}
                   </div>
                   <div className="text-sm text-slate-600 dark:text-slate-300 mt-1">
-                    “We’re launching an emergency fund to help [who]. Would you
-                    consider a seed gift today? We’ll share daily updates.”
+                    {t("emergency.personalMessage.body")}
                   </div>
                 </div>
 
-                <h3 className="mt-4">Channels that work</h3>
+                <h3 className="mt-4">{t("emergency.channels.title")}</h3>
                 <ul>
-                  <li>
-                    Email: short, urgent subject line and clear CTA — keep it
-                    under 3 sentences.
-                  </li>
-                  <li>
-                    Social: one strong image, one-sentence ask, clear link.
-                  </li>
-                  <li>
-                    SMS/WhatsApp: short, direct, to small consent-based lists.
-                  </li>
-                  <li>
-                    Local media & partners: provide a fact-sheet and one
-                    spokesperson.
-                  </li>
+                  <li>{t("emergency.channels.email")}</li>
+                  <li>{t("emergency.channels.social")}</li>
+                  <li>{t("emergency.channels.sms")}</li>
+                  <li>{t("emergency.channels.media")}</li>
                 </ul>
               </section>
 
               <section>
-                <h2>4. Use simple, human messaging</h2>
-                <p>
-                  Focus on one short human story and a single supporting image.
-                  Then explain the impact in concrete amounts — that helps
-                  donors choose an amount and visualize the result.
-                </p>
+                <h2>{t("emergency.sections.messaging.title")}</h2>
+                <p>{t("emergency.sections.messaging.body")}</p>
               </section>
 
               <section>
-                <h2>5. Logistics & stewardship</h2>
-                <p>
-                  Build stewardship into the plan. Decide who signs receipts,
-                  who documents distribution (photos, short notes), and how
-                  you’ll publish a final accounting. Even a short “how we’ll use
-                  funds” section reduces donor hesitation.
-                </p>
+                <h2>{t("emergency.sections.logistics.title")}</h2>
+                <p>{t("emergency.sections.logistics.body")}</p>
 
                 <ul className="mt-3 text-sm text-slate-600 dark:text-slate-300">
-                  <li>
-                    Assign one logistics lead and one communications lead.
-                  </li>
-                  <li>Collect proof at handoff (photo + short note).</li>
-                  <li>Publish a summary within 7 days of distribution.</li>
+                  <li>{t("emergency.sections.logistics.list.assign")}</li>
+                  <li>{t("emergency.sections.logistics.list.proof")}</li>
+                  <li>{t("emergency.sections.logistics.list.publish")}</li>
                 </ul>
               </section>
 
               <section>
-                <h2>Quick checklist</h2>
+                <h2>{t("emergency.sections.checklist.title")}</h2>
                 <ul>
-                  <li>Define goal & short timeline (amount & end date)</li>
-                  <li>Publish a 1-sentence plan on the fundraiser page</li>
-                  <li>Seed the campaign with 3–5 supporters</li>
-                  <li>Prepare 2 email templates + 1 social post</li>
-                  <li>Commit to daily or every-other-day updates</li>
+                  <li>{t("emergency.checklist.define")}</li>
+                  <li>{t("emergency.checklist.publish")}</li>
+                  <li>{t("emergency.checklist.seed")}</li>
+                  <li>{t("emergency.checklist.prepare")}</li>
+                  <li>{t("emergency.checklist.commit")}</li>
                 </ul>
               </section>
 
               <section>
-                <h2>Examples & messaging snippets</h2>
-                <p>
-                  Headline: “Emergency Relief for Riverside Families — Help us
-                  deliver food kits in 5 days”
-                </p>
+                <h2>{t("emergency.examples.title")}</h2>
+                <p>{t("emergency.examples.headline")}</p>
 
                 <div className="mt-3 p-3 bg-white dark:bg-slate-900 rounded">
-                  <div className="text-sm font-semibold">Email subject</div>
+                  <div className="text-sm font-semibold">
+                    {t("emergency.examples.emailSubject.title")}
+                  </div>
                   <div className="text-sm text-slate-600 dark:text-slate-300">
-                    Urgent: Help deliver food kits to Riverside families —
-                    10-day goal
+                    {t("emergency.examples.emailSubject.body")}
                   </div>
                 </div>
 
                 <div className="mt-3 p-3 bg-white dark:bg-slate-900 rounded">
-                  <div className="text-sm font-semibold">Tweet</div>
+                  <div className="text-sm font-semibold">
+                    {t("emergency.examples.tweet.title")}
+                  </div>
                   <div className="text-sm text-slate-600 dark:text-slate-300">
-                    Floods displaced families in Riverside. We’re raising $12k
-                    for emergency kits — donate & share: [link]
+                    {t("emergency.examples.tweet.body")}
                   </div>
                 </div>
               </section>
 
               <section className="mt-10 p-6 rounded-lg bg-emerald-600 text-white">
-                <h3 className="text-lg font-semibold">Ready to start?</h3>
+                <h3 className="text-lg font-semibold">
+                  {t("emergency.cta.title")}
+                </h3>
                 <p className="mt-2 text-emerald-100">
-                  Use our campaign templates to spin up an emergency fundraiser
-                  in minutes, or contact our team for help with messaging and
-                  logistics.
+                  {t("emergency.cta.lead")}
                 </p>
 
                 <div className="mt-4 flex gap-3">
@@ -260,13 +223,13 @@ export default function EmergencyFundraiser() {
                     href="/fundraising-campaigns"
                     className="inline-flex items-center gap-2 bg-white text-emerald-600 px-4 py-2 rounded-md shadow-sm"
                   >
-                    Create a Campaign
+                    {t("emergency.actions.createCampaign")}
                   </a>
                   <a
                     href="/contact-us"
                     className="inline-flex items-center gap-2 px-4 py-2 border border-white/30 text-white rounded-md"
                   >
-                    Contact Support
+                    {t("emergency.actions.contactSupport")}
                   </a>
                 </div>
               </section>
@@ -276,58 +239,58 @@ export default function EmergencyFundraiser() {
               <div className="sticky top-24 space-y-4">
                 <div className="p-4 rounded-lg bg-white dark:bg-slate-800 shadow">
                   <h4 className="text-sm font-semibold text-emerald-800">
-                    Key takeaways
+                    {t("emergency.aside.takeawaysTitle")}
                   </h4>
                   <ul className="mt-2 text-sm text-slate-600 dark:text-slate-300 space-y-1">
-                    <li>Set a single goal & short timeline</li>
-                    <li>Seed the campaign with 3–5 initial supporters</li>
-                    <li>Use simple messaging + one image</li>
-                    <li>Report progress daily while momentum is high</li>
+                    <li>{t("emergency.aside.takeaways.0")}</li>
+                    <li>{t("emergency.aside.takeaways.1")}</li>
+                    <li>{t("emergency.aside.takeaways.2")}</li>
+                    <li>{t("emergency.aside.takeaways.3")}</li>
                   </ul>
                 </div>
 
                 <div className="p-4 rounded-lg bg-white dark:bg-slate-800 shadow">
                   <h4 className="text-sm font-semibold text-emerald-800">
-                    Share this guide
+                    {t("emergency.aside.shareTitle")}
                   </h4>
                   <div className="mt-3 flex flex-col gap-2">
                     <a
                       href="#"
                       className="text-sm inline-flex items-center gap-2 text-emerald-600"
                     >
-                      Twitter
+                      {t("emergency.aside.share.twitter")}
                     </a>
                     <a
                       href="#"
                       className="text-sm inline-flex items-center gap-2 text-blue-600"
                     >
-                      Facebook
+                      {t("emergency.aside.share.facebook")}
                     </a>
                     <a
                       href="#"
                       className="text-sm inline-flex items-center gap-2 text-sky-600"
                     >
-                      LinkedIn
+                      {t("emergency.aside.share.linkedin")}
                     </a>
                   </div>
                 </div>
 
                 <div className="p-4 rounded-lg bg-emerald-50 dark:bg-slate-800 shadow">
                   <h4 className="text-sm font-semibold text-emerald-800">
-                    Quick actions
+                    {t("emergency.aside.actionsTitle")}
                   </h4>
                   <div className="mt-3 flex flex-col gap-2">
                     <a
                       href="/fundraising-campaigns"
                       className="text-sm inline-flex items-center gap-2"
                     >
-                      Create a campaign
+                      {t("emergency.aside.actions.createCampaign")}
                     </a>
                     <a
                       href="/contact-us"
                       className="text-sm inline-flex items-center gap-2"
                     >
-                      Contact support
+                      {t("emergency.aside.actions.contactSupport")}
                     </a>
                   </div>
                 </div>
