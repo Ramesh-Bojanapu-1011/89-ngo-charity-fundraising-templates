@@ -215,7 +215,7 @@ const ServicesPage = () => {
             }
           });
         },
-        { threshold: 0.4 }
+        { threshold: 0.4 },
       );
 
       obs.observe(el);
@@ -486,7 +486,7 @@ const ServicesPage = () => {
               {campaigns.map((c, i) => {
                 const pct = Math.min(
                   100,
-                  Math.round((c.raised / c.goal) * 100)
+                  Math.round((c.raised / c.goal) * 100),
                 );
                 return (
                   <div

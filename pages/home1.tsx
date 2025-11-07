@@ -563,7 +563,6 @@ export default function Home1() {
               <div className="flex justify-center lg:justify-end">
                 <div className="relative w-full max-w-md">
                   <div className="grid grid-cols-2 gap-4">
-                     
                     <img
                       src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=60"
                       alt="event"

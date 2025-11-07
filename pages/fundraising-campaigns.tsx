@@ -22,7 +22,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 25000,
     raised: 18250,
     image:
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/c9/b5/34/c9b534f2f7afb10d0f2c7c83a4d8c922.jpg",
     tags: ["water", "emergency"],
   },
   {
@@ -30,7 +30,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 15000,
     raised: 6400,
     image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/1e/65/aa/1e65aa7ee6fd7688c0f1ceaf5104705d.jpg",
     tags: ["education"],
   },
   {
@@ -38,7 +38,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 40000,
     raised: 31000,
     image:
-      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/11/ac/ad/11acad4f82090b58b947e0e3d695804f.jpg",
     tags: ["emergency", "relief"],
   },
   {
@@ -46,7 +46,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 18000,
     raised: 9200,
     image:
-      "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/ef/b9/2c/efb92c630cc34c1ee0209f256147a86c.jpg",
     tags: ["education", "women"],
   },
   {
@@ -54,7 +54,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 30000,
     raised: 14500,
     image:
-      "https://images.unsplash.com/photo-1580281657527-6c1b7dcb9b7d?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/4e/16/63/4e1663508a6386b3bc44c1485de253b3.jpg",
     tags: ["health"],
   },
   {
@@ -62,7 +62,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 12000,
     raised: 7600,
     image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/e2/9b/d3/e29bd3893efd7dd967254634c7fa3bd4.jpg",
     tags: ["livelihoods"],
   },
 ];
@@ -252,23 +252,14 @@ export default function FundraisingCampaigns() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 text-emerald-600"
-          fill="none"
+          width={20}
+          height={20}
           viewBox="0 0 24 24"
-          stroke="currentColor"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M8 7a4 4 0 118 0 4 4 0 01-8 0z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M2 21a8 8 0 0116 0"
-          />
+            fill="#009966"
+            d="M15.71 12.71a6 6 0 1 0-7.42 0a10 10 0 0 0-6.22 8.18a1 1 0 0 0 2 .22a8 8 0 0 1 15.9 0a1 1 0 0 0 1 .89h.11a1 1 0 0 0 .88-1.1a10 10 0 0 0-6.25-8.19M12 12a4 4 0 1 1 4-4a4 4 0 0 1-4 4"
+          ></path>
         </svg>
       ),
     },

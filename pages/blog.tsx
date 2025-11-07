@@ -373,20 +373,27 @@ const BlogPage = () => {
                       {t("blog.partners.goalLabel", { defaultValue: "Goal" })}
                     </div>
                     <div className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      {t("blog.partners.goalAmount", { defaultValue: "$60,000" })}
+                      {t("blog.partners.goalAmount", {
+                        defaultValue: "$60,000",
+                      })}
                     </div>
                   </div>
 
                   <div className="mt-3 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
                     <div
                       className="bg-emerald-600 h-3 rounded-full"
-                      style={{ width: t("blog.partners.progressPercent", { defaultValue: "60%" }) }}
+                      style={{
+                        width: t("blog.partners.progressPercent", {
+                          defaultValue: "60%",
+                        }),
+                      }}
                     />
                   </div>
 
                   <div className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                     {t("blog.partners.raised", {
-                      defaultValue: "$36,000 raised — Thank you to donors and partners.",
+                      defaultValue:
+                        "$36,000 raised — Thank you to donors and partners.",
                     })}
                   </div>
                 </div>
@@ -458,7 +465,7 @@ const BlogPage = () => {
                           })}
                         </div>
                         <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
-                          {t(`blog.events.items.${i}.desc`, )}
+                          {t(`blog.events.items.${i}.desc`)}
                         </p>
                       </div>
                     </div>

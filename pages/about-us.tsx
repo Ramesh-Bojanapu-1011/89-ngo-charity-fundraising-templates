@@ -232,7 +232,7 @@ const AboutUs = () => {
             }
           });
         },
-        { threshold: 0.4 }
+        { threshold: 0.4 },
       );
 
       obs.observe(el);
