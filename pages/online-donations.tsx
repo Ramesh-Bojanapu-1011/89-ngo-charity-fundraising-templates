@@ -19,7 +19,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 25000,
     raised: 18250,
     image:
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/dc/d3/a0/dcd3a0814ea695f4418b97f21f574c38.jpg",
     tags: ["water", "online"],
   },
   {
@@ -27,7 +27,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 15000,
     raised: 6400,
     image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/b6/d3/98/b6d39882f00c3fd694579891138b44d6.jpg",
     tags: ["education", "online"],
   },
   {
@@ -35,7 +35,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 40000,
     raised: 31000,
     image:
-      "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/53/2a/49/532a49fef696f38d6974def51ba0bf75.jpg",
     tags: ["emergency", "online"],
   },
   {
@@ -43,7 +43,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 18000,
     raised: 9200,
     image:
-      "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/d6/20/5b/d6205b4224000a3a7b306860c9efb6b6.jpg",
     tags: ["education", "women", "online"],
   },
   {
@@ -51,7 +51,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 30000,
     raised: 14500,
     image:
-      "https://images.unsplash.com/photo-1580281657527-6c1b7dcb9b7d?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/95/ed/7a/95ed7adc15751e2012dde805744366d7.jpg",
     tags: ["health", "online"],
   },
   {
@@ -59,7 +59,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 12000,
     raised: 7600,
     image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/736x/41/f5/98/41f598c69a9ee500eb23f10a7e5f22a5.jpg",
     tags: ["livelihoods", "online"],
   },
 ];
@@ -352,7 +352,7 @@ export default function DonationCampaigns() {
               <div className="md:col-span-5">
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1000&auto=format&fit=crop"
+                    src="https://i.pinimg.com/1200x/69/e8/96/69e8967b1a19964188d57b651e523c7e.jpg"
                     alt="volunteers"
                     className="w-full h-80 object-cover"
                   />
@@ -871,7 +871,11 @@ export default function DonationCampaigns() {
                                 </div>
 
                                 <div
-                                  className={`mt-3 text-sm text-slate-500 transition-opacity duration-300 ${openFaq === f.id ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}
+                                  className={`mt-3 text-sm text-slate-500 transition-opacity duration-300 ${
+                                    openFaq === f.id
+                                      ? "opacity-100"
+                                      : "opacity-0 h-0 overflow-hidden"
+                                  }`}
                                 >
                                   {f.a}
                                 </div>
