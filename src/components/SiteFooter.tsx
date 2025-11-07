@@ -1,38 +1,39 @@
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 const SiteFooter = () => {
+  const { t } = useTranslation();
+
   const quickLinks = [
-    { label: "Home 1", href: "/home1" },
-    { label: "Home 2", href: "/home2" },
-    { label: "About Us", href: "/about-us" },
-    { label: "Services", href: "/services" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact-us" },
+    { key: "home1", href: "/home1" },
+    { key: "home2", href: "/home2" },
+    { key: "about", href: "/about-us" },
+    { key: "services", href: "/services" },
+    { key: "blog", href: "/blog" },
+    { key: "contact", href: "/contact-us" },
   ];
 
   const services = [
     {
-      label: "Fundraising Campaigns",
-      href: "fundraising-campaigns",
+      key: "fundraising",
+      labelKey: "services.fundraising",
+      href: "/fundraising-campaigns",
     },
     {
-      label: "Online Donations",
+      key: "onlineDonations",
+      labelKey: "services.onlineDonations",
       href: "/online-donations",
     },
     {
-      label: "Volunteer Management",
+      key: "volunteer",
+      labelKey: "services.volunteer",
       href: "/volunteer-management",
     },
+    { key: "events", labelKey: "services.events", href: "/event-management" },
+    { key: "grants", labelKey: "services.grants", href: "/grant-applications" },
     {
-      label: "Event Management",
-      href: "/event-management",
-    },
-    {
-      label: "Grant Applications",
-      href: "/grant-applications",
-    },
-    {
-      label: "Advocacy & Outreach",
+      key: "advocacy",
+      labelKey: "services.advocacy",
       href: "/advocacy-outreach",
     },
   ];
@@ -54,9 +55,7 @@ const SiteFooter = () => {
               </Link>
 
               <p className="text-sm text-gray-600 dark:text-gray-300">
-                Beautiful, responsive templates tailored for NGOs and charities.
-                Create fundraising pages, manage events, and connect with donors
-                and volunteers.
+                {t("footer.aboutText")}
               </p>
 
               <div className="mt-4 flex items-center gap-3">
@@ -115,7 +114,7 @@ const SiteFooter = () => {
           <div className=" flex sm:justify-center">
             <div>
               <h4 className="font-semibold mb-3 text-gray-900 dark:text-white">
-                Quick Links
+                {t("footer.quickLinksTitle")}
               </h4>
               <ul className="space-y-2">
                 {quickLinks.map((l) => (
@@ -124,7 +123,7 @@ const SiteFooter = () => {
                       href={l.href}
                       className="text-sm text-gray-600 dark:text-gray-300 hover:text-emerald-500"
                     >
-                      {l.label}
+                      {t(`footer.quickLinks.${l.key}`)}
                     </Link>
                   </li>
                 ))}
@@ -136,13 +135,14 @@ const SiteFooter = () => {
           <div className=" flex sm:justify-center">
             <div>
               <h4 className="font-semibold mb-3 text-gray-900 dark:text-white">
-                Services
+                {t("footer.servicesTitle")}
               </h4>
               <ul className="grid grid-cols-1 gap-2 text-sm text-gray-600 dark:text-gray-300">
                 {services.map((s) => (
                   <li key={s.href}>
                     <Link href={s.href} className="hover:text-emerald-500">
-                      {s.label}
+                      {t(`header.nav.${s.labelKey}`) ||
+                        t(`footer.services.${s.key}`)}
                     </Link>
                   </li>
                 ))}
@@ -152,25 +152,22 @@ const SiteFooter = () => {
 
           {/* Contact */}
           <div className=" flex sm:justify-center">
-            {" "}
             <div>
               <h4 className="font-semibold mb-3 text-gray-900 dark:text-white">
-                Contact Us
+                {t("footer.contactTitle")}
               </h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                NGO / Charity Templates
-                <br />
-                123 Giving Lane, City, Country
+              <p className="text-sm text-gray-600 dark:text-gray-300 whitespace-pre-line">
+                {t("footer.address")}
               </p>
               <div className="mt-3 text-sm text-gray-600 dark:text-gray-300">
                 <div>
-                  Phone:{" "}
+                  {t("footer.phoneLabel")}:{" "}
                   <Link href="tel:+1234567890" className="text-emerald-600">
                     +1 (234) 567-890
                   </Link>
                 </div>
                 <div>
-                  Email:{" "}
+                  {t("footer.emailLabel")}:{" "}
                   <Link
                     href="mailto:hello@example.org"
                     className="text-emerald-600"
@@ -181,17 +178,17 @@ const SiteFooter = () => {
               </div>
               <form className="mt-4">
                 <label htmlFor="subscribe" className="sr-only">
-                  Email
+                  {t("footer.subscribePlaceholder")}
                 </label>
                 <div className="flex gap-2">
                   <input
                     id="subscribe"
                     type="email"
-                    placeholder="Your email"
+                    placeholder={t("footer.subscribePlaceholder")}
                     className="w-full px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-200"
                   />
                   <button className="px-4 py-2 bg-emerald-600 text-white rounded-md text-sm">
-                    Subscribe
+                    {t("footer.subscribeButton")}
                   </button>
                 </div>
               </form>
@@ -200,11 +197,9 @@ const SiteFooter = () => {
         </div>
 
         <div className="mt-10 border-t border-gray-100 dark:border-gray-800 pt-6 text-sm text-gray-500 dark:text-gray-400 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div>
-            © {new Date().getFullYear()} NGO / Charity. All rights reserved.
-          </div>
+          <div>{t("footer.copyright", { year: new Date().getFullYear() })}</div>
           <div className="flex items-center gap-4">
-            <div className="text-sm">Made with ❤️ for causes</div>
+            <div className="text-sm">{t("footer.madeWith")}</div>
           </div>
         </div>
       </div>

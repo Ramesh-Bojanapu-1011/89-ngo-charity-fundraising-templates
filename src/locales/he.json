@@ -119,5 +119,34 @@
         "request": "בקש תבניות"
       }
     }
+  },
+  "footer": {
+    "quickLinksTitle": "קישורים מהירים",
+    "quickLinks": {
+      "home1": "בית 1",
+      "home2": "בית 2",
+      "about": "אודות",
+      "services": "שירותים",
+      "blog": "בלוג",
+      "contact": "צור קשר"
+    },
+    "servicesTitle": "שירותים",
+    "services": {
+      "fundraising": "קמפיינים לגיוס כספים",
+      "onlineDonations": "תרומות מקוונות",
+      "volunteer": "ניהול מתנדבים",
+      "events": "ניהול אירועים",
+      "grants": "בקשות מענק",
+      "advocacy": "קידום והסברה"
+    },
+    "aboutText": "תבניות יפות ורספונסיביות המותאמות לארגונים לא ממשלתיים ולגופים פילנתרופיים. צור דפי גיוס, נהל אירועים, וקשר עם תורמים ומתנדבים.",
+    "contactTitle": "צור קשר",
+    "address": "תבניות NGO / Charity\n123 Giving Lane, City, Country",
+    "phoneLabel": "טלפון",
+    "emailLabel": "אימייל",
+    "subscribePlaceholder": "האימייל שלך",
+    "subscribeButton": "הירשם",
+    "copyright": "© {{year}} NGO / Charity. כל הזכויות שמורות.",
+    "madeWith": "עשוי באהבה ❤️ למען מטרות"
   }
 }

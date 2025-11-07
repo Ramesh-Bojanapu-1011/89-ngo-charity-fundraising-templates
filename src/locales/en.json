@@ -119,5 +119,34 @@
         "request": "Request templates"
       }
     }
+  },
+  "footer": {
+    "quickLinksTitle": "Quick Links",
+    "quickLinks": {
+      "home1": "Home 1",
+      "home2": "Home 2",
+      "about": "About Us",
+      "services": "Services",
+      "blog": "Blog",
+      "contact": "Contact Us"
+    },
+    "servicesTitle": "Services",
+    "services": {
+      "fundraising": "Fundraising Campaigns",
+      "onlineDonations": "Online Donations",
+      "volunteer": "Volunteer Management",
+      "events": "Event Management",
+      "grants": "Grant Applications",
+      "advocacy": "Advocacy & Outreach"
+    },
+    "aboutText": "Beautiful, responsive templates tailored for NGOs and charities. Create fundraising pages, manage events, and connect with donors and volunteers.",
+    "contactTitle": "Contact Us",
+    "address": "NGO / Charity Templates\n123 Giving Lane, City, Country",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "subscribePlaceholder": "Your email",
+    "subscribeButton": "Subscribe",
+    "copyright": "© {{year}} NGO / Charity. All rights reserved.",
+    "madeWith": "Made with ❤️ for causes"
   }
 }
