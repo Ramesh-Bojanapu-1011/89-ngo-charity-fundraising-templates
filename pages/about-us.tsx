@@ -177,11 +177,10 @@ const AboutUs = () => {
     ? (metricsRaw as Array<{ label: string; value: number; suffix?: string }>)
     : [];
 
-  const impactStoriesRaw = t("about.impactStories", { returnObjects: true });
   const impactStories = [
     {
       title: t("about.impactStories.0.title"),
-      img: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=900&q=60",
+      img: "https://i.pinimg.com/736x/f0/89/64/f08964887edd0cffc796cb8bdc2faa33.jpg",
       excerpt: t("about.impactStories.0.excerpt"),
     },
     {
@@ -233,7 +232,7 @@ const AboutUs = () => {
             }
           });
         },
-        { threshold: 0.4 },
+        { threshold: 0.4 }
       );
 
       obs.observe(el);
@@ -253,8 +252,8 @@ const AboutUs = () => {
 
       <main>
         {/* Hero - section 1 */}
-        <section className="relative overflow-hidden bg-linear-to-r from-emerald-600 to-emerald-400 text-white">
-          <div className="max-w-7xl mx-auto px-6 py-24 lg:py-32">
+        <section className="relative overflow-hidden min-h-screen flex justify-center items-center bg-linear-to-r from-emerald-600 to-emerald-400 text-white">
+          <div className="max-w-7xl mx-auto  ">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">
@@ -287,9 +286,9 @@ const AboutUs = () => {
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-2xl bg-white/5 p-4">
                   <img
-                    src="https://images.unsplash.com/photo-1507637802295-4716f6f4b9d4?auto=format&fit=crop&w=900&q=60"
+                    src="https://i.pinimg.com/1200x/71/5f/55/715f552f81f7cf49731578585595f443.jpg"
                     alt="about hero"
-                    className="w-full h-80 object-cover rounded-lg"
+                    className="w-full h-90 object-cover rounded-lg"
                   />
                 </div>
               </div>
@@ -310,7 +309,7 @@ const AboutUs = () => {
                   <div className="relative">
                     <div className="overflow-hidden rounded-2xl shadow-lg">
                       <img
-                        src="https://images.unsplash.com/photo-1509099836639-18ba6c1c6a0f?auto=format&fit=crop&w=1200&q=60"
+                        src="https://i.pinimg.com/736x/ed/96/78/ed96783d0be16f8301a5f0f02c69b6c5.jpg"
                         alt="community children"
                         className="w-full h-72 object-cover rounded-2xl"
                       />
@@ -496,15 +495,7 @@ const AboutUs = () => {
                   <img
                     src="https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=900&q=60"
                     alt="program"
-                    className="w-full h-56 object-cover"
-                  />
-                </div>
-
-                <div className="mt-6 overflow-hidden rounded-2xl shadow-md w-full max-w-sm">
-                  <img
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=60"
-                    alt="program 2"
-                    className="w-full h-44 object-cover"
+                    className="w-full h-80    object-cover"
                   />
                 </div>
               </div>

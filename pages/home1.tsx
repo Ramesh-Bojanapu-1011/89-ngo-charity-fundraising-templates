@@ -563,20 +563,11 @@ export default function Home1() {
               <div className="flex justify-center lg:justify-end">
                 <div className="relative w-full max-w-md">
                   <div className="grid grid-cols-2 gap-4">
-                    <img
-                      src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=60"
-                      alt="volunteers"
-                      className="rounded-xl shadow-lg h-40 w-full object-cover"
-                    />
+                     
                     <img
                       src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=60"
-                      alt="community"
-                      className="rounded-xl shadow-lg h-40 w-full object-cover"
-                    />
-                    <img
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=60"
                       alt="event"
-                      className="rounded-xl shadow-lg h-40 w-full object-cover col-span-2"
+                      className="rounded-xl shadow-lg h-100   w-full object-cover col-span-2"
                     />
                   </div>
 

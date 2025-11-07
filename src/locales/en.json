@@ -825,6 +825,14 @@
       }
     },
     "actions": { "readPost": "Read post", "readTime": "• 4 min read" },
+    "partners": {
+      "heading": "Give a helping hand to those who need it",
+      "lead": "We partner with local leaders to deliver essential services. Your support helps fund immediate needs and long-term recovery.",
+      "goalLabel": "Goal",
+      "goalAmount": "$60,000",
+      "progressPercent": "60%",
+      "raised": "$36,000 raised — Thank you to donors and partners."
+    },
     "getInvolved": {
       "title": "Get involved",
       "lead": "Join our work in the way that fits you best — volunteer, fundraise, partner or help spread the word.",
@@ -854,16 +862,20 @@
         "0": {
           "title": "Community workshop",
           "loc": "Kisumu",
+          "desc": "Building local capacity for project management and reporting.",
+
           "date": "Nov 20, 2025"
         },
         "1": {
           "title": "Volunteer training",
           "loc": "Hybrid",
+          "desc": "Preparing volunteers for field assignments and remote support.",
           "date": "Dec 5, 2025"
         },
         "2": {
           "title": "Year-end fundraiser",
           "loc": "Online",
+          "desc": "Join us to celebrate the year’s impact and raise funds for upcoming projects.",
           "date": "Dec 18, 2025"
         }
       },

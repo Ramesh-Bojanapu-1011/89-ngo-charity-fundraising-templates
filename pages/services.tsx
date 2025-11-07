@@ -68,8 +68,7 @@ const ServicesPage = () => {
       role: t("servicesPage.testimonials.2.role"),
       quote: t("servicesPage.testimonials.2.quote"),
       org: t("servicesPage.testimonials.2.org"),
-      avatar:
-        "https://images.unsplash.com/photo-1531123414780-fd3d0f4e1b4f?w=800&q=60&auto=format&fit=crop",
+      avatar: "https://randomuser.me/api/portraits/women/16.jpg ",
     },
   ];
 
@@ -78,7 +77,7 @@ const ServicesPage = () => {
       title: t("servicesPage.campaigns.0.title"),
       desc: t("servicesPage.campaigns.0.desc"),
       image:
-        "https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=1200&q=60&auto=format&fit=crop",
+        "https://i.pinimg.com/1200x/9a/30/0a/9a300a277f6aa6f106165eb160d8641d.jpg",
       raised: 42000,
       goal: 60000,
     },
@@ -86,7 +85,7 @@ const ServicesPage = () => {
       title: t("servicesPage.campaigns.1.title"),
       desc: t("servicesPage.campaigns.1.desc"),
       image:
-        "https://images.unsplash.com/photo-1529078155058-5d716f45d604?w=1200&q=60&auto=format&fit=crop",
+        "https://i.pinimg.com/736x/e1/ec/11/e1ec1112691ac3cea604e2d0a52cfe19.jpg",
       raised: 27500,
       goal: 50000,
     },
@@ -94,7 +93,7 @@ const ServicesPage = () => {
       title: t("servicesPage.campaigns.2.title"),
       desc: t("servicesPage.campaigns.2.desc"),
       image:
-        "https://images.unsplash.com/photo-1584438784816-3a5f29a9b0b3?w=1200&q=60&auto=format&fit=crop",
+        "https://i.pinimg.com/1200x/66/b2/e8/66b2e8a5c821136cc315b64dfda81443.jpg",
       raised: 18000,
       goal: 20000,
     },
@@ -164,23 +163,15 @@ const ServicesPage = () => {
         <>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6 text-emerald-600"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+            width={20}
+            height={20}
+            viewBox="0 0 32 32"
           >
+            <path fill="#009966" d="M8 14h11v2H8Zm0 5h13v2H8Z"></path>
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M11 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M21 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"
-            />
+              fill="#009966"
+              d="M28 4H4a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 2v2H4V6ZM4 26V10h24v16Z"
+            ></path>
           </svg>
         </>
       ),
@@ -224,7 +215,7 @@ const ServicesPage = () => {
             }
           });
         },
-        { threshold: 0.4 },
+        { threshold: 0.4 }
       );
 
       obs.observe(el);
@@ -495,7 +486,7 @@ const ServicesPage = () => {
               {campaigns.map((c, i) => {
                 const pct = Math.min(
                   100,
-                  Math.round((c.raised / c.goal) * 100),
+                  Math.round((c.raised / c.goal) * 100)
                 );
                 return (
                   <div
@@ -561,23 +552,23 @@ const ServicesPage = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="row-span-2">
                     <img
-                      src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=60&auto=format&fit=crop"
+                      src="https://i.pinimg.com/1200x/44/eb/db/44ebdb135530a7f8b09bca742826609d.jpg"
                       alt="impact"
                       className="w-full h-full object-cover rounded-2xl shadow-lg"
                     />
                   </div>
                   <div>
                     <img
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=60&auto=format&fit=crop"
+                      src="https://i.pinimg.com/736x/75/08/e3/7508e3990857d8ab2c6b83d89bf7eda1.jpg"
                       alt="impact"
-                      className="w-full h-40 object-cover rounded-xl shadow"
+                      className="w-full h-50 object-cover object-center  rounded-xl shadow"
                     />
                   </div>
                   <div>
                     <img
-                      src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=60&auto=format&fit=crop"
+                      src="https://i.pinimg.com/736x/ba/14/87/ba1487206f7235c409b48d32b8fe809f.jpg"
                       alt="impact"
-                      className="w-full h-40 object-cover rounded-xl shadow"
+                      className="w-full h-50 object-cover object-center rounded-xl shadow"
                     />
                   </div>
                 </div>

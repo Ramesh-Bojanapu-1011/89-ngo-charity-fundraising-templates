@@ -53,13 +53,13 @@ export default function Home2() {
     },
     {
       title: t("home2.campaigns.1.title"),
-      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=60",
+      img: "https://i.pinimg.com/736x/27/65/bf/2765bfaa51fa1f68677b1edba35aa33b.jpg",
       raised: 4200,
       goal: 5000,
     },
     {
       title: t("home2.campaigns.2.title"),
-      img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=60",
+      img: "https://i.pinimg.com/1200x/13/58/21/1358213306b22a456793c488058f480b.jpg",
       raised: 7600,
       goal: 8000,
     },
@@ -210,7 +210,7 @@ export default function Home2() {
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-2xl bg-white/5 p-4">
                   <img
-                    src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=60"
+                    src="https://i.pinimg.com/1200x/72/2e/a9/722ea947fe5ed9e0725e0586ea945e5d.jpg"
                     alt="community"
                     className="w-full h-80 object-cover rounded-lg"
                   />
@@ -494,7 +494,7 @@ export default function Home2() {
                     key={i}
                     className="bg-white dark:bg-gray-800 rounded-2xl shadow overflow-hidden"
                   >
-                    <div className="h-40 w-full overflow-hidden">
+                    <div className="h-80 w-full overflow-hidden">
                       <img
                         src={c.img}
                         alt={c.title}

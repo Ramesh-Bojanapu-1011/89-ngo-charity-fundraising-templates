@@ -34,7 +34,7 @@ const BlogPage = () => {
         "How to recruit, train, and retain volunteers when your program spans timezones.",
       author: "Rukmini Patel",
       image:
-        "https://images.unsplash.com/photo-1584438784816-3a5f29a9b0b3?w=1200&q=60&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop",
       href: "/volunteer-remote",
     },
     // additional items for featured/resources
@@ -342,7 +342,7 @@ const BlogPage = () => {
         {/* Partners & supporters - grayscale collage */}
         <section className="py-16 ">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               {/* left - large image */}
               <div className="order-1 lg:order-0">
                 <img
@@ -353,58 +353,41 @@ const BlogPage = () => {
                 />
               </div>
 
-              {/* middle - stacked images */}
-              <div className="order-3 lg:order-0 flex flex-col gap-4">
-                <img
-                  src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=60&auto=format&fit=crop"
-                  alt="volunteers"
-                  style={{ filter: "grayscale(100%)" }}
-                  className="w-full h-36 object-cover rounded-xl shadow"
-                />
-                <div className="grid grid-cols-2 gap-4">
-                  <img
-                    src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=60&auto=format&fit=crop"
-                    alt="local team"
-                    style={{ filter: "grayscale(100%)" }}
-                    className="w-full h-24 object-cover rounded-lg shadow"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=60&auto=format&fit=crop"
-                    alt="beneficiaries"
-                    style={{ filter: "grayscale(100%)" }}
-                    className="w-full h-24 object-cover rounded-full shadow"
-                  />
-                </div>
-              </div>
-
               {/* right - text, progress, CTA */}
               <div className="order-2 lg:order-0">
                 <h3 className="text-3xl font-extrabold text-gray-900 dark:text-gray-100">
-                  Give a helping hand to those who need it
+                  {t("blog.partners.heading", {
+                    defaultValue: "Give a helping hand to those who need it",
+                  })}
                 </h3>
                 <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-lg">
-                  We partner with local leaders to deliver essential services.
-                  Your support helps fund immediate needs and long-term
-                  recovery.
+                  {t("blog.partners.lead", {
+                    defaultValue:
+                      "We partner with local leaders to deliver essential services. Your support helps fund immediate needs and long-term recovery.",
+                  })}
                 </p>
 
                 <div className="mt-6">
                   <div className="flex items-baseline gap-3">
-                    <div className="text-sm text-gray-500">Goal</div>
+                    <div className="text-sm text-gray-500">
+                      {t("blog.partners.goalLabel", { defaultValue: "Goal" })}
+                    </div>
                     <div className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      $60,000
+                      {t("blog.partners.goalAmount", { defaultValue: "$60,000" })}
                     </div>
                   </div>
 
                   <div className="mt-3 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
                     <div
                       className="bg-emerald-600 h-3 rounded-full"
-                      style={{ width: "60%" }}
+                      style={{ width: t("blog.partners.progressPercent", { defaultValue: "60%" }) }}
                     />
                   </div>
 
                   <div className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                    $36,000 raised — Thank you to donors and partners.
+                    {t("blog.partners.raised", {
+                      defaultValue: "$36,000 raised — Thank you to donors and partners.",
+                    })}
                   </div>
                 </div>
               </div>
@@ -475,8 +458,7 @@ const BlogPage = () => {
                           })}
                         </div>
                         <p className="mt-3 text-sm text-gray-600 dark:text-gray-300">
-                          Seats are limited — register to secure your spot and
-                          receive updates.
+                          {t(`blog.events.items.${i}.desc`, )}
                         </p>
                       </div>
                     </div>
