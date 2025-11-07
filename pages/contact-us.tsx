@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import SiteFooter from "../src/components/SiteFooter";
 import SiteHeadder from "../src/components/SiteHeadder";
+import { useTranslation } from "react-i18next";
 
 const ContactUs = () => {
   const [form, setForm] = useState({
@@ -20,6 +21,13 @@ const ContactUs = () => {
   const [newsletterStatus, setNewsletterStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+  const { t } = useTranslation();
+  const faqs = Array.from({ length: 4 }).map((_, idx) => {
+    return {
+      q: t(`contactUs.faq.items.${idx}.q`),
+      a: t(`contactUs.faq.items.${idx}.a`),
+    };
+  });
 
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
@@ -32,7 +40,7 @@ const ContactUs = () => {
     if (!form.name || !form.email || !form.message) {
       setStatus({
         type: "error",
-        message: "Please fill in name, email and message.",
+        message: t("contactUs.form.validationError"),
       });
       return;
     }
@@ -44,8 +52,7 @@ const ContactUs = () => {
       console.log("Contact submitted", form);
       setStatus({
         type: "success",
-        message:
-          "Thanks — we received your message. We'll be in touch within 48 hours.",
+        message: t("contactUs.form.successDefault"),
       });
       setForm({
         name: "",
@@ -68,11 +75,10 @@ const ContactUs = () => {
         <section className="min-h-screen justify-center flex items-center bg-linear-to-r from-emerald-600 to-emerald-400 text-white">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-4xl lg:text-5xl font-extrabold">
-              Contact & Support
+              {t("contactUs.hero.title")}
             </h1>
             <p className="mt-4 text-lg max-w-2xl mx-auto">
-              We're here to help. Whether you're a donor, partner or volunteer,
-              reach out and we'll connect you with the right team.
+              {t("contactUs.hero.lead")}
             </p>
           </div>
         </section>
@@ -81,10 +87,11 @@ const ContactUs = () => {
         <section id="form" className="py-16">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-1">
-              <h3 className="text-2xl font-semibold">Get in touch</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("contactUs.form.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300">
-                Send us a message and we'll route it to the right team. Use the
-                form or the quick contacts on the right for urgent matters.
+                {t("contactUs.form.lead")}
               </p>
 
               <div className="mt-6 space-y-4">
@@ -106,9 +113,11 @@ const ContactUs = () => {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-sm font-medium">Email</div>
+                    <div className="text-sm font-medium">
+                      {t("contactUs.contact.email.label")}
+                    </div>
                     <div className="text-sm text-gray-600 dark:text-gray-300">
-                      support@ngo-theme.org
+                      {t("contactUs.contact.email.value")}
                     </div>
                   </div>
                 </div>
@@ -131,9 +140,11 @@ const ContactUs = () => {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-sm font-medium">Phone</div>
+                    <div className="text-sm font-medium">
+                      {t("contactUs.contact.phone.label")}
+                    </div>
                     <div className="text-sm text-gray-600 dark:text-gray-300">
-                      +1 (555) 123-4567
+                      {t("contactUs.contact.phone.value")}
                     </div>
                   </div>
                 </div>
@@ -156,9 +167,11 @@ const ContactUs = () => {
                     </svg>
                   </div>
                   <div>
-                    <div className="text-sm font-medium">Office hours</div>
+                    <div className="text-sm font-medium">
+                      {t("contactUs.contact.hours.label")}
+                    </div>
                     <div className="text-sm text-gray-600 dark:text-gray-300">
-                      Mon–Fri, 9am–5pm (local)
+                      {t("contactUs.contact.hours.value")}
                     </div>
                   </div>
                 </div>
@@ -173,14 +186,14 @@ const ContactUs = () => {
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Full name"
+                      placeholder={t("contactUs.form.placeholders.name")}
                       className="w-full rounded-md border border-gray-200 dark:border-gray-700 px-4 py-3 bg-transparent focus:ring-2 focus:ring-emerald-300"
                     />
                     <input
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="Email address"
+                      placeholder={t("contactUs.form.placeholders.email")}
                       className="w-full rounded-md border border-gray-200 dark:border-gray-700 px-4 py-3 bg-transparent focus:ring-2 focus:ring-emerald-300"
                     />
                   </div>
@@ -189,7 +202,7 @@ const ContactUs = () => {
                     name="subject"
                     value={form.subject}
                     onChange={handleChange}
-                    placeholder="Subject (optional)"
+                    placeholder={t("contactUs.form.placeholders.subject")}
                     className="w-full rounded-md border border-gray-200 dark:border-gray-700 px-4 py-3 bg-transparent focus:ring-2 focus:ring-emerald-300"
                   />
 
@@ -197,7 +210,7 @@ const ContactUs = () => {
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Your message"
+                    placeholder={t("contactUs.form.placeholders.message")}
                     rows={6}
                     className="w-full rounded-md border border-gray-200 dark:border-gray-700 px-4 py-3 bg-transparent focus:ring-2 focus:ring-emerald-300"
                   />
@@ -211,12 +224,12 @@ const ContactUs = () => {
                         onChange={handleChange}
                       />
                       <span className="text-gray-600 dark:text-gray-300">
-                        Subscribe to updates
+                        {t("contactUs.form.subscribeLabel")}
                       </span>
                     </label>
 
                     <div className="text-sm text-gray-500">
-                      We reply within 48 hours
+                      {t("contactUs.form.replyNote")}
                     </div>
                   </div>
 
@@ -226,19 +239,19 @@ const ContactUs = () => {
                       className="inline-flex items-center px-5 py-3 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-500"
                     >
                       {status.type === "sending"
-                        ? "Sending..."
-                        : "Send message"}
+                        ? t("contactUs.form.sending")
+                        : t("contactUs.form.send")}
                     </button>
 
                     {status.type === "success" && (
                       <div className="text-sm text-emerald-700 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-300 px-3 py-2 rounded-md">
-                        {status.message}
+                        {status.message || t("contactUs.form.successDefault")}
                       </div>
                     )}
 
                     {status.type === "error" && (
                       <div className="text-sm text-red-700 bg-red-100 dark:bg-red-900/30 dark:text-red-300 px-3 py-2 rounded-md">
-                        {status.message}
+                        {status.message || t("contactUs.form.validationError")}
                       </div>
                     )}
                   </div>
@@ -252,10 +265,11 @@ const ContactUs = () => {
         <section className="py-12 bg-white dark:bg-gray-900  ">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-semibold">Get involved</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("contactUs.getInvolved.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Take action with us — volunteer, partner, or support campaigns
-                to help communities in need.
+                {t("contactUs.getInvolved.lead")}
               </p>
             </div>
 
@@ -264,7 +278,7 @@ const ContactUs = () => {
               <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-shadow transform-gpu hover:-translate-y-1">
                 <div className="absolute right-0 top-0 -mt-6 -mr-6">
                   <div className="bg-emerald-600 text-white px-4 py-2 rounded-tr-2xl rounded-bl-2xl text-sm font-semibold">
-                    Join our team
+                    {t("contactUs.joinBadge")}
                   </div>
                 </div>
 
@@ -294,12 +308,10 @@ const ContactUs = () => {
 
                   <div className="flex-1">
                     <h4 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">
-                      Volunteer with us
+                      {t("contactUs.volunteer.title")}
                     </h4>
                     <p className="mt-3 text-gray-600 dark:text-gray-300">
-                      Give your time where it matters — short-term field roles,
-                      remote opportunities, and skilled placements. We provide
-                      training, support and clear role descriptions.
+                      {t("contactUs.volunteer.lead")}
                     </p>
 
                     <div className="mt-5 flex flex-wrap gap-3 items-center">
@@ -308,13 +320,13 @@ const ContactUs = () => {
                           1.2k
                         </div>
                         <div className="text-sm text-gray-600 dark:text-gray-300">
-                          active volunteers
+                          {t("contactUs.volunteer.metrics.activeLabel")}
                         </div>
                       </div>
 
                       <div className="inline-flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
                         <div className="text-sm text-gray-600">
-                          Avg. commitment
+                          {t("contactUs.volunteer.metrics.avgCommitmentLabel")}
                         </div>
                         <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
                           3–6 months
@@ -329,7 +341,7 @@ const ContactUs = () => {
               <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-shadow transform-gpu hover:-translate-y-1">
                 <div className="absolute left-0 top-0 -mt-6 -ml-6">
                   <div className="bg-emerald-600 text-white px-4 py-2 rounded-tl-2xl rounded-br-2xl text-sm font-semibold">
-                    Work with us
+                    {t("contactUs.partnerBadge")}
                   </div>
                 </div>
 
@@ -354,24 +366,26 @@ const ContactUs = () => {
 
                     <div className="flex-1">
                       <h4 className="text-2xl font-extrabold text-gray-900 dark:text-gray-100">
-                        Partner with us
+                        {t("contactUs.partner.title")}
                       </h4>
                       <p className="mt-3 text-gray-600 dark:text-gray-300">
-                        We collaborate with NGOs, corporate partners and funders
-                        to scale projects, improve accountability and reach
-                        communities faster.
+                        {t("contactUs.partner.lead")}
                       </p>
 
                       <div className="mt-5 grid grid-cols-2 gap-3">
                         <div className="rounded-lg bg-emerald-50 dark:bg-emerald-900/20 p-3 text-center">
-                          <div className="text-sm text-gray-600">Partners</div>
+                          <div className="text-sm text-gray-600">
+                            {t("contactUs.partner.metrics.partnersLabel")}
+                          </div>
                           <div className="mt-1 font-semibold text-emerald-600">
                             45
                           </div>
                         </div>
                         <div className="rounded-lg bg-gray-100 dark:bg-gray-700 p-3 text-center">
                           <div className="text-sm text-gray-600">
-                            Projects/year
+                            {t(
+                              "contactUs.partner.metrics.projectsPerYearLabel",
+                            )}
                           </div>
                           <div className="mt-1 font-semibold text-gray-900 dark:text-gray-100">
                             18
@@ -390,11 +404,11 @@ const ContactUs = () => {
         <section className="py-12 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold">Regional offices</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("contactUs.offices.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Our regional teams coordinate programs and rapid-response
-                support. Pick a location to get directions or contact the office
-                directly.
+                {t("contactUs.offices.lead")}
               </p>
             </div>
 
@@ -405,21 +419,21 @@ const ContactUs = () => {
                   addr: "123 Community Rd",
                   hours: "Mon–Fri 9am–5pm",
                   map: "https://images.unsplash.com/photo-1505765057661-7b9a1f8c3b1b?w=800&q=60&auto=format&fit=crop",
-                  tag: "Regional hub",
+                  tagKey: "regionalHub",
                 },
                 {
                   city: "Kisumu",
                   addr: "45 Market St",
                   hours: "Mon–Fri 8:30am–4:30pm",
                   map: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&q=60&auto=format&fit=crop",
-                  tag: "Program office",
+                  tagKey: "programOffice",
                 },
                 {
                   city: "Remote",
                   addr: "Virtual Office",
                   hours: "Always available",
                   map: "https://images.unsplash.com/photo-1505685296765-3a2736de412f?w=800&q=60&auto=format&fit=crop",
-                  tag: "Remote support",
+                  tagKey: "remoteSupport",
                 },
               ].map((o, i) => (
                 <div
@@ -437,7 +451,7 @@ const ContactUs = () => {
                     />
                     <div className="absolute left-4 top-4 inline-flex items-center gap-2 bg-white/90 dark:bg-gray-900/70 rounded-full px-3 py-1 text-xs">
                       <span className="font-medium text-emerald-600">
-                        {o.tag}
+                        {t(`contactUs.offices.tags.${o.tagKey}`)}
                       </span>
                     </div>
                   </div>
@@ -465,14 +479,14 @@ const ContactUs = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Get directions
+                        {t("contactUs.offices.actions.directions")}
                       </Link>
 
                       <Link
                         href="#form"
                         className="inline-flex items-center px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-md text-sm text-gray-700 dark:text-gray-200"
                       >
-                        Contact office
+                        {t("contactUs.offices.actions.contactOffice")}
                       </Link>
                     </div>
                   </div>
@@ -487,33 +501,15 @@ const ContactUs = () => {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
               <h3 className="text-2xl font-semibold">
-                Frequently asked questions
+                {t("contactUs.faq.title")}
               </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Quick answers to common questions. Still need help? Use the
-                button to contact our team.
+                {t("contactUs.faq.lead")}
               </p>
             </div>
 
             <div className="grid grid-cols-1  gap-6">
-              {[
-                {
-                  q: "How quickly will I get a response?",
-                  a: "We aim to respond within 48 hours for general inquiries. For urgent field needs use the emergency contact at the top of the page.",
-                },
-                {
-                  q: "Can I volunteer remotely?",
-                  a: "Yes — many roles are remote. Check the Volunteer page for open roles and remote-friendly positions.",
-                },
-                {
-                  q: "How are donations used?",
-                  a: "Donations fund program delivery, local partner support and emergency response. See our annual reports for a detailed breakdown.",
-                },
-                {
-                  q: "How do I report an urgent issue in the field?",
-                  a: "Use the 'Report an emergency' button or call our hotline; provide your location and a short description so our rapid-response team can act.",
-                },
-              ].map((item, idx) => (
+              {faqs.map((item, idx) => (
                 <div
                   key={idx}
                   className="rounded-2xl bg-white dark:bg-gray-800 p-4 shadow-sm border border-gray-200 dark:border-gray-700"
@@ -583,11 +579,11 @@ const ContactUs = () => {
         {/* Subscribe section */}
         <section className="py-16 bg-linear-to-r from-emerald-600 to-emerald-400 text-white">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <h3 className="text-2xl font-semibold">Stay updated</h3>
+            <h3 className="text-2xl font-semibold">
+              {t("contactUs.subscribe.title")}
+            </h3>
             <p className="mt-2 max-w-2xl mx-auto text-emerald-100">
-              Subscribe to our newsletter for updates from the field, calls to
-              action, and impact stories. We send occasional updates and you can
-              unsubscribe at any time.
+              {t("contactUs.subscribe.lead")}
             </p>
 
             <form
@@ -610,8 +606,8 @@ const ContactUs = () => {
             >
               <input
                 type="email"
-                aria-label="Email address"
-                placeholder="Your email address"
+                aria-label={t("contactUs.subscribe.ariaEmail")}
+                placeholder={t("contactUs.subscribe.placeholder")}
                 value={newsletterEmail}
                 onChange={(e) => setNewsletterEmail(e.target.value)}
                 className="w-full sm:w-auto min-w-60 border rounded-md px-4 py-3 text-gray-900"
@@ -622,21 +618,21 @@ const ContactUs = () => {
                 className="inline-flex items-center px-5 py-3 bg-white text-emerald-600 rounded-md font-semibold"
               >
                 {newsletterStatus === "sending"
-                  ? "Subscribing..."
-                  : "Subscribe"}
+                  ? t("contactUs.subscribe.sending")
+                  : t("contactUs.subscribe.button")}
               </button>
             </form>
 
             <div className="mt-4">
               {newsletterStatus === "success" && (
                 <div className="inline-block bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 rounded-md px-3 py-2 text-sm">
-                  Thanks — you're subscribed.
+                  {t("contactUs.subscribe.success")}
                 </div>
               )}
 
               {newsletterStatus === "error" && (
                 <div className="inline-block bg-red-100 text-red-700 rounded-md px-3 py-2 text-sm">
-                  Please enter a valid email address.
+                  {t("contactUs.subscribe.validationError")}
                 </div>
               )}
             </div>

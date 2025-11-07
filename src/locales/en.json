@@ -1684,5 +1684,99 @@
         "requestWorkshop": "Request a workshop"
       }
     }
+  },
+  "contactUs": {
+    "hero": {
+      "title": "Contact & Support",
+      "lead": "We're here to help. Whether you're a donor, partner or volunteer, reach out and we'll connect you with the right team."
+    },
+    "form": {
+      "title": "Get in touch",
+      "lead": "Send us a message and we'll route it to the right team. Use the form or the quick contacts on the right for urgent matters.",
+      "placeholders": {
+        "name": "Full name",
+        "email": "Email address",
+        "subject": "Subject (optional)",
+        "message": "Your message"
+      },
+      "subscribeLabel": "Subscribe to updates",
+      "replyNote": "We reply within 48 hours",
+      "send": "Send message",
+      "sending": "Sending...",
+      "successDefault": "Thanks — we received your message. We'll be in touch within 48 hours.",
+      "validationError": "Please fill in name, email and message."
+    },
+    "contact": {
+      "email": { "label": "Email", "value": "support@ngo-theme.org" },
+      "phone": { "label": "Phone", "value": "+1 (555) 123-4567" },
+      "hours": { "label": "Office hours", "value": "Mon–Fri, 9am–5pm (local)" }
+    },
+    "getInvolved": {
+      "title": "Get involved",
+      "lead": "Take action with us — volunteer, partner, or support campaigns to help communities in need."
+    },
+    "joinBadge": "Join our team",
+    "volunteer": {
+      "title": "Volunteer with us",
+      "lead": "Give your time where it matters — short-term field roles, remote opportunities, and skilled placements. We provide training, support and clear role descriptions.",
+      "metrics": {
+        "activeLabel": "active volunteers",
+        "avgCommitmentLabel": "Avg. commitment"
+      }
+    },
+    "partnerBadge": "Work with us",
+    "partner": {
+      "title": "Partner with us",
+      "lead": "We collaborate with NGOs, corporate partners and funders to scale projects, improve accountability and reach communities faster.",
+      "metrics": {
+        "partnersLabel": "Partners",
+        "projectsPerYearLabel": "Projects/year"
+      }
+    },
+    "offices": {
+      "title": "Regional offices",
+      "lead": "Our regional teams coordinate programs and rapid-response support. Pick a location to get directions or contact the office directly.",
+      "actions": {
+        "directions": "Get directions",
+        "contactOffice": "Contact office"
+      },
+      "tags": {
+        "regionalHub": "Regional hub",
+        "programOffice": "Program office",
+        "remoteSupport": "Remote support"
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "lead": "Quick answers to common questions. Still need help? Use the button to contact our team.",
+      "items": {
+        "0": {
+          "q": "How quickly will I get a response?",
+          "a": "We aim to respond within 48 hours for general inquiries. For urgent field needs use the emergency contact at the top of the page."
+        },
+        "1": {
+          "q": "Can I volunteer remotely?",
+          "a": "Yes — many roles are remote. Check the Volunteer page for open roles and remote-friendly positions."
+        },
+        "2": {
+          "q": "How are donations used?",
+          "a": "Donations fund program delivery, local partner support and emergency response. See our annual reports for a detailed breakdown."
+        },
+        "3": {
+          "q": "How do I report an urgent issue in the field?",
+          "a": "Use the 'Report an emergency' button or call our hotline; provide your location and a short description so our rapid-response team can act."
+        }
+      }
+    },
+    "subscribe": {
+      "title": "Stay updated",
+      "lead": "Subscribe to our newsletter for updates from the field, calls to action, and impact stories. We send occasional updates and you can unsubscribe at any time.",
+      "ariaEmail": "Email address",
+      "placeholder": "Your email address",
+      "sending": "Subscribing...",
+      "button": "Subscribe",
+      "success": "Thanks — you're subscribed.",
+      "validationError": "Please enter a valid email address."
+    }
   }
 }
