@@ -18,7 +18,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 25000,
     raised: 18250,
     image:
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/c6/4e/db/c64edb409f44ed878da99100d99f5c54.jpg",
     tags: ["community", "volunteer"],
   },
   {
@@ -26,7 +26,7 @@ const CAMPAIGNS: Campaign[] = [
     goal: 15000,
     raised: 6400,
     image:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop",
+      "https://i.pinimg.com/1200x/00/d3/6d/00d36d54c16ca10a46f696fbddeecc0b.jpg",
     tags: ["education", "volunteer"],
   },
   {
@@ -350,7 +350,7 @@ export default function VolunteerDonationCampaigns() {
               <div className="md:col-span-5">
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
                   <img
-                    src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1000&auto=format&fit=crop"
+                    src="https://i.pinimg.com/1200x/94/1d/5e/941d5e0b2df79067377cf4fdaff17c67.jpg"
                     alt="volunteers"
                     className="w-full h-80 object-cover"
                   />
