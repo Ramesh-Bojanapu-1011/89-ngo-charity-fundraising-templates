@@ -1575,5 +1575,114 @@
       }
     },
     "auther": { "by": "By {{author}}", "date": "{{date}}" }
+  },
+  "schoolRebuild": {
+    "meta": {
+      "title": "Designing school rebuild programs with local input — Emerald Aid",
+      "description": "A practical guide to designing school rebuild programs that center local voices, build resilience, and deliver measurable learning outcomes."
+    },
+    "hero": {
+      "badge": "Guide",
+      "updated": "Updated {{date}}",
+      "title": "Designing school rebuild programs with local input",
+      "lead": "Rebuilding a school after a disaster is about more than bricks — it's about restoring learning, safety, and community trust. This guide shows how to design school rebuild programs that center local voices, reduce future risks, and deliver measurable education outcomes.",
+      "imgAlt": "community meeting at a school site"
+    },
+    "actions": {
+      "viewTemplates": "See Rebuild Templates",
+      "requestSupport": "Request Support"
+    },
+    "by": "By {{author}}",
+    "tags": {
+      "education": "Education",
+      "resilience": "Resilience",
+      "communityLed": "Community-led"
+    },
+    "intro": "Center local input at every step — from needs assessment to handover. When communities lead decisions, rebuilt schools are safer, more relevant, and more likely to sustain learning gains.",
+    "metrics": {
+      "time": "6–8 weeks",
+      "timeLabel": "Participatory design phase",
+      "engagement": "80%+",
+      "engagementLabel": "Local stakeholder engagement",
+      "pillars": "3 pillars",
+      "pillarsLabel": "Safety, learning, sustainability"
+    },
+    "sections": {
+      "assessment": {
+        "title": "1. Ground your work in a short participatory assessment",
+        "body": "Convene teachers, caregivers, local builders and students for a focused needs assessment. Use small focus groups, a short household survey, and a site walk to capture priorities, safety concerns, and classroom needs."
+      },
+      "coDesign": {
+        "title": "2. Build co-designed solutions — not pre-packaged ones",
+        "body": "Share simple design options (floor plans, materials, and maintenance approaches) and surface trade-offs in plain language. Let communities pick or adapt solutions so the final design matches local preferences and maintenance capacity."
+      },
+      "prioritize": {
+        "title": "3. Prioritize safety, flexibility and learning",
+        "body": "Balance structural safety (seismic, flood elevation) with flexible learning spaces and durable low-maintenance finishes. Design for multi-purpose use so classrooms can serve as community shelters in future emergencies."
+      },
+      "procurement": {
+        "title": "4. Local procurement & skills transfer",
+        "body": "Where feasible, hire local contractors and run short skills-transfer workshops. This creates local ownership, reduces costs, and leaves the community with maintenance skills after the project ends."
+      },
+      "handover": {
+        "title": "5. Monitoring, accountability & handover",
+        "body": "Agree early on how progress will be shared — use photos, short field notes, and community check-ins. Define clear handover criteria and confirm who will provide ongoing maintenance support."
+      }
+    },
+    "procurement": {
+      "items": {
+        "materials": "Use locally appropriate, resilient materials.",
+        "train": "Train at least two local maintenance leads per school.",
+        "docs": "Document simple maintenance manuals in the local language."
+      }
+    },
+    "checklist": {
+      "title": "Quick checklist for community-led rebuilds",
+      "items": [
+        "Run a 2-week participatory needs assessment",
+        "Co-design 2–3 layout options with users",
+        "Include safety checks in all designs (drainage, elevation)",
+        "Plan a 6–8 week skills-transfer & procurement plan",
+        "Agree handover & maintenance responsibilities in writing"
+      ]
+    },
+    "templates": {
+      "title": "Templates & messaging",
+      "lead": "Use these short templates when engaging stakeholders:",
+      "meeting": {
+        "title": "Community meeting invite",
+        "body": "We invite caregivers, teachers and local builders to a short meeting to co-design the rebuilt school. Your experience will shape the design and maintenance plan."
+      },
+      "donor": {
+        "title": "Donor update blurb",
+        "body": "With local leaders we completed the participatory design phase and selected a design that balances safety, learning, and local maintenance capacity. Next: procurement and skills training."
+      }
+    },
+    "cta": {
+      "title": "Ready to design with communities?",
+      "lead": "We offer simple co-design workshops and rebuild templates to help mobilize local teams and donors. Start with a short assessment and use our templates to speed implementation.",
+      "viewTemplates": "View Templates",
+      "requestWorkshop": "Request a Workshop"
+    },
+    "aside": {
+      "takeawaysTitle": "Key takeaways",
+      "takeaways": [
+        "Start with a short participatory assessment",
+        "Co-design options and make trade-offs explicit",
+        "Hire locally & transfer maintenance skills",
+        "Agree handover, monitoring and maintenance early"
+      ],
+      "shareTitle": "Share this guide",
+      "share": {
+        "twitter": "Twitter",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn"
+      },
+      "actionsTitle": "Quick actions",
+      "actions": {
+        "createCampaign": "Create a campaign",
+        "requestWorkshop": "Request a workshop"
+      }
+    }
   }
 }
