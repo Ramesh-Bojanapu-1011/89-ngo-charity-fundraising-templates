@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { ModeToggle } from "./theme/ModeToggle";
 import { getCurrentUser, handleLogout, User } from "@/lib/localAuth";
 import { applyLanguage } from "@/i18n";
+import { useTranslation } from "react-i18next";
 
 const SiteHeadder: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -12,6 +13,7 @@ const SiteHeadder: React.FC = () => {
   const [lang, setLang] = useState<string>("en");
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
+  const { t, i18n } = useTranslation();
 
   const toggleDropdown = (name: string) =>
     setOpenDropdown((prev) => (prev === name ? null : name));
@@ -45,63 +47,114 @@ const SiteHeadder: React.FC = () => {
     };
   }, []);
 
-  // centralized nav definition
+  // centralized nav definition (labels come from translations so header updates when language changes)
   const navItems = [
     {
       key: "home",
-      label: "Home",
+      label: t("header.nav.home", "Home"),
       items: [
-        { label: "Home 1", href: "/home1" },
-        { label: "Home 2", href: "/home2" },
+        { label: t("header.nav.home1", "Home 1"), href: "/home1" },
+        { label: t("header.nav.home2", "Home 2"), href: "/home2" },
       ],
     },
-    { key: "about", label: "About Us", href: "/about-us" },
+    {
+      key: "about",
+      label: t("header.nav.about", "About Us"),
+      href: "/about-us",
+    },
     {
       key: "services",
-      label: "Services",
+      label: t("header.nav.services", "Services"),
       items: [
-        { label: "All Services", href: "/services" },
         {
-          label: "Fundraising Campaigns",
+          label: t("header.nav.services.all", "All Services"),
+          href: "/services",
+        },
+        {
+          label: t("header.nav.services.fundraising", "Fundraising Campaigns"),
           href: "fundraising-campaigns",
         },
         {
-          label: "Online Donations",
+          label: t("header.nav.services.onlineDonations", "Online Donations"),
           href: "/online-donations",
         },
         {
-          label: "Volunteer Management",
+          label: t("header.nav.services.volunteer", "Volunteer Management"),
           href: "/volunteer-management",
         },
         {
-          label: "Event Management",
+          label: t("header.nav.services.events", "Event Management"),
           href: "/event-management",
         },
         {
-          label: "Grant Applications",
+          label: t("header.nav.services.grants", "Grant Applications"),
           href: "/grant-applications",
         },
         {
-          label: "Advocacy & Outreach",
+          label: t("header.nav.services.advocacy", "Advocacy & Outreach"),
           href: "/advocacy-outreach",
         },
       ],
     },
-    { key: "blog", label: "Blog", href: "/blog" },
-    { key: "contact", label: "Contact Us", href: "/contact-us" },
+    { key: "blog", label: t("header.nav.blog", "Blog"), href: "/blog" },
+    {
+      key: "contact",
+      label: t("header.nav.contact", "Contact Us"),
+      href: "/contact-us",
+    },
   ];
 
   // profile actions
   const profileActions = [
-    { key: "admin", label: "Admin Dashboard", href: "/admin-dashbord" },
-    { key: "logout", label: "Logout", action: "logout" },
+    {
+      key: "admin",
+      label: t("header.profile.admin", "Admin Dashboard"),
+      href: "/admin-dashbord",
+    },
+    {
+      key: "logout",
+      label: t("header.profile.logout", "Logout"),
+      action: "logout",
+    },
   ];
 
   const languages = [
-    { code: "en", label: "English (EN)", flag: "🇺🇸" },
-    { code: "ar", label: "العربية (AR)", flag: "🇸🇦" },
-    { code: "he", label: "עברית (HE)", flag: "🇮🇱" },
+    { code: "en", label: t("header.lang.en", "English (EN)"), flag: "🇺🇸" },
+    { code: "ar", label: t("header.lang.ar", "العربية (AR)"), flag: "🇸🇦" },
+    { code: "he", label: t("header.lang.he", "עברית (HE)"), flag: "🇮🇱" },
   ];
+
+  // Sync local lang state with i18n and update when language changes externally
+  useEffect(() => {
+    const initial =
+      (typeof window !== "undefined" &&
+        localStorage.getItem("selectedLanguage")) ||
+      i18n.language ||
+      "en";
+
+    // If the user has previously selected a language, apply it on the client
+    // after hydration. We intentionally do not read localStorage during
+    // module initialization (see src/i18n.ts) to avoid SSR/CSR hydration
+    // mismatches. Applying language here runs only on the client.
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("selectedLanguage");
+      if (stored && i18n.language !== stored) {
+        applyLanguage(stored);
+      }
+    }
+
+    setLang(initial);
+
+    const handler = (lng: string) => setLang(lng);
+    i18n.on("languageChanged", handler);
+    return () => {
+      try {
+        i18n.off("languageChanged", handler);
+      } catch (e) {
+        // ignore if off isn't available
+      }
+    };
+  }, [i18n]);
 
   return (
     <header

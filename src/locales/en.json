@@ -1,4 +1,31 @@
 {
+  "header": {
+    "nav": {
+      "home": "Home",
+      "home1": "Home 1",
+      "home2": "Home 2",
+      "about": "About Us",
+      "services": "Services",
+      "services.all": "All Services",
+      "services.fundraising": "Fundraising Campaigns",
+      "services.onlineDonations": "Online Donations",
+      "services.volunteer": "Volunteer Management",
+      "services.events": "Event Management",
+      "services.grants": "Grant Applications",
+      "services.advocacy": "Advocacy & Outreach",
+      "blog": "Blog",
+      "contact": "Contact Us"
+    },
+    "profile": {
+      "admin": "Admin Dashboard",
+      "logout": "Logout"
+    },
+    "lang": {
+      "en": "English (EN)",
+      "ar": "العربية (AR)",
+      "he": "עברית (HE)"
+    }
+  },
   "volunteerRemote": {
     "meta": {
       "title": "Volunteer management tips for remote teams — Emerald Aid",

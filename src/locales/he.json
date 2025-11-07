@@ -1,4 +1,31 @@
 {
+  "header": {
+    "nav": {
+      "home": "בית",
+      "home1": "בית 1",
+      "home2": "בית 2",
+      "about": "אודות",
+      "services": "שירותים",
+      "services.all": "כל השירותים",
+      "services.fundraising": "קמפיינים לגיוס כספים",
+      "services.onlineDonations": "תרומות מקוונות",
+      "services.volunteer": "ניהול מתנדבים",
+      "services.events": "ניהול אירועים",
+      "services.grants": "בקשות מענק",
+      "services.advocacy": "קידום והסברה",
+      "blog": "בלוג",
+      "contact": "צור קשר"
+    },
+    "profile": {
+      "admin": "לוח מנהל",
+      "logout": "התנתק"
+    },
+    "lang": {
+      "en": "English (EN)",
+      "ar": "العربية (AR)",
+      "he": "עברית (HE)"
+    }
+  },
   "volunteerRemote": {
     "meta": {
       "title": "טיפים לניהול מתנדבים מרחוק — אמרלד אייד",

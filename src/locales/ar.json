@@ -1,4 +1,31 @@
 {
+  "header": {
+    "nav": {
+      "home": "الرئيسية",
+      "home1": "الصفحة 1",
+      "home2": "الصفحة 2",
+      "about": "معلومات عنا",
+      "services": "الخدمات",
+      "services.all": "جميع الخدمات",
+      "services.fundraising": "حملات جمع التبرعات",
+      "services.onlineDonations": "التبرعات عبر الإنترنت",
+      "services.volunteer": "إدارة المتطوعين",
+      "services.events": "إدارة الفعاليات",
+      "services.grants": "طلبات المنح",
+      "services.advocacy": "الدعوة والتوعية",
+      "blog": "المدونة",
+      "contact": "اتصل بنا"
+    },
+    "profile": {
+      "admin": "لوحة المشرف",
+      "logout": "تسجيل الخروج"
+    },
+    "lang": {
+      "en": "English (EN)",
+      "ar": "العربية (AR)",
+      "he": "עברית (HE)"
+    }
+  },
   "volunteerRemote": {
     "meta": {
       "title": "نصائح لإدارة المتطوعين عن بُعد — إيميرالد إيد",

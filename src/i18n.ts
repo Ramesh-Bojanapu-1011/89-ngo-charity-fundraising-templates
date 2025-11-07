@@ -5,24 +5,10 @@ import ar from "./locales/ar.json";
 import en from "./locales/en.json";
 import he from "./locales/he.json";
 
-// Determine initial language safely (guard against SSR).
-const getInitialLanguage = (): string => {
-  try {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("selectedLanguage");
-      if (saved) return saved;
-      // Optionally use browser language if it matches supported languages
-      const nav = (navigator.language || "").slice(0, 2);
-      if (["en", "ar", "he"].includes(nav)) return nav;
-    }
-  } catch (e) {
-    // ignore (localStorage may be unavailable)
-  }
-
-  return "en";
-};
-
-const initialLng = getInitialLanguage();
+// For predictable SSR hydration we initialize i18n with a fixed default
+// language on module load (server and client). Any saved user preference
+// will be applied on the client after hydration via `applyLanguage`.
+const initialLng = "en";
 
 i18n.use(initReactI18next).init({
   resources: {
