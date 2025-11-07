@@ -273,6 +273,131 @@
       ]
     }
   },
+  "about": {
+    "hero": {
+      "badge": "About · Our mission",
+      "title": "We build tools that amplify good.",
+      "lead": "We partner with grassroots teams to launch campaigns, recruit volunteers, and deliver measurable impact — faster and with transparency donors trust."
+    },
+    "cta": {
+      "donate": "Donate",
+      "volunteer": "Volunteer",
+      "learnMore": "Learn more"
+    },
+    "mission": {
+      "title": "Together we strengthen communities",
+      "lead": "We envision a world where children learn, families thrive, and communities flourish with equal opportunities and lasting hope. Our work focuses on local leadership, transparent funding, and measurable results.",
+      "benefit1": "Community-led programs that meet urgent needs.",
+      "benefit2": "Transparent reporting and responsible use of funds.",
+      "benefit3": "Efficient donation flows that maximize impact.",
+      "benefit4": "Skilled volunteers and partners delivering proven results."
+    },
+    "programs": {
+      "title": "Programs",
+      "lead": "Practical programs built with communities — immediate relief, long-term recovery, and sustainable development.",
+      "programsLeft": [
+        {
+          "title": "Emergency Relief",
+          "desc": "Rapid response and essentials for communities in crisis. We deploy emergency kits, coordinate shelter and prioritise the most vulnerable within 72 hours."
+        },
+        {
+          "title": "Education",
+          "desc": "School supplies, teacher support and safe learning spaces. We fund classrooms, provide teacher training, and run literacy initiatives."
+        },
+        {
+          "title": "Health",
+          "desc": "Mobile clinics, vaccination drives and community health education. We support maternal and child health and train community health workers."
+        }
+      ],
+      "programsRight": [
+        {
+          "title": "Shelter",
+          "desc": "Temporary and long-term housing solutions including repairs, transitional shelters and rebuilding projects that improve safety and resilience."
+        },
+        {
+          "title": "Livelihood",
+          "desc": "Small-business support, vocational training and microgrants to help families build sustainable income."
+        },
+        {
+          "title": "Community Projects",
+          "desc": "Local-led initiatives with measurable outcomes — from clean water to cooperative enterprises."
+        }
+      ]
+    },
+    "board": {
+      "title": "Board of Directors",
+      "lead": "Our board brings together experienced leaders from different sectors to guide strategy and stewardship.",
+      "items": [
+        {
+          "name": "Omar Mehri",
+          "role": "Chair",
+          "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=60",
+          "bio": "Experienced non-profit leader with 20+ years in fundraising and partnerships."
+        },
+        {
+          "name": "Layla Samuel",
+          "role": "Director",
+          "img": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=60",
+          "bio": "Community development specialist focused on education and capacity building."
+        },
+        {
+          "name": "Draper Timothy",
+          "role": "Treasurer",
+          "img": "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=800&q=60",
+          "bio": "Finance and operations executive experienced in international programs."
+        },
+        {
+          "name": "Mariam Shah",
+          "role": "Secretary",
+          "img": "https://images.unsplash.com/photo-1545996124-1b6e7d8f9e4f?auto=format&fit=crop&w=800&q=60",
+          "bio": "Advocate for youth programs and volunteer engagement."
+        }
+      ]
+    },
+    "metrics": [
+      { "label": "People Helped", "value": 12845, "suffix": "+" },
+      { "label": "Volunteers", "value": 842, "suffix": "+" },
+      { "label": "Projects", "value": 124, "suffix": "" }
+    ],
+    "impact": {
+      "title": "Our Impact",
+      "lead": "Stories from the field — real results from communities we partner with."
+    },
+    "impactStories": [
+      {
+        "title": "Clean Water for Al-Hayat",
+        "excerpt": "After a 2019 drought, we partnered with local leaders to install 12 community wells — improving health outcomes for 4,200 people.",
+        "img": "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=900&q=60"
+      },
+      {
+        "title": "School Rebuild in Norr",
+        "excerpt": "A damaged school was rebuilt with community labour and teacher training — attendance rose 38% in the first year.",
+        "img": "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=900&q=60"
+      }
+    ],
+    "budgetBreakdown": [
+      {
+        "label": "Programs",
+        "pct": 78,
+        "desc": "Direct program delivery: relief, education, health and livelihood projects."
+      },
+      {
+        "label": "Operations",
+        "pct": 15,
+        "desc": "Field coordination, monitoring, and local partner support."
+      },
+      {
+        "label": "Reserves & Growth",
+        "pct": 7,
+        "desc": "Capacity building and modest reserves to scale successful programs."
+      }
+    ],
+    "donations": {
+      "title": "How donations are used",
+      "lead": "We prioritise funding to programs while keeping overhead low.",
+      "note": "We publish audited financials annually and welcome donor questions. Transparency helps us improve outcomes."
+    }
+  },
   "home2": {
     "hero": {
       "badge": "NGO · Charity · Fundraising",

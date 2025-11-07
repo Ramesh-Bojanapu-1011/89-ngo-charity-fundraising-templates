@@ -2,12 +2,16 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import SiteFooter from "../src/components/SiteFooter";
 import SiteHeadder from "../src/components/SiteHeadder";
+import { useTranslation } from "react-i18next";
+
+// icons are defined in-code; titles/descriptions come from translations
 
 const AboutUs = () => {
+  const { t } = useTranslation();
   const programsLeft = [
     {
-      title: "Emergency Relief",
-      desc: "Rapid response and essentials for communities in crisis. We deploy emergency kits (food, water and hygiene supplies), coordinate temporary shelter and work with local partners to prioritize the most vulnerable within 72 hours.",
+      title: t("about.programs.programsLeft.0.title"),
+      desc: t("about.programs.programsLeft.0.desc"),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,8 +30,8 @@ const AboutUs = () => {
       ),
     },
     {
-      title: "Education",
-      desc: "School supplies, teacher support and safe learning spaces. Our programs fund classrooms, provide teacher training, and run after-school and literacy initiatives so children can stay and succeed in school.",
+      title: t("about.programs.programsLeft.1.title"),
+      desc: t("about.programs.programsLeft.1.desc"),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,8 +56,8 @@ const AboutUs = () => {
       ),
     },
     {
-      title: "Health",
-      desc: "Mobile clinics, vaccination drives and community health education. We support maternal and child health, train community health workers, and deliver preventative care in remote areas.",
+      title: t("about.programs.programsLeft.2.title"),
+      desc: t("about.programs.programsLeft.2.desc"),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -75,8 +79,8 @@ const AboutUs = () => {
 
   const programsRight = [
     {
-      title: "Shelter",
-      desc: "Temporary and long-term housing solutions including repairs, transitional shelters and community rebuilding projects that improve safety and resilience.",
+      title: t("about.programs.programsRight.0.title"),
+      desc: t("about.programs.programsRight.0.desc"),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -101,8 +105,8 @@ const AboutUs = () => {
       ),
     },
     {
-      title: "Livelihood",
-      desc: "Small-business support, vocational training and microgrants. We help families build sustainable income through skills development, market access and mentorship.",
+      title: t("about.programs.programsRight.1.title"),
+      desc: t("about.programs.programsRight.1.desc"),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -121,8 +125,8 @@ const AboutUs = () => {
       ),
     },
     {
-      title: "Community Projects",
-      desc: "Local-led initiatives with measurable outcomes — from clean water systems to cooperative enterprises. We fund, train and monitor projects to ensure long-term community benefit.",
+      title: t("about.programs.programsRight.2.title"),
+      desc: t("about.programs.programsRight.2.desc"),
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -144,69 +148,59 @@ const AboutUs = () => {
 
   const board = [
     {
-      name: "Omar Mehri",
-      role: "Chair",
-      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=60",
-      bio: "Experienced non-profit leader with 20+ years in fundraising and partnerships.",
+      name: t("about.board.items.0.name"),
+      bio: t("about.board.items.0.bio"),
+      role: t("about.board.items.0.role"),
+      img: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=60",
     },
     {
-      name: "Layla Samuel",
-      role: "Director",
-      img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=60",
-      bio: "Community development specialist focused on education and capacity building.",
+      name: t("about.board.items.1.name"),
+      bio: t("about.board.items.1.bio"),
+      role: t("about.board.items.1.role"),
+      img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=60",
     },
     {
-      name: "Draper Timothy",
-      role: "Treasurer",
-      img: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=800&q=60",
-      bio: "Finance and operations executive experienced in international programs.",
+      name: t("about.board.items.2.name"),
+      bio: t("about.board.items.2.bio"),
+      role: t("about.board.items.2.role"),
+      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=60",
     },
     {
-      name: "Mariam Shah",
-      role: "Secretary",
-      img: "https://images.unsplash.com/photo-1545996124-1b6e7d8f9e4f?auto=format&fit=crop&w=800&q=60",
-      bio: "Advocate for youth programs and volunteer engagement.",
+      name: t("about.board.items.3.name"),
+      bio: t("about.board.items.3.bio"),
+      role: t("about.board.items.3.role"),
+      img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=600&q=60",
     },
   ];
+  const metricsRaw = t("about.metrics", { returnObjects: true });
+  const metrics = Array.isArray(metricsRaw)
+    ? (metricsRaw as Array<{ label: string; value: number; suffix?: string }>)
+    : [];
 
-  const metrics = [
-    { label: "People Helped", value: 12845, suffix: "+" },
-    { label: "Volunteers", value: 842, suffix: "+" },
-    { label: "Projects", value: 124, suffix: "" },
-  ];
-
+  const impactStoriesRaw = t("about.impactStories", { returnObjects: true });
   const impactStories = [
     {
-      title: "Clean Water for Al-Hayat",
-      excerpt:
-        "After a 2019 drought, we partnered with local leaders to install 12 community wells — improving health outcomes for 4,200 people.",
+      title: t("about.impactStories.0.title"),
       img: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=900&q=60",
+      excerpt: t("about.impactStories.0.excerpt"),
     },
     {
-      title: "School Rebuild in Norr",
-      excerpt:
-        "A damaged school was rebuilt with community labor and teacher training — attendance rose 38% in the first year.",
+      title: t("about.impactStories.1.title"),
       img: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=900&q=60",
+      excerpt: t("about.impactStories.1.excerpt"),
     },
   ];
 
-  const budgetBreakdown = [
-    {
-      label: "Programs",
-      pct: 78,
-      desc: "Direct program delivery: relief, education, health and livelihood projects.",
-    },
-    {
-      label: "Operations",
-      pct: 15,
-      desc: "Field coordination, monitoring, and local partner support.",
-    },
-    {
-      label: "Reserves & Growth",
-      pct: 7,
-      desc: "Capacity building, small reserves to scale successful programs.",
-    },
-  ];
+  const budgetBreakdownRaw = t("about.budgetBreakdown", {
+    returnObjects: true,
+  });
+  const budgetBreakdown = Array.isArray(budgetBreakdownRaw)
+    ? (budgetBreakdownRaw as Array<{
+        label: string;
+        pct: number;
+        desc: string;
+      }>)
+    : [];
 
   function Counter({ end, duration = 1200, suffix = "" }: any) {
     const ref = useRef<HTMLDivElement | null>(null);
@@ -264,16 +258,14 @@ const AboutUs = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
                 <div className="inline-block px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">
-                  About · Our mission
+                  {t("about.hero.badge")}
                 </div>
 
                 <h1 className="mt-6 text-4xl lg:text-5xl font-extrabold leading-tight">
-                  We build tools that amplify good.
+                  {t("about.hero.title")}
                 </h1>
                 <p className="mt-4 text-lg text-white/95 max-w-lg">
-                  We partner with grassroots teams to launch campaigns, recruit
-                  volunteers, and deliver measurable impact — faster and with
-                  transparency donors trust.
+                  {t("about.hero.lead")}
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -281,13 +273,13 @@ const AboutUs = () => {
                     href="/contact-us"
                     className="inline-flex items-center gap-2 bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold shadow"
                   >
-                    Donate
+                    {t("about.cta.donate")}
                   </Link>
                   <Link
                     href="/volunteer"
                     className="inline-flex items-center gap-2 border border-white/30 text-white px-5 py-3 rounded-full"
                   >
-                    Volunteer
+                    {t("about.cta.volunteer")}
                   </Link>
                 </div>
               </div>
@@ -306,7 +298,10 @@ const AboutUs = () => {
         </section>
 
         {/* Section 2 - Our mission (visual variant) */}
-        <section id="mission" className="py-16">
+        <section
+          id="mission"
+          className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent"
+        >
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               {/* left - image collage */}
@@ -345,14 +340,11 @@ const AboutUs = () => {
               {/* right - content */}
               <div>
                 <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight text-gray-900 dark:text-gray-100">
-                  Together we strengthen communities
+                  {t("about.mission.title")}
                 </h2>
 
                 <p className="mt-6 text-gray-600 dark:text-gray-300 max-w-xl">
-                  We envision a world where children learn, families thrive, and
-                  communities flourish with equal opportunities and lasting
-                  hope. Our work focuses on local leadership, transparent
-                  funding, and measurable results.
+                  {t("about.mission.lead")}
                 </p>
 
                 <ul className="mt-6 space-y-3 max-w-md">
@@ -374,7 +366,7 @@ const AboutUs = () => {
                       </svg>
                     </span>
                     <div className="text-sm text-gray-700 dark:text-gray-300">
-                      Community-led programs that meet urgent needs.
+                      {t("about.mission.benefit1")}
                     </div>
                   </li>
 
@@ -396,7 +388,7 @@ const AboutUs = () => {
                       </svg>
                     </span>
                     <div className="text-sm text-gray-700 dark:text-gray-300">
-                      Transparent reporting and responsible use of funds.
+                      {t("about.mission.benefit2")}
                     </div>
                   </li>
 
@@ -418,7 +410,7 @@ const AboutUs = () => {
                       </svg>
                     </span>
                     <div className="text-sm text-gray-700 dark:text-gray-300">
-                      Efficient donation flows that maximize impact.
+                      {t("about.mission.benefit3")}
                     </div>
                   </li>
 
@@ -440,7 +432,7 @@ const AboutUs = () => {
                       </svg>
                     </span>
                     <div className="text-sm text-gray-700 dark:text-gray-300">
-                      Skilled volunteers and partners delivering proven results.
+                      {t("about.mission.benefit4")}
                     </div>
                   </li>
                 </ul>
@@ -450,7 +442,7 @@ const AboutUs = () => {
                     href="/contact"
                     className="inline-block px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold shadow"
                   >
-                    Learn more
+                    {t("about.cta.learnMore")}
                   </Link>
                 </div>
               </div>
@@ -459,13 +451,14 @@ const AboutUs = () => {
         </section>
 
         {/* Section 3 - Programs (timeline-inspired) */}
-        <section id="programs" className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section id="programs" className="py-16 bg-white dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold">Programs</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("about.programs.title")}
+              </h3>
               <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Practical programs built with communities — immediate relief,
-                long-term recovery, and sustainable development.
+                {t("about.programs.lead")}
               </p>
             </div>
 
@@ -547,13 +540,17 @@ const AboutUs = () => {
         </section>
 
         {/* Section 4 - Team / Board */}
-        <section id="team" className="py-16">
+        <section
+          id="team"
+          className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent"
+        >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold">Board of Directors</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("about.board.title")}
+              </h3>
               <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Our board brings together experienced leaders from different
-                sectors to guide strategy and stewardship.
+                {t("about.board.lead")}
               </p>
             </div>
 
@@ -623,13 +620,14 @@ const AboutUs = () => {
         </section>
 
         {/* Section 5 - Impact (redesigned) */}
-        <section id="impact" className="py-16 bg-white dark:bg-gray-900">
+        <section id="impact" className="py-16 bg-white dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-10">
-              <h3 className="text-2xl font-semibold">Impact</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("about.impact.title")}
+              </h3>
               <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Stories and numbers that show how donations and volunteers
-                create lasting change.
+                {t("about.impact.lead")}
               </p>
             </div>
 
@@ -674,13 +672,17 @@ const AboutUs = () => {
         </section>
 
         {/* Section 6 - How donations are used (new) */}
-        <section id="donations" className="py-16 bg-gray-50 dark:bg-gray-900">
+        <section
+          id="donations"
+          className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent"
+        >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-semibold">How donations are used</h3>
+              <h3 className="text-2xl font-semibold">
+                {t("about.donations.title")}
+              </h3>
               <p className="mt-3 text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                We prioritize funding to programs while keeping overhead low.
-                Here's a simple breakdown of where support goes.
+                {t("about.donations.lead")}
               </p>
             </div>
 
@@ -718,8 +720,7 @@ const AboutUs = () => {
 
             <div className="mt-8 text-center">
               <p className="text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                We publish audited financials annually and welcome donor
-                questions. Transparency helps us improve outcomes.
+                {t("about.donations.note")}
               </p>
             </div>
           </div>

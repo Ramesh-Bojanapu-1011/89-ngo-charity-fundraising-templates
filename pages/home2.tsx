@@ -221,7 +221,10 @@ export default function Home2() {
         </section>
 
         {/* About */}
-        <section id="about" className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent">
+        <section
+          id="about"
+          className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent"
+        >
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
@@ -362,7 +365,10 @@ export default function Home2() {
         </section>
 
         {/* How it works */}
-        <section id="how" className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent">
+        <section
+          id="how"
+          className="py-16 bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent"
+        >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
               <h3 className="text-2xl font-semibold">
@@ -407,10 +413,7 @@ export default function Home2() {
         </section>
 
         {/* Volunteer Spotlights */}
-        <section
-          id="volunteers"
-          className="py-16   bg-white dark:bg-gray-800"
-        >
+        <section id="volunteers" className="py-16   bg-white dark:bg-gray-800">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
               <h3 className="text-2xl font-semibold">
@@ -463,7 +466,10 @@ export default function Home2() {
         </section>
 
         {/* Featured campaigns */}
-        <section id="campaigns" className="py-16  bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent">
+        <section
+          id="campaigns"
+          className="py-16  bg-linear-to-b from-white/0 via-white/5 to-white/0 dark:from-transparent"
+        >
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-6">
               <h3 className="text-2xl font-semibold">
