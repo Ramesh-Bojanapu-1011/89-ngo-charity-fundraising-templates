@@ -74,7 +74,7 @@ export default function VolunteerDonationCampaigns() {
   const [activeTag, setActiveTag] = useState<string>("all");
 
   const allTags = Array.from(
-    new Set(CAMPAIGNS.flatMap((c) => c.tags ?? [])),
+    new Set(CAMPAIGNS.flatMap((c) => c.tags ?? []))
   ).sort();
   const filterTags = ["all", ...allTags];
 
@@ -140,7 +140,7 @@ export default function VolunteerDonationCampaigns() {
             }
           });
         },
-        { threshold: 0.4 },
+        { threshold: 0.4 }
       );
 
       obs.observe(el);
@@ -822,7 +822,11 @@ export default function VolunteerDonationCampaigns() {
                                 </div>
 
                                 <div
-                                  className={`mt-3 text-sm text-slate-500 transition-opacity duration-300 ${openFaq === f.id ? "opacity-100" : "opacity-0 h-0 overflow-hidden"}`}
+                                  className={`mt-3 text-sm text-slate-500 transition-opacity duration-300 ${
+                                    openFaq === f.id
+                                      ? "opacity-100"
+                                      : "opacity-0 h-0 overflow-hidden"
+                                  }`}
                                 >
                                   {f.a}
                                 </div>
